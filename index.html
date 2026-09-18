@@ -1,33 +1,1612 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>珠寶源 JES | 自動化珠寶業務，從原料到銷售的極致效能</title>
-    <meta name="description" content="專為珠寶業設計的 JES 系統，協助您在 30 天內實現數據驅動的管理，消除流程混亂與金屬損耗。" />
-    <!-- Luxury & Professional Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-      (function() {
-        try {
-          var savedTheme = localStorage.getItem('jes-theme');
-          if (savedTheme) {
-            if (savedTheme !== 'classic-gold') {
-              document.documentElement.setAttribute('data-theme', savedTheme);
-            }
-          } else {
-            // Default to user choice: Mockup 3 (Pearl Minimalist)
-            document.documentElement.setAttribute('data-theme', 'pearl-minimalist');
-          }
-        } catch (e) {}
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JES 珠寶源 — 專業珠寶 ERP 系統 | AlphaOne Technology Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #F0F2F6;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #F8FAFC;
+      --bg-surface: #E2E8F0;
+      
+      --text-heading: #0F172A;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --text-dark: #94A3B8;
+      
+      --navbar-bg: rgba(240, 242, 246, 0.88);
+      --border-subtle: rgba(15, 23, 42, 0.08);
+      --border-focus: rgba(234, 88, 12, 0.4);
+      
+      --gold-primary: #EA580C;
+      --gold-primary-rgb: 234, 88, 12;
+      --gold-light: #F97316;
+      --gold-dark: #C2410C;
+      --gold-gradient: linear-gradient(135deg, #FB923C 0%, #EA580C 50%, #C2410C 100%);
+      --gold-glow: rgba(234, 88, 12, 0.22);
+
+      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      --card-shadow-hover: 0 12px 32px -4px rgba(15, 23, 42, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+      --window-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.14), 0 0 1px 1px rgba(15, 23, 42, 0.08);
+      
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography */
+    .font-serif {
+      font-family: var(--font-serif);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--gold-gradient);
+      color: #FFFFFF;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      box-shadow: 0 4px 14px var(--gold-glow);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(234, 88, 12, 0.35);
+      filter: brightness(1.05);
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-heading);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 2px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .btn-link:hover {
+      color: var(--gold-primary);
+    }
+
+    /* Cards */
+    .card-white {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-white:hover {
+      box-shadow: var(--card-shadow-hover);
+      border-color: rgba(234, 88, 12, 0.25);
+    }
+
+    /* Badges */
+    .badge-terracotta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(234, 88, 12, 0.1);
+      border: 1px solid rgba(234, 88, 12, 0.25);
+      color: var(--gold-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--navbar-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 0;
+      transition: all 0.25s ease;
+    }
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--gold-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px var(--gold-glow);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: relative;
+      padding: 8px 0;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--text-heading);
+    }
+    .nav-link.active {
+      color: var(--text-heading);
+      font-weight: 700;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold-primary);
+      border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 60px 0 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--text-heading);
+      letter-spacing: -0.5px;
+      margin: 20px 0 22px 0;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-trust-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding: 10px 22px;
+      background: #FFFFFF;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-trust-sep {
+      width: 1px;
+      height: 14px;
+      background: var(--border-subtle);
+    }
+
+    /* ERP Application Window Mockup (Right Column) */
+    .erp-window {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      box-shadow: var(--window-shadow);
+      border: 1px solid rgba(15, 23, 42, 0.09);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: perspective(1200px) rotateY(-1deg) rotateX(1deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .erp-window:hover {
+      transform: perspective(1200px) rotateY(0deg) rotateX(0deg);
+      box-shadow: 0 32px 70px -15px rgba(15, 23, 42, 0.18);
+    }
+    .window-header {
+      background: #F8FAFC;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .window-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+    .window-tools {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    
+    .window-body {
+      display: flex;
+      min-height: 480px;
+      background: #FAFBFD;
+    }
+    .window-sidebar {
+      width: 52px;
+      background: #FFFFFF;
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+    }
+    .sidebar-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sidebar-icon.active {
+      background: rgba(234, 88, 12, 0.12);
+      color: var(--gold-primary);
+    }
+
+    .window-content {
+      flex: 1;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow: hidden;
+    }
+    .overview-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .overview-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+    .date-pill {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Top 3 KPI stat cards inside mockup */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .kpi-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .kpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .kpi-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .kpi-pill {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      background: #FEE2E2;
+      color: #EF4444;
+    }
+    .kpi-pill.orange {
+      background: rgba(234, 88, 12, 0.15);
+      color: var(--gold-primary);
+    }
+    .kpi-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.3px;
+    }
+
+    /* Mid dashboard section */
+    .dashboard-mid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 10px;
+    }
+    .dash-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .dash-box-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* Category Progress Item */
+    .cat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .cat-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: #F1F5F9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .cat-info {
+      flex: 1;
+    }
+    .cat-name-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+    .cat-bar-bg {
+      height: 5px;
+      background: #F1F5F9;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .cat-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--gold-primary);
+      transition: width 1s ease;
+    }
+
+    /* Simple Mockup Bar Chart */
+    .chart-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 70px;
+      padding-top: 10px;
+      border-bottom: 1px solid #E2E8F0;
+      margin-bottom: 6px;
+    }
+    .chart-bar-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .chart-bar {
+      width: 100%;
+      max-width: 14px;
+      background: #FB923C;
+      border-radius: 3px 3px 0 0;
+      transition: height 0.5s ease;
+    }
+    .chart-bar.highlight {
+      background: var(--gold-primary);
+    }
+    .chart-month {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Recent Trade List */
+    .trade-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px dashed #F1F5F9;
+      font-size: 0.7rem;
+    }
+    .trade-item:last-child {
+      border-bottom: none;
+    }
+    .trade-meta {
+      color: var(--text-muted);
+      font-size: 0.65rem;
+    }
+    .trade-price {
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    /* Core Features Section (Mockup 3 bottom style) */
+    .features-section {
+      padding: 70px 0 90px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .section-header {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text-heading);
+      letter-spacing: -0.5px;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .feature-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 26px 22px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: rgba(234, 88, 12, 0.3);
+    }
+    .feature-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #FFF7ED;
+      border: 1px solid #FFEDD5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+    }
+    .feature-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+    .feature-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Persona Deep Dive Section (Integrated Dual Column) */
+    .persona-section {
+      padding: 80px 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .tab-pills-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0 50px 0;
+    }
+    .tab-pill {
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 1rem;
+      border: 1px solid var(--border-subtle);
+      background: #F8FAFC;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-pill.active {
+      background: var(--gold-primary);
+      color: #FFFFFF;
+      border-color: var(--gold-primary);
+      box-shadow: 0 4px 14px var(--gold-glow);
+    }
+    .persona-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* Social Proof Section */
+    .proof-section {
+      padding: 80px 0;
+    }
+    .proof-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .proof-metric-card {
+      background: #FFFFFF;
+      padding: 30px 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--card-shadow);
+      text-align: center;
+    }
+    .proof-metric-number {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--gold-primary);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .proof-metric-label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+    .proof-metric-sub {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .testimonial-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--gold-primary);
+      border-radius: var(--radius-md);
+      padding: 36px 40px;
+      box-shadow: var(--card-shadow);
+    }
+    .testimonial-quote {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #FED7AA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #C2410C;
+    }
+
+    /* 30-Day Blueprint Section */
+    .blueprint-section {
+      padding: 80px 0;
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .timeline-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+    }
+    .timeline-step {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background: #FFF7ED;
+      color: var(--gold-primary);
+      font-weight: 800;
+      font-size: 0.78rem;
+      margin-bottom: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0F172A;
+      color: #94A3B8;
+      padding: 60px 0 30px 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-title {
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #F1F5F9;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .form-input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .persona-content-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .proof-metrics-grid,
+      .timeline-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Mockup Notification Banner -->
+  <div style="background: #1E293B; color: #F8FAFC; padding: 8px 16px; text-align: center; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; gap: 12px;">
+    <span>🌟 <strong>Mockup 3 (明亮珍珠灰) 獨立預覽模式</strong>：已將 Mockup 3 現代排版與現有全套 JES 專業內容完整整併。</span>
+    <span style="background: var(--gold-primary); color: #FFF; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.72rem;">未修改現有代碼</span>
+  </div>
+
+  <!-- Navigation Header (Navbar) -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo">
+        <div class="brand-icon">
+          <!-- Diamond Icon SVG -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3h12l4 6-10 13L2 9Z"></path>
+            <path d="M11 3 8 9l4 13 4-13-3-6"></path>
+            <path d="M2 9h20"></path>
+          </svg>
+        </div>
+        <div>
+          <span class="font-serif" style="font-size: 1.45rem; font-weight: 900; color: var(--text-heading); letter-spacing: 0.3px;">
+            JES 珠寶源
+          </span>
+          <div style="font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.5px;">by AlphaOne Technology Limited</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link active">首頁</a>
+        <a href="#features" class="nav-link">功能</a>
+        <a href="#solutions" class="nav-link">方案</a>
+        <a href="#proof" class="nav-link">客戶案例</a>
+        <a href="#process" class="nav-link">關於我們</a>
+        <a href="#demo" onclick="openDemoModal(); return false;" class="nav-link" style="color: var(--text-heading); font-weight: 700;">登錄</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div>
+        <button onclick="openDemoModal()" class="btn-primary" style="padding: 10px 24px; font-size: 0.95rem; border-radius: var(--radius-full);">
+          <span>免費演示</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Mockup 3 Split 2-Column Layout) -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Hero Left Column: Text & CTAs -->
+        <div>
+          <div style="margin-bottom: 12px;">
+            <span class="badge-terracotta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+              AlphaOne Technology ‧ 專為珠寶生產生態與品牌鏈研發
+            </span>
+          </div>
+
+          <h1 class="hero-title font-serif">
+            專業珠寶ERP系統：<br>
+            <span style="color: var(--gold-primary);">簡化運營、提升效率、賦能增長</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            專為珠寶零售商、批發商和製造商設計的全面管理解決方案。協助您在 <strong>30 天內</strong> 實現數據驅動的管理，消除流程混亂與金屬損耗。
+          </p>
+
+          <div class="hero-cta-group">
+            <button onclick="openDemoModal()" class="btn-primary" style="padding: 16px 36px; font-size: 1.05rem; border-radius: var(--radius-sm);">
+              <span>立即免費預約演示</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <a href="#features" class="btn-link">了解更多</a>
+          </div>
+
+          <!-- Trust Bar -->
+          <div class="hero-trust-bar">
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>20+ 年權威經驗</span>
+            </div>
+            <div class="hero-trust-sep"></div>
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2.5"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg>
+              <span>平均優化 15% 損耗</span>
+            </div>
+            <div class="hero-trust-sep"></div>
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>30 天無痛藍圖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: High-Fidelity ERP Mockup Window -->
+        <div>
+          <div class="erp-window">
+            <!-- Window Title Bar -->
+            <div class="window-header">
+              <div class="window-dots">
+                <div class="window-dot" style="background: #EF4444;"></div>
+                <div class="window-dot" style="background: #F59E0B;"></div>
+                <div class="window-dot" style="background: #10B981;"></div>
+              </div>
+              <div class="window-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9Z"/></svg>
+                <span>JES 珠寶源 ‧ AlphaOne 智慧雲端控制台</span>
+              </div>
+              <div class="window-tools">
+                <span>🔔 3</span>
+                <span>👤 王總監</span>
+              </div>
+            </div>
+
+            <!-- Window Interior -->
+            <div class="window-body">
+              <!-- Mini Sidebar -->
+              <div class="window-sidebar">
+                <div class="sidebar-icon active">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                </div>
+                <div class="sidebar-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>
+                </div>
+                <div class="sidebar-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="sidebar-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+              </div>
+
+              <!-- Main Dashboard Area -->
+              <div class="window-content">
+                <div class="overview-bar">
+                  <div class="overview-title">今日概覽</div>
+                  <div class="date-pill">📅 今日概覽 (即時聯動)</div>
+                </div>
+
+                <!-- Top 3 KPI Cards -->
+                <div class="kpi-row">
+                  <div class="kpi-card">
+                    <div class="kpi-header">
+                      <span class="kpi-label">總庫存價值</span>
+                      <span class="kpi-pill orange">$8,540,000</span>
+                    </div>
+                    <div class="kpi-value font-serif">$8,540,000</div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-header">
+                      <span class="kpi-label">待處理訂單</span>
+                      <span class="kpi-pill" style="background:#FEE2E2; color:#DC2626;">14 件</span>
+                    </div>
+                    <div class="kpi-value font-serif">14</div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-header">
+                      <span class="kpi-label">今日銷售額</span>
+                      <span class="kpi-pill orange">$125,800</span>
+                    </div>
+                    <div class="kpi-value font-serif">$125,800</div>
+                  </div>
+                </div>
+
+                <!-- Mid Row: Category Progress + Sales Chart & Recent Trades -->
+                <div class="dashboard-mid">
+                  
+                  <!-- Left: Inventory Category Progress -->
+                  <div class="dash-box">
+                    <div class="dash-box-title">
+                      <span>庫存分類即時監測</span>
+                      <span style="font-size: 0.68rem; color: #10B981; font-weight: 700;">● 盤點率 99.98%</span>
+                    </div>
+
+                    <div class="cat-item">
+                      <div class="cat-icon">💍</div>
+                      <div class="cat-info">
+                        <div class="cat-name-row">
+                          <span>鑽石戒指</span>
+                          <span style="color: var(--gold-primary); font-weight: 700;">75%</span>
+                        </div>
+                        <div class="cat-bar-bg">
+                          <div class="cat-bar-fill" style="width: 75%;"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cat-item">
+                      <div class="cat-icon">🪙</div>
+                      <div class="cat-info">
+                        <div class="cat-name-row">
+                          <span>黃金飾品</span>
+                          <span style="color: var(--gold-primary); font-weight: 700;">90%</span>
+                        </div>
+                        <div class="cat-bar-bg">
+                          <div class="cat-bar-fill" style="width: 90%;"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cat-item">
+                      <div class="cat-icon">📿</div>
+                      <div class="cat-info">
+                        <div class="cat-name-row">
+                          <span>珍珠項鍊</span>
+                          <span style="color: var(--gold-primary); font-weight: 700;">60%</span>
+                        </div>
+                        <div class="cat-bar-bg">
+                          <div class="cat-bar-fill" style="width: 60%;"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cat-item" style="margin-bottom: 0;">
+                      <div class="cat-icon">✨</div>
+                      <div class="cat-info">
+                        <div class="cat-name-row">
+                          <span>彩寶耳環</span>
+                          <span style="color: var(--gold-primary); font-weight: 700;">45%</span>
+                        </div>
+                        <div class="cat-bar-bg">
+                          <div class="cat-bar-fill" style="width: 45%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right: Monthly Sales Trend & Activity -->
+                  <div class="dash-box">
+                    <div class="dash-box-title">
+                      <span>銷售額走勢 (千元)</span>
+                      <span style="font-size: 0.68rem; color: var(--text-muted);">近半年</span>
+                    </div>
+
+                    <!-- Mini Bar Chart -->
+                    <div class="chart-container">
+                      <div class="chart-bar-wrap">
+                        <div class="chart-bar" style="height: 38%;"></div>
+                        <span class="chart-month">1月</span>
+                      </div>
+                      <div class="chart-bar-wrap">
+                        <div class="chart-bar" style="height: 52%;"></div>
+                        <span class="chart-month">2月</span>
+                      </div>
+                      <div class="chart-bar-wrap">
+                        <div class="chart-bar" style="height: 44%;"></div>
+                        <span class="chart-month">3月</span>
+                      </div>
+                      <div class="chart-bar-wrap">
+                        <div class="chart-bar highlight" style="height: 85%;"></div>
+                        <span class="chart-month">4月</span>
+                      </div>
+                      <div class="chart-bar-wrap">
+                        <div class="chart-bar" style="height: 68%;"></div>
+                        <span class="chart-month">5月</span>
+                      </div>
+                      <div class="chart-bar-wrap">
+                        <div class="chart-bar highlight" style="height: 94%;"></div>
+                        <span class="chart-month">6月</span>
+                      </div>
+                    </div>
+
+                    <!-- Recent Trades -->
+                    <div style="margin-top: 10px;">
+                      <div style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); margin-bottom: 4px;">最近交流 / 出貨流水</div>
+                      
+                      <div class="trade-item">
+                        <div>
+                          <span>💎 鑽石戒指 D-01</span>
+                          <span class="trade-meta">‧ 2002 號分門</span>
+                        </div>
+                        <div class="trade-price">$38,500</div>
+                      </div>
+
+                      <div class="trade-item">
+                        <div>
+                          <span>🪙 萬足金條 50g</span>
+                          <span class="trade-meta">‧ 已驗收澆鑄</span>
+                        </div>
+                        <div class="trade-price">$28,300</div>
+                      </div>
+
+                      <div class="trade-item">
+                        <div>
+                          <span>📿 翡翠吊墜 GIA</span>
+                          <span class="trade-meta">‧ 專櫃出貨</span>
+                        </div>
+                        <div class="trade-price">$14,200</div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features Section (Mockup 3 Bottom Grid Style) -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title font-serif">核心功能</h2>
+        <p class="section-sub">覆蓋珠寶全產業鏈：從金石原料採購、工藝鑄造、門市結算到財務風控</p>
+      </div>
+
+      <div class="features-grid">
+        
+        <!-- Card 1: 庫存管理 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- Box Icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </div>
+          <div class="feature-name font-serif">庫存管理</div>
+          <div class="feature-desc">一物一證一碼精準追蹤，支援 RFID 毫秒級極速盤點，精確掌握總存貨價值與金石成色分佈。</div>
+        </div>
+
+        <!-- Card 2: 銷售管理 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- Pie Chart Icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          </div>
+          <div class="feature-name font-serif">銷售管理</div>
+          <div class="feature-desc">智慧零售 POS 與批發訂單聯網處理，浮動金價實時折算，客製化珠寶工單全流程可視化推進。</div>
+        </div>
+
+        <!-- Card 3: 生產管理 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- Factory Icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
+          </div>
+          <div class="feature-name font-serif">生產管理</div>
+          <div class="feature-desc">配石、倒模、執模、鑲嵌到拋光工序精細化排產，金屬損耗嚴密比對演算，杜絕車間金料流失。</div>
+        </div>
+
+        <!-- Card 4: 財務管理 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- Currency Icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          </div>
+          <div class="feature-name font-serif">財務管理</div>
+          <div class="feature-desc">金料借貸即時折算、委外代工費自動對賬，各分店及廠區營運利潤日清月結，財務報表一鍵導出。</div>
+        </div>
+
+        <!-- Card 5: 裸石採購與金庫 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9Z"/></svg>
+          </div>
+          <div class="feature-name font-serif">金庫與原料管理</div>
+          <div class="feature-desc">貴金屬原料進出庫嚴格雙人核驗，金價避險與原料池深度聯動，裸石批次入庫自動配對證書。</div>
+        </div>
+
+        <!-- Card 6: 客戶關係 CRM -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="feature-name font-serif">客戶關係與高奢訂製</div>
+          <div class="feature-desc">VIP 顧客珠寶偏好檔案、紀念日回購智能推播，售後免費清洗、改圍與專屬維修歷程全紀錄。</div>
+        </div>
+
+        <!-- Card 7: RFID 數位防盜 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-name font-serif">智能展櫃與防盜雷達</div>
+          <div class="feature-desc">托盤重力感應防掉包、商品離櫃超時即時蜂鳴預警，展會流動盤點確保高單價珠寶零遺失。</div>
+        </div>
+
+        <!-- Card 8: BI 決策大屏 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <div class="feature-name font-serif">BI 數據智慧看板</div>
+          <div class="feature-desc">即時爆款排行榜、各門市坪效與周轉率健康指標，為管理層提供精準備貨與營運決策支援。</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Persona Deep-Dive (Dual Column Toggle Integrated) -->
+  <section id="solutions" class="persona-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto;">
+        <h2 class="font-serif" style="font-size: 2.2rem; color: var(--text-heading); font-weight: 900;">
+          全場景覆蓋：為製造生態與零售連鎖量身訂製
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 10px;">
+          點擊切換角色，探索 JES 針對不同業務模式的專屬工作流
+        </p>
+
+        <!-- Toggle Pills -->
+        <div class="tab-pills-container">
+          <button id="btn-tab-factory" class="tab-pill active" onclick="switchTab('factory')">
+            🏭 珠寶製造與批發生態
+          </button>
+          <button id="btn-tab-retail" class="tab-pill" onclick="switchTab('retail')">
+            💎 精品零售與連鎖專櫃
+          </button>
+        </div>
+      </div>
+
+      <!-- Factory Content Pane -->
+      <div id="pane-factory" class="persona-content-grid">
+        <div>
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">工廠製造模式</span>
+          <h3 class="font-serif" style="font-size: 1.8rem; color: var(--text-heading); margin: 8px 0 16px 0;">
+            克重級損耗管控，打通 12 道珠寶工藝全鏈路
+          </h3>
+          <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.7;">
+            告別傳統「師傅手寫派工單、月底損耗對不上」的混亂。JES 數位條碼追蹤配石、倒模、執模、鑲石、電鍍每一道工序，損耗超標自動鎖定，實現每一克黃金、每一顆碎石有跡可循。
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;">
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-heading);">
+              <span style="color: #10B981;">✓</span> 金屬損耗即時告警（平均降低 15% 異常耗損）
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-heading);">
+              <span style="color: #10B981;">✓</span> 師傅計件工費精確自動計算，月底結算零糾紛
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-heading);">
+              <span style="color: #10B981;">✓</span> 支援委外代工廠、外協車間跨組織即時對帳
+            </li>
+          </ul>
+          <button onclick="openDemoModal()" class="btn-primary" style="padding: 12px 28px;">
+            預約工廠製造版演示
+          </button>
+        </div>
+        <div class="card-white" style="padding: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 16px;">工廠生產核心看板示例</div>
+          <div style="display: flex; justify-content: space-between; padding: 14px; background: #F8FAFC; border-radius: 8px; margin-bottom: 10px;">
+            <span>倒模車間（黃金 Au999）</span>
+            <span style="color: #10B981; font-weight: 700;">損耗率 0.78% (正常)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 14px; background: #F8FAFC; border-radius: 8px; margin-bottom: 10px;">
+            <span>微鑲車間（18K 白金配鑽）</span>
+            <span style="color: #10B981; font-weight: 700;">掉石率 0.02% (優異)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 14px; background: #F8FAFC; border-radius: 8px;">
+            <span>拋光車間（鉑金 Pt950）</span>
+            <span style="color: #F59E0B; font-weight: 700;">損耗警戒 1.45% (預警)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retail Content Pane (Hidden by default) -->
+      <div id="pane-retail" class="persona-content-grid" style="display: none;">
+        <div>
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">連鎖零售模式</span>
+          <h3 class="font-serif" style="font-size: 1.8rem; color: var(--text-heading); margin: 8px 0 16px 0;">
+            多門市庫存毫秒同步，一鍵浮動金價零售 POS
+          </h3>
+          <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.7;">
+            國際金價每日浮動？JES 雲端中央管控自動同步全門市當日牌價與工費折扣。店員使用平板 10 秒完成盤點，顧客掃碼即顯 3D 款式與 GIA 證書，促成高轉化奢品購物體驗。
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;">
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-heading);">
+              <span style="color: #10B981;">✓</span> 跨門市即時調撥，熱銷款式零缺貨
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-heading);">
+              <span style="color: #10B981;">✓</span> 整合舊金回收折算與新飾折抵演算法
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-heading);">
+              <span style="color: #10B981;">✓</span> VIP 週年禮遇與定製保養歷史即時查詢
+            </li>
+          </ul>
+          <button onclick="openDemoModal()" class="btn-primary" style="padding: 12px 28px;">
+            預約零售連鎖版演示
+          </button>
+        </div>
+        <div class="card-white" style="padding: 30px;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 16px;">門市雲端收銀看板示例</div>
+          <div style="display: flex; justify-content: space-between; padding: 14px; background: #F8FAFC; border-radius: 8px; margin-bottom: 10px;">
+            <span>今日足金基準金價</span>
+            <span style="color: var(--gold-primary); font-weight: 800;">$78.50 / 克</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 14px; background: #F8FAFC; border-radius: 8px; margin-bottom: 10px;">
+            <span>旗艦店今日客單均價</span>
+            <span style="font-weight: 700;">$2,850 (同增 24%)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 14px; background: #F8FAFC; border-radius: 8px;">
+            <span>RFID 展櫃即時在架件數</span>
+            <span style="color: #10B981; font-weight: 700;">482 件 (100% 在位)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Social Proof & Customer Validation -->
+  <section id="proof" class="proof-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h2 class="font-serif" style="font-size: 2.2rem; color: var(--text-heading); font-weight: 900;">
+          為何 200+ 家珠寶商信賴珠寶源 JES
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1rem; margin-top: 6px;">
+          用真實數據與客戶證言，打破傳統珠寶管理低效壁壘
+        </p>
+      </div>
+
+      <!-- 3 Metrics -->
+      <div class="proof-metrics-grid">
+        <div class="proof-metric-card">
+          <div class="proof-metric-number font-serif">20+ 年</div>
+          <div class="proof-metric-label">專注珠寶垂直軟體研發</div>
+          <div class="proof-metric-sub">深諳從黃金冶煉到鑽石零售的每處業務痛點</div>
+        </div>
+        <div class="proof-metric-card">
+          <div class="proof-metric-number font-serif">15%</div>
+          <div class="proof-metric-label">平均金屬異常損耗降低</div>
+          <div class="proof-metric-sub">每年為中大型珠寶工坊挽回數百萬損耗金料</div>
+        </div>
+        <div class="proof-metric-card">
+          <div class="proof-metric-number font-serif">30 天</div>
+          <div class="proof-metric-label">標準化快速上線週期</div>
+          <div class="proof-metric-sub">歷史舊帳零停機遷移，老工匠免培訓即刻上手</div>
+        </div>
+      </div>
+
+      <!-- River Mounts Customer Testimonial -->
+      <div class="testimonial-box">
+        <p class="testimonial-quote font-serif">
+          「在引進珠寶源 JES 之前，我們工坊每月底結算貴金屬損耗都要花上整整三天，而且帳目經常出現偏差。導入 JES 後，每一件高訂飾品在 12 道工序流轉中都清清楚楚，金屬耗損直接降低了 16.4%，讓我們能夠將心力全部投入在卓越的珠寶工藝上！」
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RM</div>
+          <div>
+            <div style="font-weight: 800; color: var(--text-heading); font-size: 1.05rem;">David Richardson</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">營運總監 ‧ River Mounts 珠寶工坊（英國倫敦 Hatton Garden）</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 30-Day Transition Blueprint -->
+  <section id="process" class="blueprint-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <h2 class="font-serif" style="font-size: 2.2rem; color: var(--text-heading); font-weight: 900;">
+          30 天零停機無痛轉型藍圖
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1rem; margin-top: 8px;">
+          專業實施團隊點對點陪伴，確保業務營運不中斷
+        </p>
+      </div>
+
+      <div class="timeline-grid">
+        <div class="timeline-card">
+          <div class="timeline-step">第 1 - 7 天</div>
+          <h3 class="font-serif" style="font-size: 1.25rem; color: var(--text-heading); margin-bottom: 10px;">歷史數據無損遷移</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            專屬工程師協助導出舊 Excel 或舊版 ERP 歷史金石庫存、往來客戶對帳單，自動校驗數據完整性。
+          </p>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-step">第 8 - 20 天</div>
+          <h3 class="font-serif" style="font-size: 1.25rem; color: var(--text-heading); margin-bottom: 10px;">老工匠友善操作培訓</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            針對一線師傅與門市店員設計的大圖標、高對比簡約觸控介面，最快 15 分鐘即可熟練完成掃碼入庫與盤點。
+          </p>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-step">第 21 - 30 天</div>
+          <h3 class="font-serif" style="font-size: 1.25rem; color: var(--text-heading); margin-bottom: 10px;">雙軌並行平穩上線</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            新舊系統並行驗證一週，確定金料數據與財務結算 100% 精準無誤後全面切換，正式邁向高產能數位化。
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <button onclick="openDemoModal()" class="btn-primary" style="padding: 16px 40px; font-size: 1.1rem;">
+          <span>獲取您專屬的 30 天轉型方案</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+            <div class="brand-icon" style="width: 32px; height: 32px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9Z"/></svg>
+            </div>
+            <div>
+              <span class="font-serif" style="font-size: 1.3rem; font-weight: 900; color: #FFFFFF;">JES 珠寶源</span>
+              <div style="font-size: 0.72rem; color: #94A3B8; margin-top: 2px;">by AlphaOne Technology Limited</div>
+            </div>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.6; max-width: 340px; margin-bottom: 20px;">
+            AlphaOne Technology Limited 專為全球珠寶產業打造之新一代智慧 ERP 雲端平台。為製造工廠、批發中心與精品連鎖提供值得信賴的管理系統。
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">解決方案</div>
+          <ul class="footer-links">
+            <li><a href="#features">智能庫存管理</a></li>
+            <li><a href="#features">克重損耗管控</a></li>
+            <li><a href="#features">門市聯網 POS</a></li>
+            <li><a href="#features">珠寶 RFID 盤點</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">服務與支持</div>
+          <ul class="footer-links">
+            <li><a href="#process">30天無痛上線</a></li>
+            <li><a href="#proof">成功客戶案例</a></li>
+            <li><a href="#" onclick="openDemoModal(); return false;">預約專屬演示</a></li>
+            <li><a href="#">聯絡顧問團隊</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">預約諮詢</div>
+          <p style="font-size: 0.85rem; margin-bottom: 14px;">立即預約專屬顧問諮詢，為您的珠寶業務量身打造數位化藍圖。</p>
+          <button onclick="openDemoModal()" class="btn-primary" style="width: 100%; padding: 12px 18px; font-size: 0.9rem;">
+            免費預約演示
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AlphaOne Technology Limited. 版權所有 ‧ 產品：JES 珠寶源</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#">隱私權政策</a>
+          <a href="#">服務條款</a>
+          <a href="#">安全承諾</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Demo Request Modal -->
+  <div id="demoModal" class="modal-overlay" onclick="closeDemoModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeDemoModal()">✕</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span class="badge-terracotta">AlphaOne VIP 專屬</span>
+      </div>
+      <h3 class="font-serif" style="font-size: 1.5rem; color: var(--text-heading); font-weight: 900; margin-bottom: 8px;">
+        預約 JES 珠寶源 專屬產品演示
+      </h3>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 24px;">
+        填寫您的珠寶業務需求，AlphaOne Technology 專業產業顧問將於 24 小時內與您聯繫，並為您準備量身定製的實機操作展示。
+      </p>
+
+      <form onsubmit="handleDemoSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">姓名 *</label>
+          <input type="text" class="form-input" placeholder="例如：陳經理" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">企業名稱 / 工坊名稱 *</label>
+          <input type="text" class="form-input" placeholder="例如：大鳳凰珠寶有限公司" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">聯絡電話 / 微信 / LINE *</label>
+          <input type="text" class="form-input" placeholder="例如：+886 912 345 678 或 WeChat ID" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">業務形態 *</label>
+          <select class="form-input" style="background: #FFF;">
+            <option value="factory">珠寶加工廠 / 批發中心</option>
+            <option value="retail">精品珠寶門市 / 連鎖專櫃</option>
+            <option value="both">工貿一體（自產自銷）</option>
+            <option value="studio">獨立設計師工坊 / 高級訂製</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; font-size: 1.05rem; margin-top: 10px;">
+          送出預約申請
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Client-side Interactive Scripts -->
+  <script>
+    // Tab switcher between Factory and Retail
+    function switchTab(role) {
+      const btnFactory = document.getElementById('btn-tab-factory');
+      const btnRetail = document.getElementById('btn-tab-retail');
+      const paneFactory = document.getElementById('pane-factory');
+      const paneRetail = document.getElementById('pane-retail');
+
+      if (role === 'factory') {
+        btnFactory.classList.add('active');
+        btnRetail.classList.remove('active');
+        paneFactory.style.display = 'grid';
+        paneRetail.style.display = 'none';
+      } else {
+        btnRetail.classList.add('active');
+        btnFactory.classList.remove('active');
+        paneRetail.style.display = 'grid';
+        paneFactory.style.display = 'none';
+      }
+    }
+
+    // Modal Handlers
+    function openDemoModal() {
+      document.getElementById('demoModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDemoModal(e) {
+      document.getElementById('demoModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function handleDemoSubmit(e) {
+      e.preventDefault();
+      alert('感謝您的預約！珠寶源 JES 專屬顧問已收到您的申請，將於 24 小時內與您聯絡。');
+      closeDemoModal();
+    }
+  </script>
+</body>
 </html>
