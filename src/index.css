@@ -6,15 +6,18 @@
   --bg-surface: #151821;
   
   --gold-primary: #D4AF37;
+  --gold-primary-rgb: 212, 175, 55;
   --gold-light: #F3E5AB;
   --gold-dark: #AA820A;
   --gold-gradient: linear-gradient(135deg, #F5E8B9 0%, #D4AF37 50%, #997400 100%);
   --gold-glow: rgba(212, 175, 55, 0.25);
   
+  --text-heading: #FFFFFF;
   --text-main: #F0F2F5;
   --text-muted: #9BA3AF;
   --text-dark: #6C737F;
   
+  --navbar-bg: rgba(10, 11, 14, 0.88);
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-gold: rgba(212, 175, 55, 0.3);
   
@@ -28,6 +31,81 @@
 
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Theme 0 (Mockup 3 Winner): Pearl Light Minimalist (明亮珍珠灰) - Clean pearl grey with floating white cards and terracotta orange */
+[data-theme="pearl-minimalist"] {
+  --bg-dark: #F0F2F6;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FAFC;
+  --bg-surface: #E2E8F0;
+  
+  --text-heading: #0F172A;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --text-dark: #94A3B8;
+  
+  --navbar-bg: rgba(255, 255, 255, 0.88);
+  --border-subtle: rgba(15, 23, 42, 0.09);
+  --border-gold: rgba(234, 88, 12, 0.35);
+  
+  --gold-primary: #EA580C;
+  --gold-primary-rgb: 234, 88, 12;
+  --gold-light: #F97316;
+  --gold-dark: #C2410C;
+  --gold-gradient: linear-gradient(135deg, #FB923C 0%, #EA580C 50%, #C2410C 100%);
+  --gold-glow: rgba(234, 88, 12, 0.22);
+}
+
+/* Theme 1: Titanium Slate Grey (鈦銀冷岩) - High-visibility cool slate grey background with vivid electric orange */
+[data-theme="titanium-sunset"] {
+  --bg-dark: #1A1E26;
+  --bg-card: #232834;
+  --bg-card-hover: #2D3342;
+  --bg-surface: #282F3E;
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  
+  --gold-primary: #FF6B00;
+  --gold-primary-rgb: 255, 107, 0;
+  --gold-light: #FFA14D;
+  --gold-dark: #CC5500;
+  --gold-gradient: linear-gradient(135deg, #FFA14D 0%, #FF6B00 50%, #CC5500 100%);
+  --gold-glow: rgba(255, 107, 0, 0.35);
+  --border-gold: rgba(255, 107, 0, 0.45);
+}
+
+/* Theme 2: Terracotta Charcoal (赤陶暖炭) - Warm smoky charcoal workshop with deep burnt copper terracotta */
+[data-theme="amber-graphite"] {
+  --bg-dark: #161514;
+  --bg-card: #22201D;
+  --bg-card-hover: #2D2A26;
+  --bg-surface: #262320;
+  --border-subtle: rgba(255, 230, 210, 0.08);
+  
+  --gold-primary: #E05624;
+  --gold-primary-rgb: 224, 86, 36;
+  --gold-light: #FCA582;
+  --gold-dark: #B23A12;
+  --gold-gradient: linear-gradient(135deg, #FDBFA8 0%, #E05624 50%, #B23A12 100%);
+  --gold-glow: rgba(224, 86, 36, 0.32);
+  --border-gold: rgba(224, 86, 36, 0.42);
+}
+
+/* Theme 3: Carbon Fiber & Neon (曜黑碳纖) - Ultra-deep pitch carbon black with high-energy neon safety orange */
+[data-theme="basalt-slate"] {
+  --bg-dark: #050608;
+  --bg-card: #0E1015;
+  --bg-card-hover: #161922;
+  --bg-surface: #12151B;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  
+  --gold-primary: #FF3D00;
+  --gold-primary-rgb: 255, 61, 0;
+  --gold-light: #FF855D;
+  --gold-dark: #C42700;
+  --gold-gradient: linear-gradient(135deg, #FF9E7D 0%, #FF3D00 50%, #B82200 100%);
+  --gold-glow: rgba(255, 61, 0, 0.40);
+  --border-gold: rgba(255, 61, 0, 0.50);
 }
 
 * {
@@ -47,6 +125,7 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
 }
 
 /* Glassmorphism utilities */
@@ -56,6 +135,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .glass-card {
@@ -106,7 +186,7 @@ body {
 
 .btn-primary:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 28px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 6px 28px rgba(var(--gold-primary-rgb), 0.45);
   filter: brightness(1.1);
 }
 
@@ -130,6 +210,54 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--border-gold);
   color: var(--gold-light);
+}
+
+/* Heading color cascade */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading);
+}
+
+/* Light Theme Overrides for pearl-minimalist (Mockup 3) */
+[data-theme="pearl-minimalist"] .glass-panel {
+  background: rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="pearl-minimalist"] .glass-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="pearl-minimalist"] .glass-card:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09), 0 0 16px var(--gold-glow);
+}
+
+[data-theme="pearl-minimalist"] .btn-primary {
+  color: #FFFFFF;
+}
+
+[data-theme="pearl-minimalist"] .btn-secondary {
+  background: #FFFFFF;
+  color: var(--text-heading);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="pearl-minimalist"] .btn-secondary:hover {
+  background: #F8FAFC;
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+[data-theme="pearl-minimalist"] ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+[data-theme="pearl-minimalist"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
 }
 
 /* Layout Container */
@@ -156,8 +284,8 @@ body {
   gap: 8px;
   padding: 6px 16px;
   border-radius: var(--radius-full);
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(var(--gold-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--gold-primary-rgb), 0.25);
   color: var(--gold-light);
   font-size: 0.875rem;
   font-weight: 600;

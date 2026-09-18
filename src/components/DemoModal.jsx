@@ -43,12 +43,12 @@ export default function DemoModal({ isOpen, onClose }) {
       <div className="glass-panel" style={{
         width: '100%',
         maxWidth: '560px',
-        background: 'linear-gradient(135deg, rgba(20, 24, 34, 0.98) 0%, rgba(10, 11, 14, 0.99) 100%)',
+        background: 'var(--bg-card)',
         border: '1px solid var(--border-gold)',
         borderRadius: 'var(--radius-lg)',
         padding: '40px',
         position: 'relative',
-        boxShadow: '0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--gold-glow)'
+        boxShadow: '0 24px 60px rgba(0, 0, 0, 0.5), 0 0 30px var(--gold-glow)'
       }}>
         {/* Close Button */}
         <button 
@@ -57,7 +57,7 @@ export default function DemoModal({ isOpen, onClose }) {
             position: 'absolute',
             top: '24px',
             right: '24px',
-            background: 'rgba(255, 255, 255, 0.06)',
+            background: 'var(--bg-surface)',
             border: 'none',
             color: 'var(--text-muted)',
             width: '36px',
@@ -69,7 +69,7 @@ export default function DemoModal({ isOpen, onClose }) {
             cursor: 'pointer',
             transition: 'all 0.2s'
           }}
-          onMouseOver={e => e.target.style.color = '#FFF'}
+          onMouseOver={e => e.target.style.color = 'var(--text-heading)'}
           onMouseOut={e => e.target.style.color = 'var(--text-muted)'}
         >
           <X size={20} />
@@ -82,7 +82,7 @@ export default function DemoModal({ isOpen, onClose }) {
               <span className="badge-gold" style={{ fontSize: '0.8rem' }}>B2B 專屬預約</span>
             </div>
 
-            <h3 className="font-serif" style={{ fontSize: '1.8rem', color: '#FFF', marginBottom: '8px' }}>
+            <h3 className="font-serif" style={{ fontSize: '1.8rem', color: 'var(--text-heading)', marginBottom: '8px' }}>
               預約「珠寶源 JES」專屬展示
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '28px' }}>
@@ -104,10 +104,10 @@ export default function DemoModal({ isOpen, onClose }) {
                     style={{
                       width: '100%',
                       padding: '12px 16px',
-                      background: 'rgba(255, 255, 255, 0.04)',
+                      background: 'var(--bg-surface)',
                       border: '1px solid var(--border-subtle)',
                       borderRadius: 'var(--radius-sm)',
-                      color: '#FFF',
+                      color: 'var(--text-heading)',
                       fontSize: '0.95rem',
                       outline: 'none'
                     }}
@@ -127,10 +127,10 @@ export default function DemoModal({ isOpen, onClose }) {
                     style={{
                       width: '100%',
                       padding: '12px 16px',
-                      background: 'rgba(255, 255, 255, 0.04)',
+                      background: 'var(--bg-surface)',
                       border: '1px solid var(--border-subtle)',
                       borderRadius: 'var(--radius-sm)',
-                      color: '#FFF',
+                      color: 'var(--text-heading)',
                       fontSize: '0.95rem',
                       outline: 'none'
                     }}
@@ -149,10 +149,10 @@ export default function DemoModal({ isOpen, onClose }) {
                     style={{
                       width: '100%',
                       padding: '12px 16px',
-                      background: '#151821',
+                      background: 'var(--bg-surface)',
                       border: '1px solid var(--border-subtle)',
                       borderRadius: 'var(--radius-sm)',
-                      color: '#FFF',
+                      color: 'var(--text-heading)',
                       fontSize: '0.95rem',
                       outline: 'none'
                     }}
@@ -173,10 +173,10 @@ export default function DemoModal({ isOpen, onClose }) {
                     style={{
                       width: '100%',
                       padding: '12px 16px',
-                      background: '#151821',
+                      background: 'var(--bg-surface)',
                       border: '1px solid var(--border-subtle)',
                       borderRadius: 'var(--radius-sm)',
-                      color: '#FFF',
+                      color: 'var(--text-heading)',
                       fontSize: '0.95rem',
                       outline: 'none'
                     }}
@@ -196,16 +196,16 @@ export default function DemoModal({ isOpen, onClose }) {
                 <input 
                   type="tel"
                   required
-                  placeholder="+886 912 345 678"
+                  placeholder="+886 或 +852 聯絡電話"
                   value={formData.phone}
                   onChange={e => setFormData({...formData, phone: e.target.value})}
                   style={{
                     width: '100%',
                     padding: '12px 16px',
-                    background: 'rgba(255, 255, 255, 0.04)',
+                    background: 'var(--bg-surface)',
                     border: '1px solid var(--border-subtle)',
                     borderRadius: 'var(--radius-sm)',
-                    color: '#FFF',
+                    color: 'var(--text-heading)',
                     fontSize: '0.95rem',
                     outline: 'none'
                   }}
@@ -229,7 +229,7 @@ export default function DemoModal({ isOpen, onClose }) {
               width: '72px',
               height: '72px',
               borderRadius: '50%',
-              background: 'rgba(212, 175, 55, 0.15)',
+              background: 'rgba(var(--gold-primary-rgb), 0.15)',
               border: '1px solid var(--gold-primary)',
               display: 'flex',
               alignItems: 'center',
@@ -240,7 +240,7 @@ export default function DemoModal({ isOpen, onClose }) {
               <CheckCircle size={40} />
             </div>
 
-            <h3 className="font-serif" style={{ fontSize: '2rem', color: '#FFF', marginBottom: '12px' }}>
+            <h3 className="font-serif" style={{ fontSize: '2rem', color: 'var(--text-heading)', marginBottom: '12px' }}>
               預約成功！
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginBottom: '32px', lineHeight: 1.6 }}>

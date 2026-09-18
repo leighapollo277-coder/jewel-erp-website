@@ -6,6 +6,7 @@ import SocialProof from './components/SocialProof';
 import SafeTransition from './components/SafeTransition';
 import DemoModal from './components/DemoModal';
 import Footer from './components/Footer';
+import ThemeChooser from './components/ThemeChooser';
 
 export default function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -35,6 +36,9 @@ export default function App() {
 
       {/* B2B Demo Request Lead Form Modal */}
       <DemoModal isOpen={isDemoModalOpen} onClose={handleCloseDemoModal} />
+
+      {/* Luxury Color Theme Chooser Widget */}
+      <ThemeChooser />
     </div>
   );
 }

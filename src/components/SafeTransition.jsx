@@ -37,7 +37,7 @@ export default function SafeTransition({ onOpenDemoModal }) {
               無痛數位升級 (Safe Transition)
             </span>
           </div>
-          <h2 className="font-serif" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', fontWeight: 900, color: '#FFF', marginBottom: '20px', lineHeight: 1.25 }}>
+          <h2 className="font-serif" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', fontWeight: 900, color: 'var(--text-heading)', marginBottom: '20px', lineHeight: 1.25 }}>
             消除轉型恐懼：<span className="title-gold">高效、易用與零負擔升級</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: 1.7 }}>
@@ -72,7 +72,7 @@ export default function SafeTransition({ onOpenDemoModal }) {
                     width: '56px',
                     height: '56px',
                     borderRadius: 'var(--radius-md)',
-                    background: 'rgba(212, 175, 55, 0.12)',
+                    background: 'rgba(var(--gold-primary-rgb), 0.12)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
@@ -83,14 +83,14 @@ export default function SafeTransition({ onOpenDemoModal }) {
                   <span className="font-serif" style={{
                     fontSize: '2rem',
                     fontWeight: 900,
-                    color: 'rgba(212, 175, 55, 0.3)',
+                    color: 'rgba(var(--gold-primary-rgb), 0.3)',
                     letterSpacing: '1px'
                   }}>
                     {step.num}
                   </span>
                 </div>
 
-                <h3 className="font-serif" style={{ fontSize: '1.5rem', fontWeight: 900, color: '#FFF', marginBottom: '8px' }}>
+                <h3 className="font-serif" style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-heading)', marginBottom: '8px' }}>
                   {step.title}
                 </h3>
 
@@ -124,12 +124,12 @@ export default function SafeTransition({ onOpenDemoModal }) {
         {/* Bottom Callout Banner */}
         <div style={{
           textAlign: 'center',
-          background: 'radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, rgba(18, 20, 28, 0.8) 100%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(var(--gold-primary-rgb), 0.12) 0%, var(--bg-card) 100%)',
           padding: '48px',
           borderRadius: 'var(--radius-lg)',
           border: '1px solid var(--border-gold)'
         }}>
-          <h3 className="font-serif" style={{ fontSize: '2rem', fontWeight: 900, color: '#FFF', marginBottom: '16px' }}>
+          <h3 className="font-serif" style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--text-heading)', marginBottom: '16px' }}>
             準備好在 30 天內消除流程混亂與金屬損耗了嗎？
           </h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginBottom: '28px', maxWidth: '600px', margin: '0 auto 28px auto' }}>

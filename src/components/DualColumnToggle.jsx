@@ -17,7 +17,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
               全方位的解決方案
             </span>
           </div>
-          <h2 className="font-serif" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', fontWeight: 900, color: '#FFF', marginBottom: '18px', lineHeight: 1.25 }}>
+          <h2 className="font-serif" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', fontWeight: 900, color: 'var(--text-heading)', marginBottom: '18px', lineHeight: 1.25 }}>
             為您的業務量身打造：<span className="title-gold">精準解決產業痛點</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem' }}>
@@ -34,7 +34,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
           <div style={{
             display: 'inline-flex',
             padding: '6px',
-            background: 'rgba(10, 11, 14, 0.8)',
+            background: 'var(--bg-card)',
             border: '1px solid var(--border-subtle)',
             borderRadius: 'var(--radius-full)',
             position: 'relative'
@@ -90,7 +90,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
           padding: '48px',
           borderRadius: 'var(--radius-lg)',
           border: '1px solid var(--border-gold)',
-          background: 'linear-gradient(135deg, rgba(21, 24, 33, 0.9) 0%, rgba(10, 11, 14, 0.95) 100%)'
+          background: 'var(--bg-card)'
         }}>
           {activeTab === 'manufacturer' ? (
             <div style={{
@@ -114,7 +114,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                   <span>工藝流程管理與成本控制</span>
                 </div>
 
-                <h3 className="font-serif" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 900, color: '#FFF', marginBottom: '20px', lineHeight: 1.25 }}>
+                <h3 className="font-serif" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 900, color: 'var(--text-heading)', marginBottom: '20px', lineHeight: 1.25 }}>
                   專注於車間極致控制，消除貴金屬損耗
                 </h3>
 
@@ -128,13 +128,13 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                     alignItems: 'flex-start',
                     gap: '16px',
                     padding: '20px',
-                    background: 'rgba(255, 255, 255, 0.03)',
+                    background: 'var(--bg-surface)',
                     borderRadius: 'var(--radius-md)',
                     border: '1px solid var(--border-subtle)'
                   }}>
                     <div style={{
                       padding: '10px',
-                      background: 'rgba(212, 175, 55, 0.15)',
+                      background: 'rgba(var(--gold-primary-rgb), 0.15)',
                       borderRadius: '10px',
                       color: 'var(--gold-primary)',
                       marginTop: '2px'
@@ -142,7 +142,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                       <CheckCircle2 size={24} />
                     </div>
                     <div>
-                      <h4 style={{ color: '#FFF', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
+                      <h4 style={{ color: 'var(--text-heading)', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
                         優化澆鑄樹追蹤與精準成色配比
                       </h4>
                       <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
@@ -156,13 +156,13 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                     alignItems: 'flex-start',
                     gap: '16px',
                     padding: '20px',
-                    background: 'rgba(255, 255, 255, 0.03)',
+                    background: 'var(--bg-surface)',
                     borderRadius: 'var(--radius-md)',
                     border: '1px solid var(--border-subtle)'
                   }}>
                     <div style={{
                       padding: '10px',
-                      background: 'rgba(212, 175, 55, 0.15)',
+                      background: 'rgba(var(--gold-primary-rgb), 0.15)',
                       borderRadius: '10px',
                       color: 'var(--gold-primary)',
                       marginTop: '2px'
@@ -170,7 +170,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                       <ShieldAlert size={24} />
                     </div>
                     <div>
-                      <h4 style={{ color: '#FFF', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
+                      <h4 style={{ color: 'var(--text-heading)', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
                         減少金屬損耗，將原材料責任制落實到車間工匠
                       </h4>
                       <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
@@ -213,7 +213,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                   gap: '10px'
                 }}>
                   <Sparkles size={18} color="var(--gold-primary)" />
-                  <span style={{ fontSize: '0.9rem', color: '#FFF', fontWeight: 600 }}>車間原料責任制運作中</span>
+                  <span style={{ fontSize: '0.9rem', color: 'var(--text-heading)', fontWeight: 600 }}>車間原料責任制運作中</span>
                 </div>
               </div>
             </div>
@@ -239,7 +239,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                   <span>終端銷售效率與品牌擴展</span>
                 </div>
 
-                <h3 className="font-serif" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 900, color: '#FFF', marginBottom: '20px', lineHeight: 1.25 }}>
+                <h3 className="font-serif" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 900, color: 'var(--text-heading)', marginBottom: '20px', lineHeight: 1.25 }}>
                   秒級 RFID 盤點，極致拉升多店庫存週轉率
                 </h3>
 
@@ -253,13 +253,13 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                     alignItems: 'flex-start',
                     gap: '16px',
                     padding: '20px',
-                    background: 'rgba(255, 255, 255, 0.03)',
+                    background: 'var(--bg-surface)',
                     borderRadius: 'var(--radius-md)',
                     border: '1px solid var(--border-subtle)'
                   }}>
                     <div style={{
                       padding: '10px',
-                      background: 'rgba(212, 175, 55, 0.15)',
+                      background: 'rgba(var(--gold-primary-rgb), 0.15)',
                       borderRadius: '10px',
                       color: 'var(--gold-primary)',
                       marginTop: '2px'
@@ -267,7 +267,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                       <Radio size={24} />
                     </div>
                     <div>
-                      <h4 style={{ color: '#FFF', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
+                      <h4 style={{ color: 'var(--text-heading)', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
                         運用 RFID 技術實現數秒內的精準現貨盤點
                       </h4>
                       <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
@@ -281,13 +281,13 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                     alignItems: 'flex-start',
                     gap: '16px',
                     padding: '20px',
-                    background: 'rgba(255, 255, 255, 0.03)',
+                    background: 'var(--bg-surface)',
                     borderRadius: 'var(--radius-md)',
                     border: '1px solid var(--border-subtle)'
                   }}>
                     <div style={{
                       padding: '10px',
-                      background: 'rgba(212, 175, 55, 0.15)',
+                      background: 'rgba(var(--gold-primary-rgb), 0.15)',
                       borderRadius: '10px',
                       color: 'var(--gold-primary)',
                       marginTop: '2px'
@@ -295,7 +295,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                       <CheckCircle2 size={24} />
                     </div>
                     <div>
-                      <h4 style={{ color: '#FFF', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
+                      <h4 style={{ color: 'var(--text-heading)', fontSize: '1.15rem', marginBottom: '6px', fontWeight: 700 }}>
                         即時分析多店銷售數據，優化庫存週轉率與補貨決策
                       </h4>
                       <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
@@ -338,7 +338,7 @@ export default function DualColumnToggle({ onOpenDemoModal }) {
                   gap: '10px'
                 }}>
                   <Sparkles size={18} color="var(--gold-primary)" />
-                  <span style={{ fontSize: '0.9rem', color: '#FFF', fontWeight: 600 }}>RFID 多店連動盤點中</span>
+                  <span style={{ fontSize: '0.9rem', color: 'var(--text-heading)', fontWeight: 600 }}>RFID 多店連動盤點中</span>
                 </div>
               </div>
             </div>

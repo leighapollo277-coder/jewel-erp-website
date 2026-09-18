@@ -10,6 +10,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('jes-theme');
+          if (savedTheme) {
+            if (savedTheme !== 'classic-gold') {
+              document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+          } else {
+            // Default to user choice: Mockup 3 (Pearl Minimalist)
+            document.documentElement.setAttribute('data-theme', 'pearl-minimalist');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

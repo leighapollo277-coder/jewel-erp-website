@@ -22,9 +22,9 @@ export default function Navbar({ onOpenDemoModal }) {
         right: 0,
         zIndex: 100,
         transition: 'all 0.3s ease',
-        background: scrolled ? 'rgba(10, 11, 14, 0.88)' : 'transparent',
+        background: scrolled ? 'var(--navbar-bg)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid var(--border-subtle)' : '1px solid transparent',
         padding: scrolled ? '16px 0' : '24px 0'
       }}
     >
@@ -41,10 +41,10 @@ export default function Navbar({ onOpenDemoModal }) {
             justifyContent: 'center',
             boxShadow: '0 4px 16px var(--gold-glow)'
           }}>
-            <Gem size={24} color="#0A0B0E" />
+            <Gem size={24} color="#FFFFFF" />
           </div>
           <div>
-            <span className="font-serif" style={{ fontSize: '1.45rem', fontWeight: 900, color: '#FFF', letterSpacing: '0.5px' }}>
+            <span className="font-serif" style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-heading)', letterSpacing: '0.5px' }}>
               珠寶源 <span className="title-gold" style={{ fontSize: '1.1rem', marginLeft: '4px', fontWeight: 800 }}>JES</span>
             </span>
             <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
@@ -55,13 +55,13 @@ export default function Navbar({ onOpenDemoModal }) {
 
         {/* Desktop Nav */}
         <nav style={{ display: 'none', gap: '32px', alignItems: 'center' }} className="desktop-nav">
-          <a href="#features" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = '#FFF'} onMouseOut={e => e.target.style.color = 'var(--text-muted)'}>
+          <a href="#features" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--text-heading)'} onMouseOut={e => e.target.style.color = 'var(--text-muted)'}>
             全方位解決方案
           </a>
-          <a href="#proof" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = '#FFF'} onMouseOut={e => e.target.style.color = 'var(--text-muted)'}>
+          <a href="#proof" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--text-heading)'} onMouseOut={e => e.target.style.color = 'var(--text-muted)'}>
             行業實力證實
           </a>
-          <a href="#process" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = '#FFF'} onMouseOut={e => e.target.style.color = 'var(--text-muted)'}>
+          <a href="#process" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--text-heading)'} onMouseOut={e => e.target.style.color = 'var(--text-muted)'}>
             無痛轉型藍圖
           </a>
         </nav>
@@ -79,7 +79,7 @@ export default function Navbar({ onOpenDemoModal }) {
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#FFF',
+              color: 'var(--text-heading)',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',

@@ -34,7 +34,7 @@ export default function SocialProof({ onOpenDemoModal }) {
               數據證實的實力
             </span>
           </div>
-          <h2 className="font-serif" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', fontWeight: 900, color: '#FFF', marginBottom: '20px', lineHeight: 1.25 }}>
+          <h2 className="font-serif" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', fontWeight: 900, color: 'var(--text-heading)', marginBottom: '20px', lineHeight: 1.25 }}>
             超過 20 年的行業深耕，<span className="title-gold">帶來珠寶業的最佳實踐</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: 1.7 }}>
@@ -60,7 +60,7 @@ export default function SocialProof({ onOpenDemoModal }) {
                 width: '60px',
                 height: '60px',
                 borderRadius: 'var(--radius-md)',
-                background: 'rgba(212, 175, 55, 0.1)',
+                background: 'rgba(var(--gold-primary-rgb), 0.1)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -73,7 +73,7 @@ export default function SocialProof({ onOpenDemoModal }) {
                 {m.value}
               </div>
 
-              <h3 style={{ color: '#FFF', fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px' }}>
+              <h3 style={{ color: 'var(--text-heading)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px' }}>
                 {m.label}
               </h3>
 
@@ -89,7 +89,7 @@ export default function SocialProof({ onOpenDemoModal }) {
           padding: '40px 48px',
           borderRadius: 'var(--radius-lg)',
           border: '1px solid var(--border-gold)',
-          background: 'linear-gradient(135deg, rgba(20, 24, 35, 0.95) 0%, rgba(10, 11, 14, 0.98) 100%)',
+          background: 'var(--bg-card)',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '40px',
@@ -98,7 +98,7 @@ export default function SocialProof({ onOpenDemoModal }) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
               <Building2 size={24} color="var(--gold-primary)" />
-              <span className="font-serif" style={{ fontSize: '1.3rem', fontWeight: 900, color: '#FFF', letterSpacing: '1px' }}>
+              <span className="font-serif" style={{ fontSize: '1.3rem', fontWeight: 900, color: 'var(--text-heading)', letterSpacing: '1px' }}>
                 RIVER MOUNTS <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 400 }}>歐洲指標性珠寶批發商</span>
               </span>
             </div>
@@ -115,7 +115,7 @@ export default function SocialProof({ onOpenDemoModal }) {
 
           <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
             <div style={{
-              background: 'rgba(212, 175, 55, 0.08)',
+              background: 'rgba(var(--gold-primary-rgb), 0.08)',
               padding: '24px 32px',
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--border-subtle)',
@@ -124,7 +124,7 @@ export default function SocialProof({ onOpenDemoModal }) {
               textAlign: 'left'
             }}>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>企業成長軌跡</div>
-              <div className="font-serif" style={{ fontSize: '1.8rem', color: '#FFF', fontWeight: 900, margin: '4px 0' }}>
+              <div className="font-serif" style={{ fontSize: '1.8rem', color: 'var(--text-heading)', fontWeight: 900, margin: '4px 0' }}>
                 5 人團隊 ➔ 歐洲前 3 大批發商
               </div>
               <div style={{ fontSize: '0.85rem', color: '#10B981' }}>零系統更換摩擦，架構伴隨企業規模擴張</div>
