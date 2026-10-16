@@ -1,14 +1,14 @@
 # 珠寶源 JES — Project Constitution
 <!-- Sync Impact Report
-Version change: N/A → 1.0.0 (initial ratification)
-Added sections: Identity, Core Principles (5), Governance
-Templates requiring updates: N/A (initial scaffold)
-Deferred TODOs: RATIFICATION_DATE set to project inception estimate
+Version change: 1.0.0 → 1.1.0 (amended Principle 1)
+Amended sections: Principle 1 (Design Integrity) updated to Style 3 Pearl Light Minimalist
+Templates requiring updates: .agents/AGENTS.md, GROUND_TRUTH.md
+Deferred TODOs: N/A
 -->
 
-**Constitution Version**: 1.0.0
+**Constitution Version**: 1.1.0
 **Ratified**: 2026-07-24
-**Last Amended**: 2026-07-24
+**Last Amended**: 2026-10-16
 
 ---
 
@@ -23,12 +23,13 @@ Deferred TODOs: RATIFICATION_DATE set to project inception estimate
 
 ## Principle 1 — Design Integrity
 
-The dark-gold luxury aesthetic is the brand's core identity signal. All visual changes MUST:
+The Pearl Light Minimalist aesthetic (Style 3) with pure white floating card surfaces and warm terracotta orange accents is the brand's core identity signal. All visual changes MUST:
 - Use only CSS variables defined in `src/index.css`
-- Preserve the dark background (`--bg-dark: #0A0B0E`) and gold accent (`--gold-primary: #D4AF37`) palette
-- Maintain glassmorphism card surfaces (`.glass-card`, `.glass-panel`)
+- Preserve the light pearl grey background (`--bg-dark: #F0F2F6`) and terracotta accent (`--gold-primary: #EA580C`) palette
+- Maintain elevated pure white card surfaces (`.glass-card`, `.glass-panel`) with diffuse shadows
+- Retain `[data-theme="classic-gold"]` for clients preferring the legacy dark-gold luxury palette
 
-Rationale: Inconsistent visual language destroys premium perception for B2B jewellery buyers.
+Rationale: Consistent, modern SaaS visual language elevates enterprise credibility for B2B jewellery buyers.
 
 ---
 

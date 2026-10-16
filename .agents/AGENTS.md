@@ -9,7 +9,7 @@
 ## Design System Non-Negotiables
 - ALL colours MUST reference CSS variables defined in `src/index.css`
   (`--gold-primary`, `--bg-dark`, `--bg-card`, `--text-muted`, etc.)
-- Dark luxury aesthetic: dark backgrounds (`#0A0B0E`), gold accents (`#D4AF37`), subtle glass cards
+- Pearl Light Minimalist aesthetic (Style 3): pearl grey background (`#F0F2F6`), pure white cards (`#FFFFFF`), warm terracotta orange accents (`#EA580C`); legacy dark gold preserved via `[data-theme="classic-gold"]`
 - ALL new card surfaces MUST use `.glass-card` or `.glass-panel` utility classes
 - Typography: `var(--font-serif)` (Noto Serif TC / Cinzel) for headings,
   `var(--font-sans)` (Plus Jakarta Sans) for body copy

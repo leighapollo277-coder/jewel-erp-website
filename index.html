@@ -14,13 +14,10 @@
       (function() {
         try {
           var savedTheme = localStorage.getItem('jes-theme');
-          if (savedTheme) {
-            if (savedTheme !== 'classic-gold') {
-              document.documentElement.setAttribute('data-theme', savedTheme);
-            }
+          if (savedTheme && savedTheme !== 'pearl-minimalist') {
+            document.documentElement.setAttribute('data-theme', savedTheme);
           } else {
-            // Default to user choice: Mockup 3 (Pearl Minimalist)
-            document.documentElement.setAttribute('data-theme', 'pearl-minimalist');
+            document.documentElement.removeAttribute('data-theme');
           }
         } catch (e) {}
       })();
