@@ -4,7 +4,7 @@
 > All modifications MUST be audited with `ground-truth-auditor`.
 
 - **Project Name**: 珠寶源 JES (Jewel ERP System)
-- **Last Audited**: 2026-10-16 22:10:47
+- **Last Audited**: 2026-10-16 23:25:00
 - **Audit Status**: PASS
 - **Auditor Version**: 1.0.0
 
@@ -16,17 +16,17 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `GT-001` | Architecture | 前端架構採用 React 18 + Vite 5 + Cloudflare Pages 單頁應用 (SPA)，嚴禁引入 Next.js 或 Create React App | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
 | `GT-002` | Design System | 樣式系統必須使用純 Vanilla CSS 與 `src/index.css` 設計代幣變數，嚴禁使用 TailwindCSS、CSS Modules 或 styled-components | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
-| `GT-003` | Visual Identity | 預設視覺風格採用 Style 3 明亮極簡珍珠灰 (Pearl Light Minimalist，底色 `#F0F2F6`、純白懸浮卡片 `#FFFFFF`、赤陶橙 `#EA580C`)，卡片容器使用 `.glass-card` 或 `.glass-panel` | `[SRC-001]`, `[SRC-004]` | `CONFIRMED` | 2026-10-16 |
+| `GT-003` | Visual Identity | 視覺風格採用明亮極簡珍珠灰 (Pearl Light Minimalist，底色 `#F0F2F6`、純白懸浮卡片 `#FFFFFF`、高雅香檳金棕與曜石深灰 highlight，嚴禁刺眼深橙漸變)，具備現代 Landing Page 簡潔清晰與視覺重點質感 | `[SRC-001]`, `[SRC-004]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
 | `GT-004` | Localization | 所有用戶可見之界面文案必須為正體中文 (zh-TW)；代碼、註解與變數名稱必須為英文 | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
 | `GT-005` | Conversion Focus | 網站唯一核心商業目標為獲取預約展示 (Demo Booking) 銷售線索（原配置 DemoModal 彈窗已依用戶確認 [SRC-008] 由 GT-013 升級取代為直接官方聯繫管道） | `[SRC-001]`, `[SRC-008]` | `SUPERSEDED` | 2026-10-16 |
 | `GT-006` | Dependencies | 專案依賴嚴格白名單為 `react`, `react-dom` (v18), `lucide-react` (圖標)，未經用戶明確批准嚴禁新增任何 npm 依賴套件 | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
 | `GT-007` | Business Logic | 全站表單及聯絡操作以官方電話 `tel:`、電郵 `mailto:` 及官方網址直接對接，不依賴虛擬提交或未實裝 API | `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
 | `GT-008` | Build & Deploy | 靜態建置產出物目錄契約為 `./dist`，部署配置依循 `wrangler.json` 交付 Cloudflare Pages | `[SRC-002]`, `[SRC-003]` | `CONFIRMED` | 2026-10-16 |
-| `GT-009` | Company Identity | 公司主體為「思琳科技有限公司」(AlphaOne Technology Limited / AO)，負責人 Mr. Chris Lam (林少華)；香港總部座落紅磡民樂街21號富高工業中心B座9樓19B室，深圳辦公室座落羅湖區文錦廣場文錦中心702；電話 +852 2722 4360 / (852) 9089 4833，深圳 (86) 0755-25503714，傳真 +852 2722 4363，電郵 chris.lam@alphaone.technology，官網 https://www.alphaone.technology | `[SRC-005]`, `[SRC-006]`, `[SRC-007]`, `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
+| `GT-009` | Company Identity | 公司主體為「思琳科技有限公司」(AlphaOne Technology Limited / AO)；公眾展示移除負責人個人名義；香港總部座落紅磡民樂街21號富高工業中心B座9樓19B室，深圳辦公室座落羅湖區文錦廣場文錦中心702；電話 +852 2722 4360 / (852) 9089 4833，深圳 (86) 0755-25503714，傳真 +852 2722 4363，官方電郵統一為 info@alphaone.technology，官網 https://www.alphaone.technology | `[SRC-005]`, `[SRC-006]`, `[SRC-007]`, `[SRC-008]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
 | `GT-010` | Product Line - JES ERP & POS | 核心產品包含「珠寶源® JES - Jewelry ERP System」（基礎資料、批發訂單、生產管理、原物料/成品庫存、物流管理、會計 AR/AP；提供雲端訂閱版與獨立伺服器版）與「POS 雲端零售系統」（門市銷售收銀、金會會員登記與供款、客製化訂購 CMO、增值維修服務 VAS、日結、毛利分析與金料珠石盤點清單） | `[SRC-005]`, `[SRC-006]`, `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
-| `GT-011` | Product Line - tiaranxt RFID | 核心產品包含「tiaranxt 珠寶專用可攜式 RFID 盤點系統」（IRYS WARD 超高頻 UHF 便攜掃描器、TIARA Nxt 跨平台平板 App、RWLINK 跨設備中間件支援 Excel/FTP/DB/Web-Services 雙向同步、耐高溫 120°C PVC 重複使用標籤 32x18x0.86mm 尾部無膠設計、標籤列印軟體，可選配 SURFACE 珠寶盤與 LED 尋物標籤） | `[SRC-005]`, `[SRC-007]`, `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
+| `GT-011` | Product Line - TiaraNxt RFID | 核心產品包含「TiaraNxt 珠寶專用可攜式 RFID 盤點系統」（IRYS WARD 超高頻 UHF 便攜掃描器、TiaraNxt 跨平台平板 App、RWLINK 跨設備中間件支援 Excel/FTP/DB/Web-Services 雙向同步、耐高溫 120°C PVC 重複使用標籤 32x18x0.86mm 尾部無膠設計、標籤列印軟體，可選配 SURFACE 珠寶盤與 LED 尋物標籤） | `[SRC-005]`, `[SRC-007]`, `[SRC-008]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
 | `GT-012` | Zero Fabrication Policy | 網站全數內容必須 100% 忠實對齊官方報價單真實資料，徹底移除任何捏造數據、未核實之認證或虛構客戶案例（如 River Mounts 等），確保零虛構、零吹噓 | `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
-| `GT-013` | Architecture - Single Screen Profile | 網站架構採 Option B 超極簡單屏簡介卡片 (Single-Screen Profile)，以 Style 3 明亮極簡珍珠灰高雅卡片風格，集中呈現思琳科技官方身分、三大真實產品核心規格、官方通訊管道與直接聯繫方式 | `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
+| `GT-013` | Architecture - Single Screen Profile | 網站架構採 Option B 超極簡單屏簡介卡片 (Single-Screen Profile)，依現代 Landing Page 簡潔、清晰、具備層次 highlight 的版面設計，展示思琳科技官方身分、三大真實產品核心規格與雙城聯繫方式；移除伺服器規格列與頂部 tiaranxt 膠囊標籤，全面杜絕深橙漸變圖標與按鈕 | `[SRC-008]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
 
 > **Status Options**:
 > - `CONFIRMED`: Verified fact backed by an approved source.
@@ -94,9 +94,17 @@
 - **Verified By**: Kenneth (User)
 - **Timestamp**: 2026-10-16 21:56:41
 
+### [SRC-009]
+- **Type**: `USER_CONFIRMATION`
+- **Reference**: Conversation on 2026-10-16 with user screenshots and voice instructions
+- **Exact Quote / URL**: "photo 1: 專用伺服器與機房規格 不需要展示; photo 2: tiaranxt 不需要顯示; tiaranxt 應寫做 TiaraNxt; chris.lam@alphaone.technology 改做 info@alphaone.technology; 不要題及負責人：Mr. Chris Lam (林少華); 簡潔清晰有highlight; 最憎深橙色漸變"
+- **Verified By**: Kenneth (User)
+- **Timestamp**: 2026-10-16 23:20:56
+
 ---
 
 ## 3. Audit & Change Log
 - **2026-10-16 19:40:00**: Initialized Project Ground Truth SSOT with GT-001 ~ GT-008, fully attributed to verified project constitution, agent constraints, and user confirmation. [Audit: PASS]
 - **2026-10-16 21:40:00**: Revised GT-003 in-place to ratify Style 3 Pearl Light Minimalist as confirmed visual invariant, aligned with constitution v1.1.0 and user confirmation [SRC-004]. [Audit: PASS]
 - **2026-10-16 22:00:00**: Incorporated official facts from 3 PDF quotations [SRC-005 ~ SRC-007] and user ratification [SRC-008]. Registered GT-009 (AlphaOne/思琳科技公司資訊與香港/深圳通訊), GT-010 (JES ERP & POS 模組), GT-011 (tiaranxt RFID 規格), GT-012 (零虛構政策), GT-013 (Option B 超極簡單屏名片簡介架構，取代 GT-005 DemoModal)。[Audit: PASS]
+- **2026-10-16 23:25:00**: Ratified user directives [SRC-009]: updated GT-003 (eliminated deep orange gradient in favor of champagne gold & obsidian landing highlights), GT-009 (unified email to info@alphaone.technology, removed public Chris Lam reference), GT-011 (casing standardized to TiaraNxt), GT-013 (removed server specs bar and top pill badge). [Audit: PASS]

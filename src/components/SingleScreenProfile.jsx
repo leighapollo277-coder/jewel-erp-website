@@ -4,16 +4,13 @@ import {
   Layers, 
   ShoppingBag, 
   Radio, 
-  Server, 
   MapPin, 
   Phone, 
   Mail, 
   Globe, 
   CheckCircle2, 
   Clock, 
-  ExternalLink,
-  ShieldCheck,
-  Cpu
+  ExternalLink
 } from 'lucide-react';
 
 export default function SingleScreenProfile() {
@@ -36,7 +33,7 @@ export default function SingleScreenProfile() {
         data-testid="profile-brand-header"
         className="glass-card" 
         style={{
-          padding: '16px 28px',
+          padding: '18px 28px',
           marginBottom: '20px',
           display: 'flex',
           justifyContent: 'space-between',
@@ -47,16 +44,17 @@ export default function SingleScreenProfile() {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div style={{
-            width: '44px',
-            height: '44px',
+            width: '46px',
+            height: '46px',
             borderRadius: '12px',
-            background: 'var(--gold-gradient)',
+            background: '#0F172A',
+            border: '1px solid rgba(197, 160, 89, 0.35)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: 'var(--shadow-sm)'
+            boxShadow: '0 4px 12px rgba(15, 23, 42, 0.12)'
           }}>
-            <Gem size={24} color="#0A0B0E" />
+            <Gem size={22} color="#C5A059" />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
@@ -70,12 +68,9 @@ export default function SingleScreenProfile() {
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
                 AlphaOne Technology Limited (AO)
               </span>
-              <span className="badge-gold" style={{ padding: '2px 10px', fontSize: '0.75rem' }}>
-                tiaranxt
-              </span>
             </div>
             <p style={{ margin: '4px 0 0 0', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-              珠寶首飾製造、批發、零售連鎖與 RFID 秒級盤點專用管理系統 ｜ 負責人：Mr. Chris Lam (林少華)
+              珠寶首飾製造、批發、零售連鎖與 RFID 秒級盤點專用管理系統
             </p>
           </div>
         </div>
@@ -98,7 +93,7 @@ export default function SingleScreenProfile() {
             <span>+852 2722 4360</span>
           </a>
           <a 
-            href="mailto:chris.lam@alphaone.technology" 
+            href="mailto:info@alphaone.technology" 
             className="btn-primary" 
             style={{ 
               padding: '8px 18px', 
@@ -143,13 +138,13 @@ export default function SingleScreenProfile() {
                 width: '38px',
                 height: '38px',
                 borderRadius: '10px',
-                background: 'var(--bg-surface)',
+                background: '#F8FAFC',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 border: '1px solid var(--border-subtle)'
               }}>
-                <Layers size={20} color="var(--gold-primary)" />
+                <Layers size={18} color="var(--gold-primary)" />
               </div>
               <span className="badge-gold" style={{ fontSize: '0.72rem' }}>
                 JES Cloud / 本地授權版
@@ -206,13 +201,13 @@ export default function SingleScreenProfile() {
                 width: '38px',
                 height: '38px',
                 borderRadius: '10px',
-                background: 'var(--bg-surface)',
+                background: '#F8FAFC',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 border: '1px solid var(--border-subtle)'
               }}>
-                <ShoppingBag size={20} color="var(--gold-primary)" />
+                <ShoppingBag size={18} color="var(--gold-primary)" />
               </div>
               <span className="badge-gold" style={{ fontSize: '0.72rem' }}>
                 門市專用零售收銀
@@ -251,7 +246,7 @@ export default function SingleScreenProfile() {
           </div>
         </div>
 
-        {/* Card 3: tiaranxt RFID */}
+        {/* Card 3: TiaraNxt RFID */}
         <div 
           data-testid="card-tiaranxt-rfid"
           className="glass-card" 
@@ -269,20 +264,20 @@ export default function SingleScreenProfile() {
                 width: '38px',
                 height: '38px',
                 borderRadius: '10px',
-                background: 'var(--bg-surface)',
+                background: '#F8FAFC',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 border: '1px solid var(--border-subtle)'
               }}>
-                <Radio size={20} color="var(--gold-primary)" />
+                <Radio size={18} color="var(--gold-primary)" />
               </div>
               <span className="badge-gold" style={{ fontSize: '0.72rem' }}>
-                tiaranxt 超高頻 UHF
+                TiaraNxt 超高頻 UHF
               </span>
             </div>
             <h2 className="font-serif" style={{ fontSize: '1.15rem', fontWeight: 800, margin: '0 0 8px 0', color: 'var(--text-heading)' }}>
-              tiaranxt RFID 珠寶盤點方案
+              TiaraNxt RFID 珠寶盤點方案
             </h2>
             <p style={{ fontSize: '0.83rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 16px 0' }}>
               可攜式超高頻 RFID 技術，大幅縮短每日盤點時間，實現精準尋物與無縫對接。
@@ -291,7 +286,7 @@ export default function SingleScreenProfile() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {[
                 { title: 'IRYS WARD 便攜式 UHF 掃描器', desc: '手持高敏度讀寫器，配備藍牙連線與獨立電池' },
-                { title: 'TIARA Nxt 跨平台平板 App', desc: '電子目錄、智能盤點、物料搜尋、智能視圖、Trinity 數據分析' },
+                { title: 'TiaraNxt 跨平台平板 App', desc: '電子目錄、智能盤點、物料搜尋、智能視圖、Trinity 數據分析' },
                 { title: 'RWLINK 跨設備中間件', desc: '支援 Excel、遠端 FTP、資料庫或 Web Services 雙向同步' },
                 { title: 'RFID PVC 耐高溫標籤 (32×18×0.86mm)', desc: '耐溫達 120°C，尾部無膠設計保護飾品不留殘膠' },
                 { title: '專用標籤編碼與列印軟體', desc: '支援標籤排版設計與中文列印插件 (Chinese plugin)' },
@@ -315,43 +310,12 @@ export default function SingleScreenProfile() {
         </div>
       </main>
 
-      {/* 3. Official Server & Infrastructure Specs Bar */}
-      <section 
-        data-testid="infrastructure-spec"
-        className="glass-panel" 
-        style={{
-          padding: '14px 20px',
-          marginBottom: '20px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '12px',
-          fontSize: '0.8rem',
-          color: 'var(--text-muted)'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Server size={16} color="var(--gold-primary)" />
-          <strong style={{ color: 'var(--text-heading)' }}>專用伺服器與機房規格：</strong>
-          <span>Intel Xeon E5-2680+ 處理器 ｜ 64GB ECC 記憶體 ｜ RAID-10 / RAID-6 SAS 陣列備援</span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <ShieldCheck size={14} color="var(--gold-primary)" /> FM200 氣體滅火 & UPS 柴油發電
-          </span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <Cpu size={14} color="var(--gold-primary)" /> 24x7 恆溫恆濕 (CRAC) & 防火牆監控
-          </span>
-        </div>
-      </section>
-
-      {/* 4. Contact Footer (Dual City Offices & Direct Verified Channels) */}
+      {/* 3. Contact Footer (Dual City Offices & Direct Verified Channels) */}
       <footer 
         data-testid="contact-footer"
         className="glass-card" 
         style={{
-          padding: '20px 28px',
+          padding: '22px 28px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -401,11 +365,11 @@ export default function SingleScreenProfile() {
 
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
             <a 
-              href="mailto:chris.lam@alphaone.technology" 
+              href="mailto:info@alphaone.technology" 
               style={{ color: 'var(--gold-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 600 }}
             >
               <Mail size={14} />
-              <span>chris.lam@alphaone.technology</span>
+              <span>info@alphaone.technology</span>
             </a>
             <span style={{ color: 'var(--text-muted)' }}>｜</span>
             <a 
@@ -424,7 +388,7 @@ export default function SingleScreenProfile() {
 
       {/* Copyright Bar */}
       <div style={{ textAlign: 'center', padding: '12px 0 4px 0', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-        © {new Date().getFullYear()} 思琳科技有限公司 AlphaOne Technology Limited. 珠寶源® JES & tiaranxt 版權所有.
+        © {new Date().getFullYear()} 思琳科技有限公司 AlphaOne Technology Limited. 珠寶源® JES & TiaraNxt 版權所有.
       </div>
     </div>
   );

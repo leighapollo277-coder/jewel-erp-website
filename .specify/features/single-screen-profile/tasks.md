@@ -17,3 +17,12 @@
   - 執行 `npm run build` 確認 Vite 編譯零錯誤、零警告
   - 驗證各點擊連結（`tel:`, `mailto:`, 外部官網連結）合規性
   - 啟動預覽確認珍珠灰預設風格顯示正常，無浮動切換鈕
+
+- [x] **T-04: 用戶反饋調整與現代 Landing Page 質感精化 ([SRC-009])**
+  - 依 Photo 1 移除專用伺服器與機房規格橫條 (`infrastructure-spec`)
+  - 依 Photo 2 移除頂部品牌欄之 `tiaranxt` 膠囊標籤
+  - 全站品牌大小寫標準化為 `TiaraNxt`
+  - 官方聯絡電郵全面改為 `info@alphaone.technology`
+  - 標頭文案徹底移除「負責人：Mr. Chris Lam (林少華)」公開個人資訊
+  - 依語音指令全面杜絕深橙色漸變圖標與按鈕，重塑曜石黑按鈕、高雅香檳金棕與高對比現代 Landing Page 視覺焦點質感
+
