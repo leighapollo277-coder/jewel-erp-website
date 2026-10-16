@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import DualColumnToggle from './components/DualColumnToggle';
@@ -7,9 +7,25 @@ import SafeTransition from './components/SafeTransition';
 import DemoModal from './components/DemoModal';
 import Footer from './components/Footer';
 import ThemeChooser from './components/ThemeChooser';
+import UnderConstruction from './components/UnderConstruction';
 
 export default function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => setCurrentPath(window.location.pathname);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const isPreview = currentPath.startsWith('/preview') ||
+                    currentPath.startsWith('/jes') ||
+                    window.location.search.includes('preview');
+
+  if (!isPreview) {
+    return <UnderConstruction />;
+  }
 
   const handleOpenDemoModal = () => setIsDemoModalOpen(true);
   const handleCloseDemoModal = () => setIsDemoModalOpen(false);
