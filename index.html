@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>珠寶源 JES | 自動化珠寶業務，從原料到銷售的極致效能</title>
-    <meta name="description" content="專為珠寶業設計的 JES 系統，協助您在 30 天內實現數據驅動的管理，消除流程混亂與金屬損耗。" />
+    <title>珠寶源 JES ｜ 思琳科技 AlphaOne Technology 官方資訊</title>
+    <meta name="description" content="思琳科技有限公司（AlphaOne Technology Limited）官方資訊。珠寶源® JES Jewelry ERP 系統、POS 雲端零售收銀系統與 tiaranxt 超高頻 RFID 珠寶盤點解決方案。" />
     <!-- Luxury & Professional Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +13,8 @@
     <script>
       (function() {
         try {
-          var savedTheme = localStorage.getItem('jes-theme');
-          if (savedTheme && savedTheme !== 'pearl-minimalist') {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-          } else {
-            document.documentElement.removeAttribute('data-theme');
-          }
+          localStorage.removeItem('jes-theme');
+          document.documentElement.removeAttribute('data-theme');
         } catch (e) {}
       })();
     </script>
