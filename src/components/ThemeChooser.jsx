@@ -134,7 +134,7 @@ export const MOCKUPS = [
 
 export function applyTheme(themeId, doc = document, storage = window.localStorage) {
   try {
-    if (themeId && themeId !== 'classic-gold') {
+    if (themeId && themeId !== 'pearl-minimalist') {
       doc.documentElement.setAttribute('data-theme', themeId);
     } else {
       doc.documentElement.removeAttribute('data-theme');

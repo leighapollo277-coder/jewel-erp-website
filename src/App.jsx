@@ -19,11 +19,9 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const isPreview = currentPath.startsWith('/preview') ||
-                    currentPath.startsWith('/jes') ||
-                    window.location.search.includes('preview');
+  const isUnderConstruction = currentPath === '/under-construction' || currentPath === '/coming-soon';
 
-  if (!isPreview) {
+  if (isUnderConstruction) {
     return <UnderConstruction />;
   }
 

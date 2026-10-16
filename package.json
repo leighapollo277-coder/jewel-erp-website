@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "audit:gt": "python3 scripts/audit_ground_truth.py --file GROUND_TRUTH.md --strict",
+    "build": "npm run audit:gt && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
