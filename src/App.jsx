@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AirwallexLanding from './components/AirwallexLanding';
 import SingleScreenProfile from './components/SingleScreenProfile';
 import UnderConstruction from './components/UnderConstruction';
 
@@ -12,15 +13,20 @@ export default function App() {
   }, []);
 
   const isUnderConstruction = currentPath === '/under-construction' || currentPath === '/coming-soon';
+  const isProfileMode = currentPath === '/profile' || currentPath === '/single-screen';
 
   if (isUnderConstruction) {
     return <UnderConstruction />;
   }
 
+  if (isProfileMode) {
+    return <SingleScreenProfile />;
+  }
+
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-dark)' }}>
-      {/* 100% Grounded Single-Screen Profile (Option B) */}
-      <SingleScreenProfile />
+    <div style={{ minHeight: '100vh', background: 'var(--bg-dark, #E8EBF0)' }}>
+      {/* Airwallex-Style Modern Long-Scroll Landing Page (淺橙加灰) */}
+      <AirwallexLanding />
     </div>
   );
 }

@@ -23,10 +23,10 @@
 | `GT-007` | Business Logic | 全站表單及聯絡操作以官方電話 `tel:`、電郵 `mailto:` 及官方網址直接對接，不依賴虛擬提交或未實裝 API | `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
 | `GT-008` | Build & Deploy | 靜態建置產出物目錄契約為 `./dist`，部署配置依循 `wrangler.json` 交付 Cloudflare Pages | `[SRC-002]`, `[SRC-003]` | `CONFIRMED` | 2026-10-16 |
 | `GT-009` | Company Identity | 公司主體為「思琳科技有限公司」(AlphaOne Technology Limited / AO)；公眾展示移除負責人個人名義；香港總部座落紅磡民樂街21號富高工業中心B座9樓19B室，深圳辦公室座落羅湖區文錦廣場文錦中心702；電話 +852 2722 4360 / (852) 9089 4833，深圳 (86) 0755-25503714，傳真 +852 2722 4363，官方電郵統一為 info@alphaone.technology，官網 https://www.alphaone.technology | `[SRC-005]`, `[SRC-006]`, `[SRC-007]`, `[SRC-008]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
-| `GT-010` | Product Line - JES ERP & POS | 核心產品包含「珠寶源® JES - Jewelry ERP System」（基礎資料、批發訂單、生產管理、原物料/成品庫存、物流管理、會計 AR/AP；提供雲端訂閱版與獨立伺服器版）與「POS 雲端零售系統」（門市銷售收銀、金會會員登記與供款、客製化訂購 CMO、增值維修服務 VAS、日結、毛利分析與金料珠石盤點清單） | `[SRC-005]`, `[SRC-006]`, `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
+| `GT-010` | Product Line - JES ERP & POS | 核心產品包含「珠寶源® JES - Jewelry ERP System」（基礎資料、批發訂單、生產管理、原物料/成品庫存、物流管理、會計 AR/AP；提供雲端訂閱版與獨立伺服器版）與「POS 雲端零售系統」（門市銷售收銀、金會會員登記與供款、客製化訂購 CMO、增值維修服務 VAS、日結、毛利分析與金料珠石盤點清單） | `[SRC-005]`, `[SRC-006]`, `[SRC-008]`, `[SRC-011]` | `CONFIRMED` | 2026-10-17 |
 | `GT-011` | Product Line - TiaraNxt RFID | 核心產品包含「TiaraNxt 珠寶專用可攜式 RFID 盤點系統」（IRYS WARD 超高頻 UHF 便攜掃描器、TiaraNxt 跨平台平板 App、RWLINK 跨設備中間件支援 Excel/FTP/DB/Web-Services 雙向同步、耐高溫 120°C PVC 重複使用標籤 32x18x0.86mm 尾部無膠設計、標籤列印軟體，可選配 SURFACE 珠寶盤與 LED 尋物標籤） | `[SRC-005]`, `[SRC-007]`, `[SRC-008]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
-| `GT-012` | Zero Fabrication Policy | 網站全數內容必須 100% 忠實對齊官方報價單真實資料，徹底移除任何捏造數據、未核實之認證或虛構客戶案例（如 River Mounts 等），確保零虛構、零吹噓 | `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
-| `GT-013` | Architecture - Modern Bento Grid Pro | 網站架構採 Modern Bento Grid Pro（方形科技便當格），全面側重珠寶源® JES ERP（以 70% 旗艦主卡展開 7 大核心模組與生產流程向量節點圖），並輔以 POS 門市零售卡與 TiaraNxt RFID 手持掃描槍插畫卡，杜絕虛構 Dashboard，資訊真實簡約平衡 | `[SRC-008]`, `[SRC-009]`, `[SRC-010]` | `CONFIRMED` | 2026-10-17 |
+| `GT-012` | Zero Fabrication Policy | 網站全數內容必須 100% 忠實對齊官方報價單真實資料，徹底移除任何捏造數據、未核實之認證或虛構客戶案例（如 River Mounts 等），確保零虛構、零吹噓 | `[SRC-008]`, `[SRC-011]` | `CONFIRMED` | 2026-10-17 |
+| `GT-013` | Architecture - Modern Bento Grid Pro | 網站架構採 Modern Bento Grid Pro（方形科技便當格），全面側重珠寶源® JES ERP（以 70% 旗艦主卡展開 7 大核心模組與生產流程向量節點圖），並輔以 POS 門市零售卡與 TiaraNxt RFID 手持掃描槍插畫卡，杜絕虛構 Dashboard，資訊真實簡約平衡 | `[SRC-008]`, `[SRC-009]`, `[SRC-010]`, `[SRC-011]` | `CONFIRMED` | 2026-10-17 |
 
 > **Status Options**:
 > - `CONFIRMED`: Verified fact backed by an approved source.
@@ -108,6 +108,13 @@
 - **Verified By**: Kenneth (User)
 - **Timestamp**: 2026-10-17 00:13:39
 
+### [SRC-011]
+- **Type**: `USER_CONFIRMATION`
+- **Reference**: Conversation voice instruction and confirmation on 2026-10-17 ratifying Option A (Purifying 7 ERP modules to 100% official Appendix 1 quotation terms and purging unverified AI sub-descriptions)
+- **Exact Quote / URL**: "呢度啲資料同 ground truth 係咪有核對過？定係冇根據嘅？" & "option A"
+- **Verified By**: Kenneth (User)
+- **Timestamp**: 2026-10-17 22:50:04
+
 ---
 
 ## 3. Audit & Change Log
@@ -116,3 +123,4 @@
 - **2026-10-16 22:00:00**: Incorporated official facts from 3 PDF quotations [SRC-005 ~ SRC-007] and user ratification [SRC-008]. Registered GT-009 (AlphaOne/思琳科技公司資訊與香港/深圳通訊), GT-010 (JES ERP & POS 模組), GT-011 (tiaranxt RFID 規格), GT-012 (零虛構政策), GT-013 (Option B 超極簡單屏名片簡介架構，取代 GT-005 DemoModal)。[Audit: PASS]
 - **2026-10-16 23:25:00**: Ratified user directives [SRC-009]: updated GT-003 (eliminated deep orange gradient in favor of champagne gold & obsidian landing highlights), GT-009 (unified email to info@alphaone.technology, removed public Chris Lam reference), GT-011 (casing standardized to TiaraNxt), GT-013 (removed server specs bar and top pill badge). [Audit: PASS]
 - **2026-10-17 00:15:00**: Ratified user selection [SRC-010]: updated GT-003 (Solid cool steel grey background with pure white cards and tech orange accents, zero fake dashboards) and GT-013 (Modern Bento Grid Pro architecture with 70% ERP flagship focus and native vector artwork). [Audit: PASS]
+- **2026-10-17 22:55:00**: Ratified user directive [SRC-011]: executed Option A purification across landing page components. Purged all ungrounded AI sub-descriptions from 7 ERP modules, aligned strictly with Proposal 1 Appendix 1 official terms (`Master files setup`, `Order management`, `Production control`, `Inventory control`, `Logistics management`, `Accounting AR & AP`, `Data analytics & Reports`), and eliminated ungrounded KPI numbers in Hero panel. [Audit: PASS]
