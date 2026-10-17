@@ -33,7 +33,7 @@ export default function LandingHero() {
         className="hero-grid"
       >
         {/* Left Column: Headlines & Call to Actions */}
-        <div>
+        <div className="hero-left-col">
           {/* Eyebrow Badge */}
           <div
             style={{
@@ -65,6 +65,7 @@ export default function LandingHero() {
               color: '#0F172A',
               letterSpacing: '-0.8px',
               marginBottom: '20px',
+              wordBreak: 'break-word',
             }}
           >
             以一體化 ERP 與 RFID 技術，
@@ -82,6 +83,7 @@ export default function LandingHero() {
               color: '#475569',
               marginBottom: '32px',
               maxWidth: '560px',
+              wordBreak: 'break-word',
             }}
           >
             專為香港與大灣區珠寶製造商、批發商及連鎖門市打造。徹底打通款式研發、車間生產損耗、門市銷售收銀、金會供款與毫秒級全盤點。
@@ -134,19 +136,19 @@ export default function LandingHero() {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <CheckCircle2 size={16} color="#FF6B22" />
+              <CheckCircle2 size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
                 深耕珠寶產業數十年
               </span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <ShieldCheck size={16} color="#FF6B22" />
+              <ShieldCheck size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
                 100% 自主研發無縫對接
               </span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Activity size={16} color="#FF6B22" />
+              <Activity size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
                 香港總部 · 深圳技術支援
               </span>
@@ -155,10 +157,10 @@ export default function LandingHero() {
         </div>
 
         {/* Right Column: Composite Software & Hardware Visual Panel (DEC-012 Option A) */}
-        <div style={{ position: 'relative' }}>
+        <div className="hero-right-col" style={{ position: 'relative' }}>
           {/* Main Software Panel: JES Workshop Process Monitor */}
           <div
-            className="bento-card"
+            className="bento-card hero-preview-card"
             style={{
               padding: '24px',
               border: '1px solid #D8DCE6',
@@ -167,6 +169,7 @@ export default function LandingHero() {
           >
             {/* Window Topbar */}
             <div
+              className="hero-topbar"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -177,9 +180,9 @@ export default function LandingHero() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#EF4444' }} />
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10B981' }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#EF4444', flexShrink: 0 }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#F59E0B', flexShrink: 0 }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10B981', flexShrink: 0 }} />
                 <span
                   style={{
                     fontSize: '0.85rem',
@@ -202,6 +205,7 @@ export default function LandingHero() {
                   backgroundColor: 'rgba(255, 107, 34, 0.10)',
                   padding: '3px 8px',
                   borderRadius: '6px',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 <span
@@ -292,6 +296,7 @@ export default function LandingHero() {
 
             {/* Quick KPI Strip - Grounded Architecture Facts */}
             <div
+              className="hero-kpi-strip"
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
@@ -310,7 +315,7 @@ export default function LandingHero() {
                 <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>
                   系統部署架構
                 </div>
-                <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#0F172A' }}>
+                <div style={{ fontSize: '1rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
                   雙軌彈性支援 <span style={{ fontSize: '0.72rem', color: '#FF6B22', fontWeight: 700 }}>雲端 / 私有伺服器</span>
                 </div>
               </div>
@@ -325,7 +330,7 @@ export default function LandingHero() {
                 <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>
                   硬體感知生態
                 </div>
-                <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#0F172A' }}>
+                <div style={{ fontSize: '1rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
                   IRYS WARD <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 600 }}>超高頻 UHF</span>
                 </div>
               </div>
@@ -366,7 +371,7 @@ export default function LandingHero() {
                   <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F172A' }}>
                     TiaraNxt 便攜式 RFID 盤點連動
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748B' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#64748B', lineHeight: 1.4 }}>
                     IRYS WARD 超高頻掃描槍 · 支援 120°C 耐高溫無膠標籤
                   </div>
                 </div>
@@ -381,6 +386,7 @@ export default function LandingHero() {
                   padding: '4px 10px',
                   borderRadius: '999px',
                   whiteSpace: 'nowrap',
+                  flexShrink: 0,
                 }}
               >
                 秒級萬件盤點
@@ -393,18 +399,55 @@ export default function LandingHero() {
       <style>{`
         @media (max-width: 960px) {
           .hero-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: 100% !important;
             gap: 36px !important;
+          }
+          .hero-left-col,
+          .hero-right-col {
+            min-width: 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
           }
         }
         @media (max-width: 640px) {
+          .hero-section {
+            padding: 28px 16px 44px 16px !important;
+          }
+          .hero-left-col,
+          .hero-right-col {
+            min-width: 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
           .hero-cta-group {
             flex-direction: column !important;
             width: 100% !important;
+            gap: 10px !important;
           }
           .hero-cta-group a {
             width: 100% !important;
+            box-sizing: border-box !important;
             text-align: center !important;
+            justify-content: center !important;
+            padding: 13px 18px !important;
+          }
+          .hero-trust-grid {
+            grid-template-columns: 1fr !important;
+            gap: 10px !important;
+          }
+          .hero-preview-card {
+            padding: 16px 14px !important;
+            border-radius: 14px !important;
+            box-sizing: border-box !important;
+            max-width: 100% !important;
+            width: 100% !important;
+          }
+          .hero-topbar {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
           }
           .hero-process-steps {
             display: flex !important;
@@ -412,15 +455,26 @@ export default function LandingHero() {
             gap: 8px !important;
             padding-bottom: 8px !important;
             -webkit-overflow-scrolling: touch !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           .hero-process-item {
-            min-width: 92px !important;
-            flex-shrink: 0 !important;
+            flex: 0 0 84px !important;
+            min-width: 84px !important;
+          }
+          .hero-kpi-strip {
+            grid-template-columns: 1fr !important;
+            gap: 10px !important;
           }
           .hero-rfid-card {
             flex-direction: column !important;
             align-items: flex-start !important;
-            gap: 10px !important;
+            gap: 12px !important;
+            padding: 14px 12px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           .hero-rfid-badge {
             align-self: flex-start !important;
