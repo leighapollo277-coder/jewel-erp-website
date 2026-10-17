@@ -16,8 +16,9 @@ export default function LandingHero() {
   return (
     <section
       data-testid="hero-section"
+      className="hero-section"
       style={{
-        padding: '64px 24px 80px 24px',
+        padding: 'clamp(36px, 6vw, 64px) clamp(16px, 4vw, 24px) clamp(48px, 8vw, 80px) clamp(16px, 4vw, 24px)',
         maxWidth: '1280px',
         margin: '0 auto',
       }}
@@ -56,13 +57,14 @@ export default function LandingHero() {
 
           {/* 大大隻字 Bold Headline */}
           <h1
+            className="hero-title"
             style={{
-              fontSize: 'clamp(2.3rem, 4.2vw, 3.4rem)',
+              fontSize: 'clamp(1.75rem, 6.2vw, 3.4rem)',
               fontWeight: 900,
-              lineHeight: 1.15,
+              lineHeight: 1.2,
               color: '#0F172A',
-              letterSpacing: '-1px',
-              marginBottom: '22px',
+              letterSpacing: '-0.8px',
+              marginBottom: '20px',
             }}
           >
             以一體化 ERP 與 RFID 技術，
@@ -73,11 +75,12 @@ export default function LandingHero() {
 
           {/* Subtitle */}
           <p
+            className="hero-subtitle"
             style={{
-              fontSize: '1.08rem',
+              fontSize: 'clamp(0.95rem, 2.5vw, 1.08rem)',
               lineHeight: 1.68,
               color: '#475569',
-              marginBottom: '36px',
+              marginBottom: '32px',
               maxWidth: '560px',
             }}
           >
@@ -86,20 +89,21 @@ export default function LandingHero() {
 
           {/* Dual CTAs */}
           <div
+            className="hero-cta-group"
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '16px',
+              gap: '14px',
               flexWrap: 'wrap',
-              marginBottom: '40px',
+              marginBottom: '36px',
             }}
           >
             <a
               href="#contact"
               className="btn-primary"
               style={{
-                fontSize: '1rem',
-                padding: '14px 28px',
+                fontSize: '0.98rem',
+                padding: '13px 26px',
               }}
             >
               預約官方現場展示
@@ -109,8 +113,8 @@ export default function LandingHero() {
               href="tel:+85227224360"
               className="btn-secondary"
               style={{
-                fontSize: '1rem',
-                padding: '14px 24px',
+                fontSize: '0.98rem',
+                padding: '13px 22px',
               }}
             >
               <PhoneCall size={18} color="#FF6B22" />
@@ -120,10 +124,11 @@ export default function LandingHero() {
 
           {/* Trust Value Badges */}
           <div
+            className="hero-trust-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-              gap: '16px',
+              gap: '14px',
               paddingTop: '20px',
               borderTop: '1px solid #D8DCE6',
             }}
@@ -226,6 +231,7 @@ export default function LandingHero() {
                 車間生產鏈路節點 · 損耗即時監控
               </div>
               <div
+                className="hero-process-steps"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(5, 1fr)',
@@ -242,6 +248,7 @@ export default function LandingHero() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
+                    className="hero-process-item"
                     style={{
                       padding: '8px 4px',
                       borderRadius: '8px',
@@ -326,6 +333,7 @@ export default function LandingHero() {
 
             {/* Secondary Hardware Floating Card: TiaraNxt RFID Ecosystem */}
             <div
+              className="hero-rfid-card"
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '12px',
@@ -364,6 +372,7 @@ export default function LandingHero() {
                 </div>
               </div>
               <div
+                className="hero-rfid-badge"
                 style={{
                   fontSize: '0.75rem',
                   fontWeight: 800,
@@ -386,6 +395,35 @@ export default function LandingHero() {
           .hero-grid {
             grid-template-columns: 1fr !important;
             gap: 36px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .hero-cta-group {
+            flex-direction: column !important;
+            width: 100% !important;
+          }
+          .hero-cta-group a {
+            width: 100% !important;
+            text-align: center !important;
+          }
+          .hero-process-steps {
+            display: flex !important;
+            overflow-x: auto !important;
+            gap: 8px !important;
+            padding-bottom: 8px !important;
+            -webkit-overflow-scrolling: touch !important;
+          }
+          .hero-process-item {
+            min-width: 92px !important;
+            flex-shrink: 0 !important;
+          }
+          .hero-rfid-card {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 10px !important;
+          }
+          .hero-rfid-badge {
+            align-self: flex-start !important;
           }
         }
       `}</style>

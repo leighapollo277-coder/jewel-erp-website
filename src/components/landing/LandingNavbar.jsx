@@ -27,6 +27,7 @@ export default function LandingNavbar() {
       }}
     >
       <div
+        className="nav-container"
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
@@ -47,6 +48,7 @@ export default function LandingNavbar() {
           }}
         >
           <div
+            className="nav-logo-icon"
             style={{
               width: '40px',
               height: '40px',
@@ -64,6 +66,7 @@ export default function LandingNavbar() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span
+                className="nav-logo-text"
                 style={{
                   fontWeight: 900,
                   fontSize: '1.25rem',
@@ -75,6 +78,7 @@ export default function LandingNavbar() {
               </span>
             </div>
             <div
+              className="nav-sub-text"
               style={{
                 fontSize: '0.72rem',
                 color: '#64748B',
@@ -235,6 +239,22 @@ export default function LandingNavbar() {
           }
           .mobile-toggle {
             display: block !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .nav-container {
+            padding: 12px 16px !important;
+          }
+          .nav-logo-icon {
+            width: 34px !important;
+            height: 34px !important;
+            border-radius: 8px !important;
+          }
+          .nav-logo-text {
+            font-size: 1.1rem !important;
+          }
+          .nav-sub-text {
+            font-size: 0.65rem !important;
           }
         }
       `}</style>

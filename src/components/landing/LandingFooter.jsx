@@ -26,7 +26,7 @@ export default function LandingFooter() {
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '64px 24px 48px 24px',
+          padding: 'clamp(36px, 5vw, 64px) clamp(16px, 4vw, 24px) clamp(24px, 4vw, 48px) clamp(16px, 4vw, 24px)',
         }}
       >
         <div
@@ -60,7 +60,7 @@ export default function LandingFooter() {
             </div>
             <h2
               style={{
-                fontSize: 'clamp(1.8rem, 2.8vw, 2.3rem)',
+                fontSize: 'clamp(1.5rem, 3.2vw, 2.3rem)',
                 fontWeight: 900,
                 color: '#FFFFFF',
                 letterSpacing: '-0.5px',
@@ -69,12 +69,12 @@ export default function LandingFooter() {
             >
               立即啟動您的珠寶數智化轉型
             </h2>
-            <p style={{ fontSize: '0.98rem', color: '#94A3B8', lineHeight: 1.65 }}>
+            <p style={{ fontSize: 'clamp(0.9rem, 2.4vw, 0.98rem)', color: '#94A3B8', lineHeight: 1.65 }}>
               歡迎親臨紅磡展示中心體驗 TiaraNxt RFID 毫秒級盤點與 JES ERP 完整車間工單排程。
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '240px' }}>
+          <div className="cta-actions" style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '240px' }}>
             <a
               href="mailto:info@alphaone.technology"
               className="btn-primary"
@@ -259,6 +259,7 @@ export default function LandingFooter() {
 
         {/* Bottom Legal / Copyright */}
         <div
+          className="footer-legal-bar"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -293,6 +294,28 @@ export default function LandingFooter() {
           .footer-info-grid {
             grid-template-columns: 1fr !important;
             gap: 24px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .cta-banner {
+            padding: 28px 20px !important;
+            border-radius: 16px !important;
+            gap: 24px !important;
+          }
+          .cta-actions {
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+          .cta-actions a {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            text-align: center !important;
+            justify-content: center !important;
+          }
+          .footer-legal-bar {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
           }
         }
       `}</style>

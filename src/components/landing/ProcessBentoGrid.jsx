@@ -28,13 +28,13 @@ export default function ProcessBentoGrid() {
       id="process"
       data-testid="bento-grid"
       style={{
-        padding: '72px 24px',
+        padding: 'clamp(44px, 6vw, 72px) clamp(16px, 4vw, 24px)',
         maxWidth: '1280px',
         margin: '0 auto',
       }}
     >
       {/* Section Header */}
-      <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '44px' }}>
         <div
           style={{
             display: 'inline-block',
@@ -52,21 +52,23 @@ export default function ProcessBentoGrid() {
         </div>
         <h2
           style={{
-            fontSize: 'clamp(1.9rem, 3.2vw, 2.5rem)',
+            fontSize: 'clamp(1.55rem, 5.2vw, 2.5rem)',
             fontWeight: 900,
             color: '#0F172A',
             letterSpacing: '-0.5px',
             marginBottom: '14px',
+            lineHeight: 1.25,
           }}
         >
           珠寶製造閉環工藝流轉與核心模組
         </h2>
         <p
           style={{
-            fontSize: '1.02rem',
+            fontSize: 'clamp(0.92rem, 2.4vw, 1.02rem)',
             color: '#64748B',
             maxWidth: '680px',
             margin: '0 auto',
+            lineHeight: 1.6,
           }}
         >
           專為珠寶工廠研發之嚴謹工作流，從款式資料建立到 RFID 標籤綁定入庫，步步受控、毫釐不差。
@@ -84,7 +86,7 @@ export default function ProcessBentoGrid() {
       >
         {/* Left Bento: Detailed Workshop Process Flow */}
         <div
-          className="bento-card"
+          className="bento-card bento-detail-card"
           style={{
             padding: '32px',
             display: 'flex',
@@ -134,12 +136,13 @@ export default function ProcessBentoGrid() {
               </span>
             </div>
 
-            <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '28px' }}>
+            <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '24px' }}>
               每道工序交收記錄實物重量與損耗。工單跨組流轉時，系統即時核銷金料領發與回收，確保貴金屬零流失。
             </p>
 
             {/* Step-by-Step Flow Nodes */}
             <div
+              className="bento-stage-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
@@ -195,6 +198,7 @@ export default function ProcessBentoGrid() {
 
           {/* Bottom Highlight */}
           <div
+            className="bento-highlight-bar"
             style={{
               padding: '16px',
               backgroundColor: '#F1F5F9',
@@ -206,7 +210,7 @@ export default function ProcessBentoGrid() {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Sparkles size={16} color="#FF6B22" />
+              <Sparkles size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1E293B' }}>
                 生產工序過數與工單流轉即時核對 · 支援雲端與獨立伺服器雙軌
               </span>
@@ -229,7 +233,7 @@ export default function ProcessBentoGrid() {
         {/* Right Bento: 7 Core ERP Modules Matrix (Option A: 100% Official Appendix 1) */}
         <div
           id="modules"
-          className="bento-card"
+          className="bento-card bento-detail-card"
           style={{
             padding: '32px',
             display: 'flex',
@@ -256,6 +260,7 @@ export default function ProcessBentoGrid() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#FFFFFF',
+                  flexShrink: 0,
                 }}
               >
                 <Database size={20} />
@@ -281,6 +286,7 @@ export default function ProcessBentoGrid() {
               {erpModules.map((mod, idx) => (
                 <div
                   key={idx}
+                  className="module-item"
                   style={{
                     padding: '13px 16px',
                     backgroundColor: '#F8FAFC',
@@ -308,6 +314,7 @@ export default function ProcessBentoGrid() {
                     </div>
                   </div>
                   <span
+                    className="module-code"
                     style={{
                       fontSize: '0.75rem',
                       fontWeight: 600,
@@ -327,6 +334,7 @@ export default function ProcessBentoGrid() {
 
           <div
             id="rfid"
+            className="bento-rwlink-card"
             style={{
               padding: '16px',
               borderRadius: '10px',
@@ -335,6 +343,7 @@ export default function ProcessBentoGrid() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
+              gap: '12px',
             }}
           >
             <div>
@@ -348,7 +357,7 @@ export default function ProcessBentoGrid() {
             <a
               href="#contact"
               className="btn-primary"
-              style={{ padding: '8px 14px', fontSize: '0.8rem' }}
+              style={{ padding: '8px 14px', fontSize: '0.8rem', whiteSpace: 'nowrap' }}
             >
               技術諮詢
             </a>
@@ -359,6 +368,46 @@ export default function ProcessBentoGrid() {
       <style>{`
         @media (max-width: 960px) {
           .bento-container {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .bento-detail-card {
+            padding: 20px 16px !important;
+          }
+          .bento-stage-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 8px !important;
+          }
+          .bento-highlight-bar {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 10px !important;
+          }
+          .bento-highlight-bar a {
+            align-self: flex-start !important;
+          }
+          .module-item {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 6px !important;
+            padding: 10px 12px !important;
+          }
+          .module-code {
+            align-self: flex-start !important;
+          }
+          .bento-rwlink-card {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+          }
+          .bento-rwlink-card a {
+            text-align: center !important;
+            justify-content: center !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .bento-stage-grid {
             grid-template-columns: 1fr !important;
           }
         }

@@ -52,13 +52,13 @@ export default function FeaturePillars() {
       id="features"
       data-testid="feature-pillars"
       style={{
-        padding: '72px 24px',
+        padding: 'clamp(44px, 6vw, 72px) clamp(16px, 4vw, 24px)',
         maxWidth: '1280px',
         margin: '0 auto',
       }}
     >
       {/* Section Header */}
-      <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '44px' }}>
         <div
           style={{
             display: 'inline-block',
@@ -76,21 +76,23 @@ export default function FeaturePillars() {
         </div>
         <h2
           style={{
-            fontSize: 'clamp(1.9rem, 3.2vw, 2.5rem)',
+            fontSize: 'clamp(1.55rem, 5.2vw, 2.5rem)',
             fontWeight: 900,
             color: '#0F172A',
             letterSpacing: '-0.5px',
             marginBottom: '14px',
+            lineHeight: 1.25,
           }}
         >
           以三大數智化支柱，驅動珠寶企業高效增長
         </h2>
         <p
           style={{
-            fontSize: '1.02rem',
+            fontSize: 'clamp(0.92rem, 2.4vw, 1.02rem)',
             color: '#64748B',
             maxWidth: '680px',
             margin: '0 auto',
+            lineHeight: 1.6,
           }}
         >
           打破珠寶工廠、批發展廳與連鎖門市的資訊孤島，實現全數據鏈條無縫互聯。
@@ -111,7 +113,7 @@ export default function FeaturePillars() {
           return (
             <div
               key={pillar.id}
-              className="bento-card"
+              className="bento-card pillar-card"
               style={{
                 padding: '32px 28px',
                 display: 'flex',
@@ -258,6 +260,11 @@ export default function FeaturePillars() {
         @media (max-width: 960px) {
           .pillars-grid {
             grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .pillar-card {
+            padding: 24px 20px !important;
           }
         }
       `}</style>

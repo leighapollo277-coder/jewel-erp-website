@@ -36,13 +36,13 @@ export default function FaqSection() {
       id="faq"
       data-testid="faq-accordion"
       style={{
-        padding: '72px 24px',
+        padding: 'clamp(44px, 6vw, 72px) clamp(16px, 4vw, 24px)',
         maxWidth: '960px',
         margin: '0 auto',
       }}
     >
       {/* Section Header */}
-      <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 'clamp(28px, 4vw, 44px)' }}>
         <div
           style={{
             display: 'inline-flex',
@@ -63,7 +63,7 @@ export default function FaqSection() {
         </div>
         <h2
           style={{
-            fontSize: 'clamp(1.9rem, 3.2vw, 2.5rem)',
+            fontSize: 'clamp(1.6rem, 3.2vw, 2.5rem)',
             fontWeight: 900,
             color: '#0F172A',
             letterSpacing: '-0.5px',
@@ -72,7 +72,7 @@ export default function FaqSection() {
         >
           珠寶企業導入常見問題與解答
         </h2>
-        <p style={{ fontSize: '1rem', color: '#64748B' }}>
+        <p style={{ fontSize: 'clamp(0.92rem, 2.4vw, 1rem)', color: '#64748B', maxWidth: '640px', margin: '0 auto', lineHeight: 1.6 }}>
           從軟體架構、資料遷移到硬體標籤相容性，為您解碼數智化落地細節。
         </p>
       </div>
@@ -95,6 +95,7 @@ export default function FaqSection() {
               }}
             >
               <button
+                className="faq-button"
                 onClick={() => toggle(idx)}
                 style={{
                   width: '100%',
@@ -140,6 +141,7 @@ export default function FaqSection() {
 
               {isOpen && (
                 <div
+                  className="faq-answer"
                   style={{
                     padding: '0 24px 22px 24px',
                     fontSize: '0.94rem',
@@ -156,6 +158,24 @@ export default function FaqSection() {
           );
         })}
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .faq-button {
+            padding: 16px 18px !important;
+          }
+          .faq-button span {
+            font-size: 0.98rem !important;
+            line-height: 1.5 !important;
+          }
+          .faq-answer {
+            padding: 0 18px 18px 18px !important;
+            padding-top: 14px !important;
+            font-size: 0.9rem !important;
+            line-height: 1.6 !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
