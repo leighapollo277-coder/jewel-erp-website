@@ -11,17 +11,10 @@ import {
   ArrowRight,
   Sparkles
 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function ProcessBentoGrid() {
-  const erpModules = [
-    { title: '款式基礎資料管理', code: 'Master files setup' },
-    { title: '訂單管理系統', code: 'Order management system' },
-    { title: '生產控制系統', code: 'Production control system' },
-    { title: '庫存控制系統', code: 'Inventory control system' },
-    { title: '物流管理系統', code: 'Logistics management system' },
-    { title: '會計應收應付模組', code: 'Accounting AR & AP module' },
-    { title: '數據分析與報表', code: 'Data analytics & Reports' },
-  ];
+  const { t } = useLanguage();
 
   return (
     <section
@@ -48,7 +41,7 @@ export default function ProcessBentoGrid() {
             marginBottom: '12px',
           }}
         >
-          全鏈路工業級工藝流程
+          {t.process.badge}
         </div>
         <h2
           style={{
@@ -60,7 +53,7 @@ export default function ProcessBentoGrid() {
             lineHeight: 1.25,
           }}
         >
-          珠寶製造閉環工藝流轉與核心模組
+          {t.process.title}
         </h2>
         <p
           style={{
@@ -71,7 +64,7 @@ export default function ProcessBentoGrid() {
             lineHeight: 1.6,
           }}
         >
-          專為珠寶工廠研發之嚴謹工作流，從款式資料建立到 RFID 標籤綁定入庫，步步受控、毫釐不差。
+          {t.process.subtitle}
         </p>
       </div>
 
@@ -119,7 +112,7 @@ export default function ProcessBentoGrid() {
                   <GitBranch size={20} />
                 </div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A' }}>
-                  車間工藝流程節點流轉圖
+                  {t.process.flowTitle}
                 </h3>
               </div>
               <span
@@ -132,12 +125,12 @@ export default function ProcessBentoGrid() {
                   borderRadius: '6px',
                 }}
               >
-                工單工序流轉核銷
+                {t.process.flowBadge}
               </span>
             </div>
 
             <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '24px' }}>
-              每道工序交收記錄實物重量與損耗。工單跨組流轉時，系統即時核銷金料領發與回收，確保貴金屬零流失。
+              {t.process.flowDesc}
             </p>
 
             {/* Step-by-Step Flow Nodes */}
@@ -150,14 +143,7 @@ export default function ProcessBentoGrid() {
                 marginBottom: '28px',
               }}
             >
-              {[
-                { step: '01', title: '款式規格', note: 'Master Setup' },
-                { step: '02', title: '倒模鑄造', note: 'Casting' },
-                { step: '03', title: '執模工藝', note: 'Filing & Assembly' },
-                { step: '04', title: '精密鑲石', note: 'Stone Setting' },
-                { step: '05', title: '拋光電金', note: 'Polishing & Plating' },
-                { step: '06', title: 'RFID 入庫', note: 'Tagging & Inventory' },
-              ].map((node, i) => (
+              {t.process.stages.map((node, i) => (
                 <div
                   key={i}
                   style={{
@@ -212,7 +198,7 @@ export default function ProcessBentoGrid() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Sparkles size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1E293B' }}>
-                生產工序過數與工單流轉即時核對 · 支援雲端與獨立伺服器雙軌
+                {t.process.highlightText}
               </span>
             </div>
             <a
@@ -225,12 +211,12 @@ export default function ProcessBentoGrid() {
                 whiteSpace: 'nowrap',
               }}
             >
-              諮詢系統展示 →
+              {t.process.highlightCta}
             </a>
           </div>
         </div>
 
-        {/* Right Bento: 7 Core ERP Modules Matrix (Option A: 100% Official Appendix 1) */}
+        {/* Right Bento: 7 Core ERP Modules Matrix */}
         <div
           id="modules"
           className="bento-card bento-detail-card"
@@ -267,10 +253,10 @@ export default function ProcessBentoGrid() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A' }}>
-                  JES 旗艦 7 大功能模組矩陣
+                  {t.process.matrixTitle}
                 </h3>
                 <div style={{ fontSize: '0.75rem', color: '#64748B' }}>
-                  對齊官方報價單 Appendix 1 標準模組架構
+                  {t.process.matrixSubtitle}
                 </div>
               </div>
             </div>
@@ -283,7 +269,7 @@ export default function ProcessBentoGrid() {
                 marginBottom: '24px',
               }}
             >
-              {erpModules.map((mod, idx) => (
+              {t.process.modules.map((mod, idx) => (
                 <div
                   key={idx}
                   className="module-item"
@@ -348,10 +334,10 @@ export default function ProcessBentoGrid() {
           >
             <div>
               <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#0F172A' }}>
-                RWLINK 跨設備中間件雙向同步
+                {t.process.rwlinkTitle}
               </div>
               <div style={{ fontSize: '0.74rem', color: '#64748B' }}>
-                支援 Excel / FTP / SQL 資料庫 / Web-Services 即時對接
+                {t.process.rwlinkDesc}
               </div>
             </div>
             <a
@@ -359,7 +345,7 @@ export default function ProcessBentoGrid() {
               className="btn-primary"
               style={{ padding: '8px 14px', fontSize: '0.8rem', whiteSpace: 'nowrap' }}
             >
-              技術諮詢
+              {t.process.rwlinkCta}
             </a>
           </div>
         </div>

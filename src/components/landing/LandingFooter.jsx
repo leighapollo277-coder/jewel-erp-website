@@ -9,8 +9,11 @@ import {
   ArrowRight,
   ShieldCheck
 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function LandingFooter() {
+  const { t } = useLanguage();
+
   return (
     <footer
       id="contact"
@@ -56,7 +59,7 @@ export default function LandingFooter() {
                 marginBottom: '14px',
               }}
             >
-              官方諮詢與實體展示
+              {t.footer.badge}
             </div>
             <h2
               style={{
@@ -67,10 +70,10 @@ export default function LandingFooter() {
                 marginBottom: '12px',
               }}
             >
-              立即啟動您的珠寶數智化轉型
+              {t.footer.ctaTitle}
             </h2>
             <p style={{ fontSize: 'clamp(0.9rem, 2.4vw, 0.98rem)', color: '#94A3B8', lineHeight: 1.65 }}>
-              歡迎親臨紅磡展示中心體驗 TiaraNxt RFID 毫秒級盤點與 JES ERP 完整車間工單排程。
+              {t.footer.ctaSubtitle}
             </p>
           </div>
 
@@ -81,7 +84,7 @@ export default function LandingFooter() {
               style={{ padding: '14px 24px', fontSize: '0.95rem' }}
             >
               <Mail size={18} />
-              電郵諮詢 (官方信箱)
+              {t.footer.emailBtn}
             </a>
             <a
               href="tel:+85227224360"
@@ -104,7 +107,7 @@ export default function LandingFooter() {
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)')}
             >
               <Phone size={18} color="#FF6B22" />
-              致電顧問 (+852) 2722 4360
+              {t.footer.callBtn}
             </a>
           </div>
         </div>
@@ -146,14 +149,14 @@ export default function LandingFooter() {
                 <Gem size={20} />
               </div>
               <span style={{ fontSize: '1.15rem', fontWeight: 900, color: '#0F172A' }}>
-                思琳科技有限公司
+                {t.footer.companyName}
               </span>
             </div>
             <div style={{ fontSize: '0.82rem', color: '#64748B', fontWeight: 600, marginBottom: '16px' }}>
-              AlphaOne Technology Limited (AO)
+              {t.footer.companyEn}
             </div>
             <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.6, maxWidth: '340px' }}>
-              專注珠寶首飾行業軟硬體研發，提供珠寶源® JES ERP、POS 雲端零售系統及 TiaraNxt RFID 智慧盤點全套解決方案。
+              {t.footer.companyDesc}
             </p>
           </div>
 
@@ -176,12 +179,12 @@ export default function LandingFooter() {
                 marginBottom: '8px',
               }}
             >
-              香港總部 · 展示中心
+              {t.footer.hkTitle}
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '10px' }}>
               <MapPin size={16} color="#64748B" style={{ flexShrink: 0, marginTop: '3px' }} />
               <span style={{ fontSize: '0.84rem', color: '#1E293B', lineHeight: 1.5 }}>
-                香港九龍紅磡民樂街 21 號富高工業中心 B 座 9 樓 19B 室
+                {t.footer.hkAddress}
               </span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem', color: '#475569' }}>
@@ -191,13 +194,13 @@ export default function LandingFooter() {
                   +852 2722 4360
                 </a>
                 <span style={{ color: '#CBD5E1' }}>|</span>
-                <a href="tel:+85290894833" style={{ color: '#0F172A', fontWeight: 600, textDecoration: 'none' }}>
-                  (852) 9089 4833
+                <a href="tel:+85290884833" style={{ color: '#0F172A', fontWeight: 600, textDecoration: 'none' }}>
+                  (852) 9088 4833
                 </a>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Printer size={14} color="#64748B" />
-                <span>傳真: +852 2722 4363</span>
+                <span>{t.footer.hkFax}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Mail size={14} color="#64748B" />
@@ -227,12 +230,12 @@ export default function LandingFooter() {
                 marginBottom: '8px',
               }}
             >
-              深圳辦公室 · 研發中心
+              {t.footer.szTitle}
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '10px' }}>
               <MapPin size={16} color="#64748B" style={{ flexShrink: 0, marginTop: '3px' }} />
               <span style={{ fontSize: '0.84rem', color: '#1E293B', lineHeight: 1.5 }}>
-                深圳市羅湖區文錦廣場文錦中心 702
+                {t.footer.szAddress}
               </span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem', color: '#475569' }}>
@@ -273,14 +276,15 @@ export default function LandingFooter() {
           }}
         >
           <div>
-            © 2026 思琳科技有限公司 AlphaOne Technology Limited. 版權所有。
+            {t.footer.copyright}
           </div>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <span>珠寶源® JES</span>
-            <span>•</span>
-            <span>POS 雲端零售系統</span>
-            <span>•</span>
-            <span>TiaraNxt RFID 智慧盤點</span>
+            {t.footer.productTags.map((tag, idx) => (
+              <React.Fragment key={idx}>
+                <span>{tag}</span>
+                {idx < t.footer.productTags.length - 1 && <span>•</span>}
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>

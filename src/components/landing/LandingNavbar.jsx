@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Gem, Menu, X, PhoneCall, ArrowUpRight } from 'lucide-react';
+import { Gem, Menu, X, PhoneCall, ArrowUpRight, Globe } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function LandingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, setLang, toggleLanguage, t } = useLanguage();
 
   const navLinks = [
-    { label: '核心體系', href: '#features' },
-    { label: '工藝與模組', href: '#process' },
-    { label: 'RFID 便攜盤點', href: '#rfid' },
-    { label: '常見問題', href: '#faq' },
-    { label: '官方聯絡', href: '#contact' },
+    { label: t.nav.features, href: '#features' },
+    { label: t.nav.process, href: '#process' },
+    { label: t.nav.rfid, href: '#rfid' },
+    { label: t.nav.faq, href: '#faq' },
+    { label: t.nav.contact, href: '#contact' },
   ];
 
   return (
@@ -74,7 +76,11 @@ export default function LandingNavbar() {
                   color: '#0F172A',
                 }}
               >
-                珠寶源<span style={{ fontSize: '0.85rem', verticalAlign: 'super', fontWeight: 600 }}>®</span> JES
+                {lang === 'en' ? (
+                  <>Jewel Source<span style={{ fontSize: '0.85rem', verticalAlign: 'super', fontWeight: 600 }}>®</span> JES</>
+                ) : (
+                  <>珠寶源<span style={{ fontSize: '0.85rem', verticalAlign: 'super', fontWeight: 600 }}>®</span> JES</>
+                )}
               </span>
             </div>
             <div
@@ -87,7 +93,7 @@ export default function LandingNavbar() {
                 textTransform: 'uppercase',
               }}
             >
-              思琳科技 AlphaOne Technology
+              {lang === 'en' ? 'AlphaOne Technology' : '思琳科技 AlphaOne Technology'}
             </div>
           </div>
         </a>
@@ -97,7 +103,7 @@ export default function LandingNavbar() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '28px',
+            gap: '24px',
           }}
           className="desktop-nav"
         >
@@ -120,37 +126,60 @@ export default function LandingNavbar() {
           ))}
         </div>
 
-        {/* Desktop CTA Action */}
+        {/* Desktop CTA Action & Language Switcher */}
         <div
-          style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
           className="desktop-nav"
         >
+          {/* Language Switcher */}
+          <button
+            onClick={toggleLanguage}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '7px 12px',
+              borderRadius: '8px',
+              border: '1px solid #D0D5DD',
+              backgroundColor: '#FFFFFF',
+              color: '#0F172A',
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+            }}
+            title={lang === 'zh' ? 'Switch to English' : '切換至繁體中文'}
+          >
+            <Globe size={15} color="#FF6B22" />
+            <span>{lang === 'zh' ? 'EN' : '繁體'}</span>
+          </button>
+
           <a
             href="tel:+85227224360"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              fontSize: '0.88rem',
+              fontSize: '0.86rem',
               fontWeight: 600,
               color: '#0F172A',
               textDecoration: 'none',
-              padding: '8px 14px',
+              padding: '8px 12px',
               borderRadius: '8px',
               border: '1px solid #D0D5DD',
               backgroundColor: '#FFFFFF',
             }}
           >
-            <PhoneCall size={15} color="#FF6B22" />
+            <PhoneCall size={14} color="#FF6B22" />
             +852 2722 4360
           </a>
           <a
             href="#contact"
             className="btn-primary"
-            style={{ padding: '9px 18px', fontSize: '0.88rem' }}
+            style={{ padding: '8px 16px', fontSize: '0.86rem' }}
           >
-            預約官方展示
-            <ArrowUpRight size={16} />
+            {t.nav.demo}
+            <ArrowUpRight size={15} />
           </a>
         </div>
 
@@ -185,6 +214,56 @@ export default function LandingNavbar() {
             gap: '16px',
           }}
         >
+          {/* Mobile Language Switcher */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '10px 14px',
+              backgroundColor: '#F8FAFC',
+              borderRadius: '8px',
+              border: '1px solid #E2E8F0',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', fontWeight: 700, color: '#0F172A' }}>
+              <Globe size={16} color="#FF6B22" />
+              <span>Language</span>
+            </div>
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <button
+                onClick={() => setLang('zh')}
+                style={{
+                  padding: '5px 12px',
+                  borderRadius: '6px',
+                  border: lang === 'zh' ? '1px solid #FF6B22' : '1px solid #CBD5E1',
+                  backgroundColor: lang === 'zh' ? '#FF6B22' : '#FFFFFF',
+                  color: lang === 'zh' ? '#FFFFFF' : '#475569',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                繁體中文
+              </button>
+              <button
+                onClick={() => setLang('en')}
+                style={{
+                  padding: '5px 12px',
+                  borderRadius: '6px',
+                  border: lang === 'en' ? '1px solid #FF6B22' : '1px solid #CBD5E1',
+                  backgroundColor: lang === 'en' ? '#FF6B22' : '#FFFFFF',
+                  color: lang === 'en' ? '#FFFFFF' : '#475569',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                English
+              </button>
+            </div>
+          </div>
+
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -202,7 +281,7 @@ export default function LandingNavbar() {
               {link.label}
             </a>
           ))}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '6px' }}>
             <a
               href="tel:+85227224360"
               style={{
@@ -219,7 +298,7 @@ export default function LandingNavbar() {
               }}
             >
               <PhoneCall size={16} color="#FF6B22" />
-              電話諮詢: +852 2722 4360
+              {t.nav.phoneCallText}
             </a>
             <a
               href="#contact"
@@ -227,7 +306,7 @@ export default function LandingNavbar() {
               className="btn-primary"
               style={{ justifyContent: 'center' }}
             >
-              預約官方展示
+              {t.nav.demo}
             </a>
           </div>
         </div>

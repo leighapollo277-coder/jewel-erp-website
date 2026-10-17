@@ -11,8 +11,11 @@ import {
   Activity,
   Boxes
 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function LandingHero() {
+  const { t, lang } = useLanguage();
+
   return (
     <section
       data-testid="hero-section"
@@ -52,14 +55,14 @@ export default function LandingHero() {
             }}
           >
             <Sparkles size={14} color="#FF6B22" />
-            珠寶全產業鏈數智化革新
+            {t.hero.badge}
           </div>
 
           {/* 大大隻字 Bold Headline */}
           <h1
             className="hero-title"
             style={{
-              fontSize: 'clamp(1.5rem, 5.2vw, 3.2rem)',
+              fontSize: lang === 'en' ? 'clamp(1.4rem, 4.2vw, 2.75rem)' : 'clamp(1.5rem, 5.2vw, 3.2rem)',
               fontWeight: 900,
               lineHeight: 1.25,
               color: '#0F172A',
@@ -68,9 +71,9 @@ export default function LandingHero() {
               wordBreak: 'break-word',
             }}
           >
-            以一體化 ERP 與 RFID 技術，
+            {t.hero.titlePart1}
             <span style={{ color: '#FF6B22', display: 'block' }}>
-              重塑珠寶製造與零售生態
+              {t.hero.titlePart2}
             </span>
           </h1>
 
@@ -86,7 +89,7 @@ export default function LandingHero() {
               wordBreak: 'break-word',
             }}
           >
-            專為香港與大灣區珠寶製造商、批發商及連鎖門市打造。徹底打通款式研發、車間生產損耗、門市銷售收銀、金會供款與毫秒級全盤點。
+            {t.hero.subtitle}
           </p>
 
           {/* Dual CTAs */}
@@ -108,7 +111,7 @@ export default function LandingHero() {
                 padding: '13px 26px',
               }}
             >
-              預約官方現場展示
+              {t.hero.ctaDemo}
               <ArrowRight size={18} />
             </a>
             <a
@@ -120,7 +123,7 @@ export default function LandingHero() {
               }}
             >
               <PhoneCall size={18} color="#FF6B22" />
-              專家諮詢 (+852) 2722 4360
+              {t.hero.ctaCall}
             </a>
           </div>
 
@@ -138,25 +141,25 @@ export default function LandingHero() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <CheckCircle2 size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
-                深耕珠寶產業數十年
+                {t.hero.trust1}
               </span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <ShieldCheck size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
-                100% 自主研發無縫對接
+                {t.hero.trust2}
               </span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Activity size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
-                香港總部 · 深圳技術支援
+                {t.hero.trust3}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Composite Software & Hardware Visual Panel (DEC-012 Option A) */}
+        {/* Right Column: Composite Software & Hardware Visual Panel */}
         <div className="hero-right-col" style={{ position: 'relative' }}>
           {/* Main Software Panel: JES Workshop Process Monitor */}
           <div
@@ -191,7 +194,7 @@ export default function LandingHero() {
                     marginLeft: '8px',
                   }}
                 >
-                  JES 珠寶工單全流程監控中心
+                  {t.hero.monitorTitle}
                 </span>
               </div>
               <div
@@ -216,7 +219,7 @@ export default function LandingHero() {
                     backgroundColor: '#FF6B22',
                   }}
                 />
-                即時工藝在線
+                {t.hero.monitorStatus}
               </div>
             </div>
 
@@ -232,7 +235,7 @@ export default function LandingHero() {
                   marginBottom: '10px',
                 }}
               >
-                車間生產鏈路節點 · 損耗即時監控
+                {t.hero.flowTitle}
               </div>
               <div
                 className="hero-process-steps"
@@ -243,54 +246,55 @@ export default function LandingHero() {
                   textAlign: 'center',
                 }}
               >
-                {[
-                  { step: '01', name: '倒模鑄造', status: '完成', active: false },
-                  { step: '02', name: '執模修正', status: '進行中', active: true },
-                  { step: '03', name: '精密鑲石', status: '待派工', active: false },
-                  { step: '04', name: '拋光電金', status: '排程中', active: false },
-                  { step: '05', name: '質檢入庫', status: '待檢', active: false },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="hero-process-item"
-                    style={{
-                      padding: '8px 4px',
-                      borderRadius: '8px',
-                      backgroundColor: item.active ? 'rgba(255, 107, 34, 0.12)' : '#F8FAFC',
-                      border: `1px solid ${item.active ? '#FF6B22' : '#E2E8F0'}`,
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
+                {t.hero.steps.map((item, idx) => {
+                  const isActive = idx === 1;
+                  return (
                     <div
+                      key={idx}
+                      className="hero-process-item"
                       style={{
-                        fontSize: '0.7rem',
-                        fontWeight: 800,
-                        color: item.active ? '#FF6B22' : '#94A3B8',
+                        padding: '8px 4px',
+                        borderRadius: '8px',
+                        backgroundColor: isActive ? 'rgba(255, 107, 34, 0.12)' : '#F8FAFC',
+                        border: `1px solid ${isActive ? '#FF6B22' : '#E2E8F0'}`,
+                        transition: 'all 0.2s ease',
                       }}
                     >
-                      {item.step}
+                      <div
+                        style={{
+                          fontSize: '0.7rem',
+                          fontWeight: 800,
+                          color: isActive ? '#FF6B22' : '#94A3B8',
+                        }}
+                      >
+                        {item.step}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          color: isActive ? '#0F172A' : '#475569',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                        }}
+                      >
+                        {item.name}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: '0.68rem',
+                          fontWeight: 600,
+                          color: isActive ? '#FF6B22' : '#94A3B8',
+                          marginTop: '2px',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {item.status}
+                      </div>
                     </div>
-                    <div
-                      style={{
-                        fontSize: '0.78rem',
-                        fontWeight: 700,
-                        color: item.active ? '#0F172A' : '#475569',
-                      }}
-                    >
-                      {item.name}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: '0.68rem',
-                        fontWeight: 600,
-                        color: item.active ? '#FF6B22' : '#94A3B8',
-                        marginTop: '2px',
-                      }}
-                    >
-                      {item.status}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -313,10 +317,13 @@ export default function LandingHero() {
                 }}
               >
                 <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>
-                  系統部署架構
+                  {t.hero.kpi1Label}
                 </div>
-                <div style={{ fontSize: '1rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
-                  雙軌彈性支援 <span style={{ fontSize: '0.72rem', color: '#FF6B22', fontWeight: 700 }}>雲端 / 私有伺服器</span>
+                <div style={{ fontSize: '0.96rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
+                  {t.hero.kpi1Val}{' '}
+                  <span style={{ fontSize: '0.72rem', color: '#FF6B22', fontWeight: 700, display: 'inline-block' }}>
+                    {t.hero.kpi1Sub}
+                  </span>
                 </div>
               </div>
               <div
@@ -328,10 +335,13 @@ export default function LandingHero() {
                 }}
               >
                 <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>
-                  硬體感知生態
+                  {t.hero.kpi2Label}
                 </div>
-                <div style={{ fontSize: '1rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
-                  IRYS WARD <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 600 }}>超高頻 UHF</span>
+                <div style={{ fontSize: '0.96rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
+                  {t.hero.kpi2Val}{' '}
+                  <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 600, display: 'inline-block' }}>
+                    {t.hero.kpi2Sub}
+                  </span>
                 </div>
               </div>
             </div>
@@ -369,10 +379,10 @@ export default function LandingHero() {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F172A' }}>
-                    TiaraNxt 便攜式 RFID 盤點連動
+                    {t.hero.rfidTitle}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: '#64748B', lineHeight: 1.4 }}>
-                    IRYS WARD 超高頻掃描槍 · 支援 120°C 耐高溫無膠標籤
+                    {t.hero.rfidDesc}
                   </div>
                 </div>
               </div>
@@ -389,7 +399,7 @@ export default function LandingHero() {
                   flexShrink: 0,
                 }}
               >
-                秒級萬件盤點
+                {t.hero.rfidBadge}
               </div>
             </div>
           </div>

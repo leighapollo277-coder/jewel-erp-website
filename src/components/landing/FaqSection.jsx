@@ -1,31 +1,10 @@
 import React, { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
-
-  const faqs = [
-    {
-      q: '珠寶源® JES 支援雲端部署還是本地專用伺服器？',
-      a: '系統提供雙軌彈性部署架構：企業可選擇免維護的「JES 雲端訂閱版」，隨開即用，由原廠提供自動資安更新與多點備份；亦可選用「獨立伺服器授權版（Dedicated TERA Windows Server）」，適合對數據主權與內部私有網絡有特定合規要求之大型製造廠與老字號金行。',
-    },
-    {
-      q: '現有工廠已使用傳統條碼，升級至 TiaraNxt RFID 會否影響日常出貨？',
-      a: '升級過程保證零停工。TiaraNxt 配備專屬 RWLINK 跨系統中間件，能雙向對接 Excel、既有 SQL 資料庫與 Web-Services。標籤列印時可同時打印可讀文字、條碼與內置 RFID 晶片，新舊盤點模式可並行過渡，不干擾工廠日常流轉。',
-    },
-    {
-      q: 'TiaraNxt 珠寶專用 RFID 標籤在超聲波清洗或電金時會損壞嗎？',
-      a: '不會。標籤採用特種複合 PVC 材質，耐高溫達 120°C，通過嚴格的耐化學溶劑與超聲波清洗測試。此外，標籤尾部採用專利「無膠設計」，穿戴於戒指、項鍊或手鐲時絕不留任何殘膠，徹底保護珠寶首飾光澤。',
-    },
-    {
-      q: 'POS 系統如何管理傳統金行的「金會」供款與到期標會？',
-      a: '系統專設「金會會員模組」，自動追蹤各會員每期供款狀態、開會標金紀錄與逾期提醒。會員標會或滿期提貨時，POS 系統直接連動即時金價與會籍折扣換算抵扣金額，徹底淘汰混亂的人手卡片簿記。',
-    },
-    {
-      q: '香港總部、深圳製造車間與多個零售門市如何跨城聯網？',
-      a: 'JES 支援多組織多門市跨城集中管理架構。香港下達批發訂單，深圳車間即刻收到工單並派工；深圳完成鑄造鑲石並過機綁定 RFID 後，香港展廳與門市庫存毫秒級同步呈現，數據權限分級隔離，通訊全鏈路加密。',
-    },
-  ];
+  const { t } = useLanguage();
 
   const toggle = (idx) => {
     setOpenIndex(openIndex === idx ? -1 : idx);
@@ -59,7 +38,7 @@ export default function FaqSection() {
           }}
         >
           <HelpCircle size={14} color="#FF6B22" />
-          常見問題解答
+          {t.faq.badge}
         </div>
         <h2
           style={{
@@ -70,16 +49,16 @@ export default function FaqSection() {
             marginBottom: '12px',
           }}
         >
-          珠寶企業導入常見問題與解答
+          {t.faq.title}
         </h2>
         <p style={{ fontSize: 'clamp(0.92rem, 2.4vw, 1rem)', color: '#64748B', maxWidth: '640px', margin: '0 auto', lineHeight: 1.6 }}>
-          從軟體架構、資料遷移到硬體標籤相容性，為您解碼數智化落地細節。
+          {t.faq.subtitle}
         </p>
       </div>
 
       {/* Accordion List */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-        {faqs.map((faq, idx) => {
+        {t.faq.faqs.map((faq, idx) => {
           const isOpen = openIndex === idx;
           return (
             <div

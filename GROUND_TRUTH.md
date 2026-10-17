@@ -4,7 +4,7 @@
 > All modifications MUST be audited with `ground-truth-auditor`.
 
 - **Project Name**: 珠寶源 JES (Jewel ERP System)
-- **Last Audited**: 2026-10-17 00:15:00
+- **Last Audited**: 2026-10-18 01:15:00
 - **Audit Status**: PASS
 - **Auditor Version**: 1.0.0
 
@@ -17,12 +17,12 @@
 | `GT-001` | Architecture | 前端架構採用 React 18 + Vite 5 + Cloudflare Pages 單頁應用 (SPA)，嚴禁引入 Next.js 或 Create React App | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
 | `GT-002` | Design System | 樣式系統必須使用純 Vanilla CSS 與 `src/index.css` 設計代幣變數，嚴禁使用 TailwindCSS、CSS Modules 或 styled-components | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
 | `GT-003` | Visual Identity | 視覺風格採用現代科技便當格 (Modern Bento Grid Pro)，底色為沉穩冷鋼灰 (`#E2E6ED` ~ `#ECEEF2`，拒絕過白)，搭配純白方形卡片與活力科技亮橙 (`#FF5500`) highlight，杜絕虛構 Dashboard，以簡約向量工藝流程與硬體圖畫取得平衡 | `[SRC-001]`, `[SRC-004]`, `[SRC-009]`, `[SRC-010]` | `CONFIRMED` | 2026-10-17 |
-| `GT-004` | Localization | 所有用戶可見之界面文案必須為正體中文 (zh-TW)；代碼、註解與變數名稱必須為英文 | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
+| `GT-004` | Localization | 網站提供正體中文 (zh-TW) 與英文 (en) 雙語即時切換架構，全站 100% 國際化，預設為正體中文；代碼、註解與變數名稱必須為英文 | `[SRC-001]`, `[SRC-002]`, `[SRC-012]` | `CONFIRMED` | 2026-10-18 |
 | `GT-005` | Conversion Focus | 網站唯一核心商業目標為獲取預約展示 (Demo Booking) 銷售線索（原配置 DemoModal 彈窗已依用戶確認 [SRC-008] 由 GT-013 升級取代為直接官方聯繫管道） | `[SRC-001]`, `[SRC-008]` | `SUPERSEDED` | 2026-10-16 |
 | `GT-006` | Dependencies | 專案依賴嚴格白名單為 `react`, `react-dom` (v18), `lucide-react` (圖標)，未經用戶明確批准嚴禁新增任何 npm 依賴套件 | `[SRC-001]`, `[SRC-002]` | `CONFIRMED` | 2026-10-16 |
 | `GT-007` | Business Logic | 全站表單及聯絡操作以官方電話 `tel:`、電郵 `mailto:` 及官方網址直接對接，不依賴虛擬提交或未實裝 API | `[SRC-008]` | `CONFIRMED` | 2026-10-16 |
 | `GT-008` | Build & Deploy | 靜態建置產出物目錄契約為 `./dist`，部署配置依循 `wrangler.json` 交付 Cloudflare Pages | `[SRC-002]`, `[SRC-003]` | `CONFIRMED` | 2026-10-16 |
-| `GT-009` | Company Identity | 公司主體為「思琳科技有限公司」(AlphaOne Technology Limited / AO)；公眾展示移除負責人個人名義；香港總部座落紅磡民樂街21號富高工業中心B座9樓19B室，深圳辦公室座落羅湖區文錦廣場文錦中心702；電話 +852 2722 4360 / (852) 9089 4833，深圳 (86) 0755-25503714，傳真 +852 2722 4363，官方電郵統一為 info@alphaone.technology，官網 https://www.alphaone.technology | `[SRC-005]`, `[SRC-006]`, `[SRC-007]`, `[SRC-008]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
+| `GT-009` | Company Identity | 公司主體為「思琳科技有限公司」(AlphaOne Technology Limited / AO)；公眾展示移除負責人個人名義；香港總部座落紅磡民樂街21號富高工業中心B座9樓19B室，深圳辦公室座落羅湖區文錦廣場文錦中心702；電話 +852 2722 4360 / (852) 9088 4833，深圳 (86) 0755-25503714，傳真 +852 2722 4363，官方電郵統一為 info@alphaone.technology，官網 https://www.alphaone.technology | `[SRC-005]`, `[SRC-006]`, `[SRC-007]`, `[SRC-008]`, `[SRC-009]`, `[SRC-012]` | `CONFIRMED` | 2026-10-18 |
 | `GT-010` | Product Line - JES ERP & POS | 核心產品包含「珠寶源® JES - Jewelry ERP System」（基礎資料、批發訂單、生產管理、原物料/成品庫存、物流管理、會計 AR/AP；提供雲端訂閱版與獨立伺服器版）與「POS 雲端零售系統」（門市銷售收銀、金會會員登記與供款、客製化訂購 CMO、增值維修服務 VAS、日結、毛利分析與金料珠石盤點清單） | `[SRC-005]`, `[SRC-006]`, `[SRC-008]`, `[SRC-011]` | `CONFIRMED` | 2026-10-17 |
 | `GT-011` | Product Line - TiaraNxt RFID | 核心產品包含「TiaraNxt 珠寶專用可攜式 RFID 盤點系統」（IRYS WARD 超高頻 UHF 便攜掃描器、TiaraNxt 跨平台平板 App、RWLINK 跨設備中間件支援 Excel/FTP/DB/Web-Services 雙向同步、耐高溫 120°C PVC 重複使用標籤 32x18x0.86mm 尾部無膠設計、標籤列印軟體，可選配 SURFACE 珠寶盤與 LED 尋物標籤） | `[SRC-005]`, `[SRC-007]`, `[SRC-008]`, `[SRC-009]` | `CONFIRMED` | 2026-10-16 |
 | `GT-012` | Zero Fabrication Policy | 網站全數內容必須 100% 忠實對齊官方報價單真實資料，徹底移除任何捏造數據、未核實之認證或虛構客戶案例（如 River Mounts 等），確保零虛構、零吹噓 | `[SRC-008]`, `[SRC-011]` | `CONFIRMED` | 2026-10-17 |
@@ -115,6 +115,13 @@
 - **Verified By**: Kenneth (User)
 - **Timestamp**: 2026-10-17 22:50:04
 
+### [SRC-012]
+- **Type**: `USER_CONFIRMATION`
+- **Reference**: Conversation on 2026-10-18 confirming DEC-015, DEC-016, and DEC-017
+- **Exact Quote / URL**: "1. yes\n2. B\n3. A" (Mobile: 90884833; Global positioning: 專為全球珠寶製造商、批發商及連鎖門市打造; Bilingual system: Navbar language switcher + /en dual support)
+- **Verified By**: Kenneth (User)
+- **Timestamp**: 2026-10-18 01:10:56
+
 ---
 
 ## 3. Audit & Change Log
@@ -124,3 +131,4 @@
 - **2026-10-16 23:25:00**: Ratified user directives [SRC-009]: updated GT-003 (eliminated deep orange gradient in favor of champagne gold & obsidian landing highlights), GT-009 (unified email to info@alphaone.technology, removed public Chris Lam reference), GT-011 (casing standardized to TiaraNxt), GT-013 (removed server specs bar and top pill badge). [Audit: PASS]
 - **2026-10-17 00:15:00**: Ratified user selection [SRC-010]: updated GT-003 (Solid cool steel grey background with pure white cards and tech orange accents, zero fake dashboards) and GT-013 (Modern Bento Grid Pro architecture with 70% ERP flagship focus and native vector artwork). [Audit: PASS]
 - **2026-10-17 22:55:00**: Ratified user directive [SRC-011]: executed Option A purification across landing page components. Purged all ungrounded AI sub-descriptions from 7 ERP modules, aligned strictly with Proposal 1 Appendix 1 official terms (`Master files setup`, `Order management`, `Production control`, `Inventory control`, `Logistics management`, `Accounting AR & AP`, `Data analytics & Reports`), and eliminated ungrounded KPI numbers in Hero panel. [Audit: PASS]
+- **2026-10-18 01:15:00**: Ratified user directives [SRC-012]: updated GT-009 (corrected mobile to (852) 9088 4833), updated GT-004 (ratified dual-language zh-TW & en architecture with instant switcher and /en route support), and globalized brand positioning copy. [Audit: PASS]
