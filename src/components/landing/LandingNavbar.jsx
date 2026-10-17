@@ -158,17 +158,18 @@ export default function LandingNavbar() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
+            background: '#FFFFFF',
+            border: '1px solid #D8DCE6',
             color: '#0F172A',
             cursor: 'pointer',
-            padding: '6px',
+            padding: '7px',
+            borderRadius: '8px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
           }}
           className="mobile-toggle"
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={22} color="#FF6B22" /> : <Menu size={22} color="#0F172A" />}
         </button>
       </div>
 
@@ -233,12 +234,17 @@ export default function LandingNavbar() {
       )}
 
       <style>{`
+        .mobile-toggle {
+          display: none;
+        }
         @media (max-width: 860px) {
           .desktop-nav {
             display: none !important;
           }
           .mobile-toggle {
-            display: block !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
         }
         @media (max-width: 640px) {

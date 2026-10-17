@@ -59,9 +59,9 @@ export default function LandingHero() {
           <h1
             className="hero-title"
             style={{
-              fontSize: 'clamp(1.75rem, 6.2vw, 3.4rem)',
+              fontSize: 'clamp(1.5rem, 5.2vw, 3.2rem)',
               fontWeight: 900,
-              lineHeight: 1.2,
+              lineHeight: 1.25,
               color: '#0F172A',
               letterSpacing: '-0.8px',
               marginBottom: '20px',
