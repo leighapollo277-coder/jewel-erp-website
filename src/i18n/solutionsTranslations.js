@@ -1,0 +1,406 @@
+/**
+ * solutionsTranslations.js - Bilingual Translations for SME Automation Solutions
+ * Traditional Chinese (zh-TW / Hong Kong Business Standard) & English (en)
+ */
+
+export const solutionsTranslations = {
+  zh: {
+    nav: {
+      switcherJes: '珠寶源® JES (珠寶系統)',
+      switcherSolutions: '中小企智能自動化 (AlphaFlow)',
+      painPoints: '營運痛點對比',
+      modules: '核心自動化方案',
+      pricing: '雙軌模式與定價',
+      whyUs: '技術實力',
+      faq: '常見問題',
+      contact: '聯絡我們',
+      ctaDiagnosis: '預約 15 分鐘流程診斷',
+    },
+    hero: {
+      badge: '思琳科技 · 企業智能自動化解決方案',
+      title: '停止人手抄寫與漏單。將繁瑣工序交給自動化，最快 2 週釋放團隊產能。',
+      subtitle: '專為香港批發、貿易、零售及專業服務業打造。從 PDF 單據自動入帳、官方 WhatsApp 業務流程，到跨系統營運報表，無需更換現有軟件，以固定價格敏捷落地。',
+      ctaPrimary: '預約 15 分鐘流程痛點診斷',
+      ctaSecondary: 'WhatsApp 快速諮詢專員',
+      stats: [
+        { value: '40–80 小時', label: '每月節省人手單據與核對工時' },
+        { value: '3–5 秒', label: 'AI 單據結構化提取平均速度' },
+        { value: '2 週上線', label: '敏捷 POC 概念驗證交付期' },
+        { value: '100%', label: '香港 PDPO 與零資料保留私隱承諾' },
+      ],
+      microNotice: '✓ 100% 技術顧問對話 · 免費評估自動化可行性 · 診斷後附送《流程改善建議清單》',
+    },
+    painPoints: {
+      badge: '營運痛點深層剖析',
+      title: '為什麼您的團隊總是「加班忙碌，但業績無法規模化」？',
+      subtitle: '中小企在擴張過程中，往往被沉重的機械式搬運資料工序拖慢腳步。',
+      manualCard: {
+        title: '傳統人工模式（高耗損、高風險）',
+        items: [
+          '文員每日花費 3 小時手動核對 PDF 採購單與發票，打錯一個料號或單價導致直接虧損。',
+          '業務人員使用個人 WhatsApp 與客戶溝通，對話分散、容易漏單，員工離職帶走客戶資產。',
+          '網店、門市 POS 與會計系統互不通氣，管理層需等待數小時等待人手拼湊 Excel 報表。',
+          '傳統倉庫盤點需全員加班停工數天，資料滯後且盤點差異難以即時追查原因。',
+        ],
+      },
+      automatedCard: {
+        title: '思琳智能自動化（高精度、高回報）',
+        items: [
+          'AI 自動解析單據：上傳 PDF 或照片，3–5 秒完成提取與三方比對，單據資料自動匯入系統。',
+          'Meta 官方 WhatsApp 企業中樞：所有客情與訂單 100% 歸屬公司，24/7 自動跟進常規查詢。',
+          '跨系統定時同步：營業結束後，核心業績、庫存警報與毛利分析自動直推管理層手機。',
+          '軟硬一體極速盤點：手持 RFID/條碼設備秒級批量掃描，盤點時間由數天縮短至數分鐘。',
+        ],
+      },
+    },
+    modules: {
+      badge: '四大多維自動化方案',
+      title: '以「尖刀方案」直擊核心剛需，輔以「企業生態」深度擴展',
+      subtitle: '無需推倒現有 IT 架構，模組化無縫銜接，首月即驗證效率提升。',
+      wedgeLabel: '核心尖刀方案 · 快速見效',
+      addonLabel: '進階企業生態 · 深度擴展',
+      items: [
+        {
+          id: 'doc-ai',
+          type: 'wedge',
+          tag: '剛需第 1 刀 · 消除重複人手工序',
+          title: 'AI 單據與發票自動識別處理 (Document & PO Automation)',
+          desc: '支援 PDF 採購單 (PO)、供應商發票 (Invoice)、裝箱單及手機拍照單據。高精度提取行項目、料號、數量與單價，並自動比對採購單與入庫單（3-Way Matching），異常即時高亮警示，結果直接輸出至 Excel 或對接 ERP/會計軟體。',
+          metric: '每月節省 40–80 小時人工',
+          features: ['3–5 秒快速提取', '自動三方對賬校驗', '相容現有 Excel / Xero / ERP', '模糊匹配容錯引擎'],
+        },
+        {
+          id: 'whatsapp-ops',
+          type: 'wedge',
+          tag: '剛需第 2 刀 · 守護公司客戶資產',
+          title: 'Meta 官方 WhatsApp Business 營運自動化 (WhatsApp Ops & Bots)',
+          desc: '全面採用 Meta 官方 Cloud API 企業合規對接，免除封號風險。對話記錄與客戶檔案 100% 留存公司中央庫存。支援 24/7 自動回覆常規報價與物流查詢，並支援員工拍下發票收據發送至內部群組，系統自動 OCR 識別金額歸檔至會計初審。',
+          metric: '防止客戶隨業務離職流失',
+          features: ['Meta 官方認證綠剔支援', '24/7 自動訂單與進度查詢', '收據拍照即時自動入帳', '高意向商機即時分流'],
+        },
+        {
+          id: 'cross-sync',
+          type: 'addon',
+          tag: '企業生態選配 · 打通數據孤島',
+          title: '跨平台工作流整合與管理層日報 (System Integration & Ops Briefs)',
+          desc: '打通 Google Workspace、Lark (飛書)、Microsoft 365 與網店 (Shopify/SHOPLINE)、門市 POS。每日營業結束後自動彙整「實收營業額、低庫存預警、毛利率」，免除人手拼表，自動推播精簡日報至管理層手機。',
+          metric: '營運數據每日即時掌握',
+          features: ['免更換現有系統 API 橋接', '定時雙向數據同步', '每日管理層摘要推播', '失敗自動告警與重試機制'],
+        },
+        {
+          id: 'custom-iot',
+          type: 'addon',
+          tag: '企業生態選配 · 軟硬一體集成',
+          title: '輕量專用內部工具與 RFID 智能盤點 (Custom Internal Tools & IoT)',
+          desc: '按企業特定營運流程量身定做輕量化 Web App（訂單追蹤、維修工單）。結合手持 UHF RFID 軟硬一體方案，將大批量物料盤點由數天縮短至數分鐘；配備向量級排版引擎，自動套印送貨單、報價單與法定單據，絕不跑版。',
+          metric: '萬件庫存數分鐘極速盤點',
+          features: ['量身訂做專用管理工具', '手持 UHF RFID 快速盤點', '向量級法定單據生成', '無縫銜接既有條碼流程'],
+        },
+      ],
+    },
+    roadmap: {
+      badge: '落地模式與定價參考',
+      title: '透明雙軌交付模式，杜絕預算超支與專案延宕',
+      subtitle: '徹底解決政府資助審批週期長與急需解決營運痛點的衝突。',
+      trackA: {
+        badge: '軌道 A：自費敏捷快艇 · 2 週見效',
+        title: '2-Week Quick-Win POC（概念驗證）',
+        desc: '專為急需解決單一關鍵痛點設計。費用在中小企老闆直接批核權限內，無須經歷漫長政府審批，2 週內交付可運行原型，首月親眼驗證工時節省效益。',
+        tiers: [
+          {
+            name: 'Starter POC (單據 AI 自動解析)',
+            price: 'HK$ 8,800 起',
+            period: '2 週保證驗收',
+            desc: '針對單一格式發票/PO，配置高精度解析管道，自動導出結構化 Excel / CSV。',
+          },
+          {
+            name: 'Business Flow (WhatsApp 業務中樞)',
+            price: 'HK$ 28,000 起',
+            period: '3–4 週正式上線',
+            desc: 'Meta 官方 WhatsApp API 對接、客戶自動接單與查詢機器人、員工拍發票自動歸檔。',
+          },
+        ],
+      },
+      trackB: {
+        badge: '軌道 B：特區政府資助升級母艦',
+        title: 'TVP 科技券 / BUD 專項基金資助方案',
+        desc: '針對企業全流程數位化、跨部門系統重構或大型軟硬一體化項目（預算 HK$ 200,000 – HK$ 500,000）。思琳科技提供完全合規的項目技術規格書、標準招標報價單與驗收交付標準，協助企業合法合規申領特區政府資助。',
+      },
+      trust: {
+        title: '金融級企業數據隱私與合規承諾 (Enterprise Data Trust)',
+        items: [
+          { label: '香港 PDPO 合規', desc: '嚴格遵守香港《個人資料（私隱）條例》要求。' },
+          { label: '零資料保留 (ZDR)', desc: '企業專用 API 加密通道，客戶商業單據絕不用於任何公有 AI 訓練。' },
+          { label: '金融級傳輸加密', desc: '全流程採用 TLS 1.3 高強度傳輸加密，支援本地化/專有雲部署。' },
+          { label: '固定總價與防爛尾', desc: '開工前白紙黑字界定交付清單，分階驗收付款，杜絕追加費用陷阱。' },
+        ],
+      },
+    },
+    whyUs: {
+      badge: '技術優勢與實體保障',
+      title: '為什麼選擇思琳科技 AlphaOne？',
+      subtitle: '我們不空談概念，只交付能夠扎實為中小企省錢、省人的可運行工程代碼。',
+      points: [
+        {
+          title: '珠寶級精密工藝的工程實力',
+          desc: '思琳科技自主研發珠寶源® JES ERP 與 TiaraNxt RFID 系統，長年處理百萬級單件物料追蹤與零容錯精密工藝。我們將這套高標準系統架構實力外溢至通用中小企自動化。',
+        },
+        {
+          title: '拒絕玩具式 AI，堅持驗收級規則引擎',
+          desc: '許多市面方案僅是簡單包裝 ChatGPT，容易產生幻覺。我們結合確定性業務規則、三方比對校驗與模糊匹配引擎，確保入帳數據 100% 準確可靠。',
+        },
+        {
+          title: '香港本地 Demo 中心與深圳研發雙城保障',
+          desc: '香港紅磡民樂街實體展示中心提供面對面諮詢與技術支援，配合深圳研發中心強大工程交付力量，確保專案長期穩定維護，絕非隨時失聯的自由職業者。',
+        },
+      ],
+    },
+    faq: {
+      badge: '常見問題解答',
+      title: '中小企老闆最關心的五大核心問題',
+      subtitle: '消除所有疑慮，以客觀、透明的工程標準為您解答。',
+      items: [
+        {
+          q: '我們現有的舊系統和 Excel 已經運作多年，自動化方案會否要求我們全部更換？',
+          a: '絕對不會。我們的核心原則是「不推倒現有架構」。方案多以 API 串接、自動化中繼腳本或輕量 RPA 方式在背景打通數據。您的員工可以維持習慣的操作習慣（包括 Excel 或現有舊版 ERP），只需將繁瑣的手動搬運資料工序交給後台程式處理。',
+        },
+        {
+          q: '坊間 IT 專案經常出現「預算超支、嚴重延期（爛尾）」，你們如何保障我們？',
+          a: '我們採用「固定總價（Fixed Price）與階梯式里程碑交付」。在專案開始前明確界定驗收標準，絕無隱藏追加費用。同時我們提供「2 週概念驗證 (POC)」，先用最小成本驗證單一關鍵痛點的成效，親眼看見工時節省後，再決定是否推進整體落地。',
+        },
+        {
+          q: '我們的員工電腦水平一般，會否因為系統太複雜而抗拒使用？',
+          a: '自動化設計的第一法則是「降低前線操作門檻」。例如員工只需在 WhatsApp 拍張發票照片發送，或將 PDF 單據拖入指定資料夾，其餘辨識、核對與入庫全部由後台自動完成。我們提供完整的廣東話培訓與簡明操作指南，確保員工在 30 分鐘內完全上手。',
+        },
+        {
+          q: '上傳單據和客戶名單會否洩漏商業機密？AI 會否拿我們的進貨價去訓練？',
+          a: '絕對不會。我們採用企業專用的 Zero-Data-Retention (零資料保留) 加密通道，服務提供商合約明文保證數據絕不用於任何公有 AI 模型訓練。全系統傳輸採用金融級 TLS 1.3 加密，嚴格遵守香港《個人資料（私隱）條例》(PDPO)，保護您的商業機密與進貨底價。',
+        },
+        {
+          q: '貴公司的方案能否申請香港特區政府「科技券」(TVP) 或專項基金資助？',
+          a: '可以。針對企業的大規模數位轉型與軟硬一體專案（軌道 B），我們的報價結構與交付驗收物完全符合特區政府創新科技署 (ITC) 科技券 (TVP) 申領標準，並可協助提供合規的項目規格書與技術驗收證明文件。',
+        },
+      ],
+    },
+    footer: {
+      badge: '立即邁出自動化第一步',
+      ctaTitle: '準備好每月為團隊釋放 40–80 小時重複工時？',
+      ctaSubtitle: '預約 15 分鐘流程痛點診斷，由資深技術顧問為您評估哪些工序具備自動化可行性與預計 ROI。',
+      ctaPrimary: '預約 15 分鐘流程痛點診斷',
+      ctaWhatsapp: 'WhatsApp 專員諮詢',
+      ctaCall: '致電查詢 (+852) 2722 4360',
+      companyName: '思琳科技有限公司',
+      companyEn: 'AlphaOne Technology Limited (AO)',
+      companyDesc: '專注企業級軟硬件工程與智能自動化。提供珠寶源® JES 產業系統、POS 雲端零售，以及跨行業中小企智能自動化解決方案。',
+      hkTitle: '香港總部 · 諮詢中心',
+      hkAddress: '香港九龍紅磡民樂街 21 號富高工業中心 B 座 9 樓 19B 室',
+      hkPhone: '電話：+852 2722 4360 / (852) 9088 4833',
+      hkFax: '傳真：+852 2722 4363',
+      szTitle: '深圳辦公室 · 研發中心',
+      szAddress: '深圳市羅湖區文錦廣場文錦中心 702',
+      szPhone: '電話：(86) 0755-25503714',
+      email: '電郵：info@alphaone.technology',
+      copyright: '© 2026 思琳科技有限公司 AlphaOne Technology Limited. 版權所有。',
+    },
+  },
+  en: {
+    nav: {
+      switcherJes: 'Jewel Source® JES (Jewelry ERP)',
+      switcherSolutions: 'SME Automation (AlphaFlow)',
+      painPoints: 'Pain Points',
+      modules: 'Solutions',
+      pricing: 'Pricing & Roadmap',
+      whyUs: 'Why Us',
+      faq: 'FAQ',
+      contact: 'Contact',
+      ctaDiagnosis: 'Book 15-Min Audit',
+    },
+    hero: {
+      badge: 'AlphaOne Technology · Enterprise SME Automation Solutions',
+      title: 'Eliminate Manual Data Entry & Order Leakage. Automate Tedious Workflows in 2 Weeks.',
+      subtitle: 'Engineered for Hong Kong wholesale, trading, retail, and professional services. From automated PDF invoice ingestion and official WhatsApp business bots to cross-system ops briefs—deploy agile workflows at fixed milestones without replacing your existing software.',
+      ctaPrimary: 'Book 15-Min Workflow Audit',
+      ctaSecondary: 'Chat with Specialist on WhatsApp',
+      stats: [
+        { value: '40–80 Hrs', label: 'Monthly Labor Saved in Data Entry & Audit' },
+        { value: '3–5 Sec', label: 'Average High-Precision Document Extraction Latency' },
+        { value: '2-Wk Launch', label: 'Guaranteed Working Agile POC Delivery' },
+        { value: '100%', label: 'HK PDPO & Zero-Data-Retention Compliance' },
+      ],
+      microNotice: '✓ 100% Technical Advisor Consultation · Free Automation ROI Assessment · Includes Actionable Workflow Checklist',
+    },
+    painPoints: {
+      badge: 'Operational Friction Analysis',
+      title: 'Why Is Your Team Always Busy, Yet Business Growth Is Bottlenecked?',
+      subtitle: 'Growing SMEs are frequently weighed down by manual data shuffling between disconnected applications.',
+      manualCard: {
+        title: 'Traditional Manual Operations (High Friction & Error-Prone)',
+        items: [
+          'Clerks spend 3+ hours daily re-typing PDF invoices and POs into accounting; a single typo results in margin leakage.',
+          'Staff use personal WhatsApp to converse with buyers; message histories are fragmented and client accounts vanish upon staff departure.',
+          'Online stores, store POS, and accounting remain isolated; management waits hours for staff to manually stitch together Excel spreadsheets.',
+          'Physical inventory audits require entire teams to work overtime for days, producing stale numbers with untraceable discrepancies.',
+        ],
+      },
+      automatedCard: {
+        title: 'AlphaOne Smart Automation (Deterministic & High ROI)',
+        items: [
+          'AI Document Extraction: Upload PDF or image; achieve 3-way matching and auto-import into your system in 3–5 seconds.',
+          'Meta WhatsApp Business Center: 100% corporate ownership of conversations; 24/7 automated order status and inventory inquiries.',
+          'Cross-Platform Operations Sync: End-of-day revenue, low-stock warnings, and margin analytics delivered straight to executive phones.',
+          'Bulk Handheld RFID Audits: Scan thousands of items in seconds, collapsing stocktaking from days into minutes.',
+        ],
+      },
+    },
+    modules: {
+      badge: 'Core Service Modules',
+      title: 'High-Impact Sharp Wedges Backed by Enterprise Ecosystem Extensions',
+      subtitle: 'Modular implementation designed to interface seamlessly with your existing IT without disruptive replacements.',
+      wedgeLabel: 'Core Sharp Wedges · Immediate ROI',
+      addonLabel: 'Enterprise Ecosystem · In-Depth Scaling',
+      items: [
+        {
+          id: 'doc-ai',
+          type: 'wedge',
+          tag: 'Wedge #1 · Eliminate Repetitive Manual Data Entry',
+          title: 'AI Document & PO Automation (Extraction & 3-Way Matching)',
+          desc: 'Parses multi-page PDF purchase orders, supplier invoices, packing lists, and mobile receipt photos. Extracts SKU, quantities, unit prices, currencies, and dates with high precision. Automatically validates against purchase records (3-Way Matching) and exports directly to Excel, Xero, or your ERP.',
+          metric: 'Saves 40–80 hours of manual clerk work monthly',
+          features: ['3–5s high-precision extraction', 'Automated 3-way reconciliation', 'Native Excel / Xero / ERP integration', 'Fuzzy matching fault-tolerant engine'],
+        },
+        {
+          id: 'whatsapp-ops',
+          type: 'wedge',
+          tag: 'Wedge #2 · Secure Corporate Client Assets',
+          title: 'Meta Official WhatsApp Business Operations & Hub',
+          desc: 'Engineered on Meta official Cloud API with zero risk of account banning. Retain 100% of customer conversation history centrally. Delivers 24/7 automated quotation and order status replies, and enables staff to snap receipts in WhatsApp for instant OCR extraction and accounting staging.',
+          metric: 'Prevents client leakage when sales staff depart',
+          features: ['Meta Official Green Tick Assistance', '24/7 Automated Order Tracking', 'Instant Receipt Snap & Ingestion', 'Smart Lead Routing to Specialists'],
+        },
+        {
+          id: 'cross-sync',
+          type: 'addon',
+          tag: 'Enterprise Add-on · Break Data Silos',
+          title: 'Cross-Platform Workflow & Executive Daily Briefs',
+          desc: 'Bridges Google Workspace, Lark, Microsoft 365, Shopify/SHOPLINE, and physical POS. Automatically aggregates real-time revenue, low inventory alerts, and gross margins at day-end, pushing clean executive briefs directly to management smartphones.',
+          metric: 'Instant daily operational transparency',
+          features: ['No-replacement API bridging', 'Scheduled bi-directional sync', 'Executive daily push notifications', 'Automated error alerting & retry queues'],
+        },
+        {
+          id: 'custom-iot',
+          type: 'addon',
+          tag: 'Enterprise Add-on · Hardware & Software Synthesis',
+          title: 'Custom Internal Web Tools & RFID Smart Inventory',
+          desc: 'Lightweight web applications customized to your exact operational workflows (order fulfillment, repair tickets). Handheld UHF RFID solutions reducing stocktaking from days to minutes. Vector-fidelity document engine generating quote and shipping PDFs with zero layout shift.',
+          metric: 'Bulk stocktaking in minutes',
+          features: ['Tailored bespoke business web tools', 'Handheld UHF RFID scanning', 'Vector-fidelity statutory PDF engine', 'Seamless integration with existing barcodes'],
+        },
+      ],
+    },
+    roadmap: {
+      badge: 'Delivery & Pricing Framework',
+      title: 'Transparent Dual-Track Commercial Model',
+      subtitle: 'Eliminating the friction between urgent operational needs and long-cycle government subsidy approvals.',
+      trackA: {
+        badge: 'Track A: Self-Funded Agile Speedboat · 2-Week Launch',
+        title: '2-Week Quick-Win POC (Proof of Concept)',
+        desc: 'Designed to solve an acute operational bottleneck immediately. Sized within an SME Managing Director’s direct approval limit—launch a live working prototype in 2 weeks and prove labor savings in month one without bureaucratic red tape.',
+        tiers: [
+          {
+            name: 'Starter POC (AI Document Parsing)',
+            price: 'From HK$ 8,800',
+            period: '2-Week Verified Delivery',
+            desc: 'Configures a high-precision pipeline for a single invoice/PO format, outputting clean structured Excel/CSV.',
+          },
+          {
+            name: 'Business Flow (WhatsApp Business Hub)',
+            price: 'From HK$ 28,000',
+            period: '3–4 Week Production Launch',
+            desc: 'Meta Official WhatsApp API integration, automated customer bot, and staff receipt photo auto-ingestion.',
+          },
+        ],
+      },
+      trackB: {
+        badge: 'Track B: Government-Subsidized Flagship Transformation',
+        title: 'TVP Technology Voucher & BUD Fund Digitalization',
+        desc: 'Designed for company-wide digital transformation, cross-department system overhauls, or comprehensive hardware-software deployments (HK$ 200,000 – HK$ 500,000 budget). AlphaOne delivers fully compliant project specifications, formal tender quotations, and audit-ready milestone deliverables.',
+      },
+      trust: {
+        title: 'Enterprise Data Trust & Compliance Guarantee',
+        items: [
+          { label: 'Hong Kong PDPO Compliant', desc: 'Strict compliance with the Personal Data (Privacy) Ordinance.' },
+          { label: 'Zero-Data-Retention (ZDR)', desc: 'Dedicated enterprise encryption pipelines; client data is never used for public model training.' },
+          { label: 'Financial-Grade Encryption', desc: 'End-to-end TLS 1.3 encryption with support for local on-premise and dedicated cloud deployment.' },
+          { label: 'Fixed Pricing & Zero Scope Creep', desc: 'Clearly defined milestone deliverables before project kickoff; zero hidden fees.' },
+        ],
+      },
+    },
+    whyUs: {
+      badge: 'Engineering Rigor & Dual-City Backing',
+      title: 'Why Choose AlphaOne Technology?',
+      subtitle: 'We avoid vague conceptual hype. We deliver deterministic, tested engineering code that cuts costs and frees headcount.',
+      points: [
+        {
+          title: 'Jewelry-Grade Engineering Rigor',
+          desc: 'AlphaOne architects Jewel Source® JES ERP and TiaraNxt RFID systems, tracking millions of high-value inventory items with zero fault tolerance. We transfer this high-precision architectural standard to cross-industry SME automation.',
+        },
+        {
+          title: 'Deterministic Workflow Engine, Not a Toy AI',
+          desc: 'Many market tools are mere ChatGPT wrappers prone to hallucination. We combine deterministic business rules, 3-way reconciliation, and fuzzy matching to ensure 100% accounting accuracy.',
+        },
+        {
+          title: 'Hong Kong Demo Center & Shenzhen R&D Backing',
+          desc: 'Our Hung Hom demo facility provides in-person consultation and local support, backed by our Shenzhen engineering team to guarantee long-term stability and responsiveness.',
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      title: 'Key Questions Answered for SME Business Owners',
+      subtitle: 'Clear, authoritative answers addressing your system, budget, and implementation concerns.',
+      items: [
+        {
+          q: 'Our existing systems and Excel spreadsheets have been in use for years. Will your solution require us to replace everything?',
+          a: 'Absolutely not. Our guiding principle is "augment, do not replace". We bridge data via APIs, automated cloud pipelines, and lightweight middleware. Your staff continue working in their familiar environments (including Excel or legacy software), while background programs handle repetitive data shuffling.',
+        },
+        {
+          q: 'IT projects often suffer from budget overruns and severe delays ("project abandonment"). How do you protect us?',
+          a: 'We operate on a "Fixed Price, Milestone-Based Delivery" model. Deliverables and acceptance criteria are locked in writing before commencement with zero hidden fees. Furthermore, our 2-Week Quick-Win POC lets you validate quantifiable labor savings with minimal upfront commitment before expanding.',
+        },
+        {
+          q: 'Our staff are not tech-savvy. Will they resist or struggle to adapt to the new workflow?',
+          a: 'Our primary design criterion is lowering front-line friction. For example, staff simply send a photo of a receipt via WhatsApp or drop a PDF into a designated folder—parsing and reconciliation execute automatically in the background. We provide complete Cantonese onboarding and quick-reference guides so your team is productive within 30 minutes.',
+        },
+        {
+          q: 'Will uploading supplier invoices or customer lists compromise our trade secrets or pricing margins?',
+          a: 'Never. We enforce enterprise Zero-Data-Retention (ZDR) encrypted channels; our provider agreements legally guarantee that your commercial documents will never be retained or used for public AI training. All transmission is secured with financial-grade TLS 1.3, fully compliant with Hong Kong PDPO regulations.',
+        },
+        {
+          q: 'Can your solutions be subsidized under the Hong Kong TVP Technology Voucher Program?',
+          a: 'Yes. For large-scale enterprise transformation and hardware-software deployments (Track B), our quotation structures and milestone deliverables adhere strictly to ITC TVP guidelines. We assist in providing compliant technical specifications and verifiable audit trails for government subsidy approval.',
+        },
+      ],
+    },
+    footer: {
+      badge: 'Take the First Step Toward Automation',
+      ctaTitle: 'Ready to Save 40–80 Hours of Manual Work Monthly?',
+      ctaSubtitle: 'Book a 15-minute diagnostic consultation. Our technical advisors will evaluate your workflow bottlenecks and project your automation ROI.',
+      ctaPrimary: 'Book 15-Min Workflow Audit',
+      ctaWhatsapp: 'Chat on WhatsApp',
+      ctaCall: 'Direct Call (+852) 2722 4360',
+      companyName: 'AlphaOne Technology Limited',
+      companyEn: 'AlphaOne Technology Limited (AO)',
+      companyDesc: 'Dedicated to enterprise software/hardware engineering and intelligent automation. Provider of Jewel Source® JES ERP, POS Cloud Retail, and SME intelligent workflow solutions.',
+      hkTitle: 'Hong Kong Headquarters · Demo Center',
+      hkAddress: 'Unit 19B, 9/F, Block B, Focal Industrial Centre, 21 Man Lok Street, Hung Hom, Kowloon, Hong Kong',
+      hkPhone: 'Tel: +852 2722 4360 / (852) 9088 4833',
+      hkFax: 'Fax: +852 2722 4363',
+      szTitle: 'Shenzhen Office · R&D Center',
+      szAddress: 'Room 702, Wenjin Centre, Wenjin Square, Luohu District, Shenzhen',
+      szPhone: 'Tel: (86) 0755-25503714',
+      email: 'Email: info@alphaone.technology',
+      copyright: '© 2026 AlphaOne Technology Limited. All rights reserved.',
+    },
+  },
+};
+

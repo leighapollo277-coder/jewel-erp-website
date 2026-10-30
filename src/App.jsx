@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AirwallexLanding from './components/AirwallexLanding';
+import SolutionsLanding from './components/solutions/SolutionsLanding';
 import SingleScreenProfile from './components/SingleScreenProfile';
 import UnderConstruction from './components/UnderConstruction';
 import { LanguageProvider } from './context/LanguageContext';
@@ -15,6 +16,7 @@ export default function App() {
 
   const isUnderConstruction = currentPath === '/under-construction' || currentPath === '/coming-soon';
   const isProfileMode = currentPath === '/profile' || currentPath === '/single-screen';
+  const isSolutionsRoute = currentPath === '/solutions' || currentPath === '/en/solutions';
   const isEnglishRoute = currentPath.startsWith('/en');
 
   if (isUnderConstruction) {
@@ -28,8 +30,12 @@ export default function App() {
   return (
     <LanguageProvider initialLang={isEnglishRoute ? 'en' : undefined}>
       <div style={{ minHeight: '100vh', background: 'var(--bg-dark, #E8EBF0)' }}>
-        {/* Airwallex-Style Modern Long-Scroll Landing Page (淺橙加灰) */}
-        <AirwallexLanding />
+        {isSolutionsRoute ? (
+          <SolutionsLanding />
+        ) : (
+          /* Airwallex-Style Modern Long-Scroll Landing Page (珠寶源 JES 首頁保持 100% 不變) */
+          <AirwallexLanding />
+        )}
       </div>
     </LanguageProvider>
   );

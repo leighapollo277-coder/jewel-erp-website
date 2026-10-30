@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Gem, Menu, X, PhoneCall, ArrowUpRight, Globe } from 'lucide-react';
+import { Gem, Menu, X, PhoneCall, ArrowUpRight, Globe, Layers } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { navigateTo } from '../../utils/navigation';
 
 export default function LandingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,19 +22,86 @@ export default function LandingNavbar() {
         position: 'sticky',
         top: 0,
         zIndex: 1000,
-        backgroundColor: 'rgba(232, 235, 240, 0.92)',
+        backgroundColor: 'rgba(232, 235, 240, 0.94)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderBottom: '1px solid #D8DCE6',
         transition: 'all 0.3s ease',
       }}
     >
+      {/* Top Product Line Multi-Solution Strip */}
+      <div
+        style={{
+          backgroundColor: '#0F172A',
+          color: '#94A3B8',
+          fontSize: '0.8rem',
+          padding: '6px clamp(16px, 4vw, 24px)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '8px',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{ color: '#94A3B8', fontWeight: 600, fontSize: '0.76rem', letterSpacing: '0.3px' }}>
+              {lang === 'en' ? 'AlphaOne Enterprise Solutions:' : '思琳科技 企業服務體系：'}
+            </span>
+            <div style={{ display: 'inline-flex', backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '6px', padding: '2px' }}>
+              <button
+                onClick={() => navigateTo(lang === 'en' ? '/en' : '/')}
+                style={{
+                  padding: '3px 10px',
+                  borderRadius: '4px',
+                  border: 'none',
+                  backgroundColor: '#FF6B22',
+                  color: '#FFFFFF',
+                  fontSize: '0.76rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                💎 {lang === 'en' ? 'Jewel Source® JES' : '珠寶源® JES (珠寶系統)'}
+              </button>
+              <button
+                onClick={() => navigateTo(lang === 'en' ? '/en/solutions' : '/solutions')}
+                style={{
+                  padding: '3px 10px',
+                  borderRadius: '4px',
+                  border: 'none',
+                  backgroundColor: 'transparent',
+                  color: '#CBD5E1',
+                  fontSize: '0.76rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  transition: 'color 0.2s ease',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+              >
+                ⚡ {lang === 'en' ? 'SME Automation (AlphaFlow)' : '中小企智能自動化 (AlphaFlow)'}
+              </button>
+            </div>
+          </div>
+          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '0.75rem', color: '#94A3B8' }}>
+            <span>🇭🇰 香港紅磡總部 · 🇨🇳 深圳研發中心</span>
+          </div>
+        </div>
+      </div>
+
       <div
         className="nav-container"
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '14px 24px',
+          padding: '12px clamp(16px, 4vw, 24px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -214,6 +282,56 @@ export default function LandingNavbar() {
             gap: '16px',
           }}
         >
+          {/* Mobile Product Line Switcher */}
+          <div
+            style={{
+              padding: '12px 14px',
+              backgroundColor: '#0F172A',
+              borderRadius: '10px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+            }}
+          >
+            <span style={{ fontSize: '0.74rem', color: '#94A3B8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              {lang === 'en' ? 'Product Line' : '服務體系切換'}
+            </span>
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <button
+                onClick={() => { setMobileMenuOpen(false); navigateTo(lang === 'en' ? '/en' : '/'); }}
+                style={{
+                  flex: 1,
+                  padding: '7px 8px',
+                  borderRadius: '6px',
+                  border: 'none',
+                  backgroundColor: '#FF6B22',
+                  color: '#FFFFFF',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                💎 珠寶源 JES
+              </button>
+              <button
+                onClick={() => { setMobileMenuOpen(false); navigateTo(lang === 'en' ? '/en/solutions' : '/solutions'); }}
+                style={{
+                  flex: 1,
+                  padding: '7px 8px',
+                  borderRadius: '6px',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  backgroundColor: 'rgba(255,255,255,0.06)',
+                  color: '#E2E8F0',
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                }}
+              >
+                ⚡ 中小企自動化
+              </button>
+            </div>
+          </div>
+
           {/* Mobile Language Switcher */}
           <div
             style={{
@@ -328,7 +446,7 @@ export default function LandingNavbar() {
         }
         @media (max-width: 640px) {
           .nav-container {
-            padding: 12px 16px !important;
+            padding: 10px 16px !important;
           }
           .nav-logo-icon {
             width: 34px !important;
