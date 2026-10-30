@@ -91,7 +91,7 @@ export default function SolutionsModules() {
           return (
             <div
               key={item.id}
-              className="bento-card"
+              className="bento-card solutions-module-card"
               style={{
                 gridColumn: isWedge ? 'span 6' : 'span 6',
                 backgroundColor: '#FFFFFF',
@@ -256,7 +256,7 @@ export default function SolutionsModules() {
 
       <style>{`
         @media (max-width: 900px) {
-          .bento-card {
+          .solutions-module-card {
             grid-column: span 12 !important;
           }
         }

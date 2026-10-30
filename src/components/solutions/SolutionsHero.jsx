@@ -171,6 +171,8 @@ export default function SolutionsHero() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '10px',
                 paddingBottom: '16px',
                 borderBottom: '1px solid #F1F5F9',
                 marginBottom: '16px',
