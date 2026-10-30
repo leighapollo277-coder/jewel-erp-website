@@ -161,24 +161,26 @@ export default function LandingHero() {
 
         {/* Right Column: Composite Software & Hardware Visual Panel */}
         <div className="hero-right-col" style={{ position: 'relative' }}>
-          {/* Main Software Panel: JES Workshop Process Monitor */}
+          {/* Main Software & Hardware Ecosystem Topology Map (DEC-019 Option 3) */}
           <div
+            data-testid="ecosystem-map"
             className="bento-card hero-preview-card"
             style={{
               padding: '24px',
               border: '1px solid #D8DCE6',
               boxShadow: '0 10px 30px -4px rgba(15, 23, 42, 0.08)',
+              backgroundColor: '#FFFFFF',
             }}
           >
-            {/* Window Topbar */}
+            {/* 1. Terminal Topbar with Live Pulse */}
             <div
               className="hero-topbar"
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingBottom: '16px',
-                marginBottom: '20px',
+                paddingBottom: '14px',
+                marginBottom: '16px',
                 borderBottom: '1px solid #F1F5F9',
               }}
             >
@@ -188,13 +190,13 @@ export default function LandingHero() {
                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10B981', flexShrink: 0 }} />
                 <span
                   style={{
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    fontWeight: 800,
                     color: '#0F172A',
-                    marginLeft: '8px',
+                    marginLeft: '6px',
                   }}
                 >
-                  {t.hero.monitorTitle}
+                  {t.hero.ecosystem.networkStatus}
                 </span>
               </div>
               <div
@@ -202,10 +204,10 @@ export default function LandingHero() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  fontSize: '0.75rem',
+                  fontSize: '0.72rem',
                   fontWeight: 700,
-                  color: '#FF6B22',
-                  backgroundColor: 'rgba(255, 107, 34, 0.10)',
+                  color: '#10B981',
+                  backgroundColor: 'rgba(16, 185, 129, 0.10)',
                   padding: '3px 8px',
                   borderRadius: '6px',
                   whiteSpace: 'nowrap',
@@ -216,157 +218,35 @@ export default function LandingHero() {
                     width: '6px',
                     height: '6px',
                     borderRadius: '50%',
-                    backgroundColor: '#FF6B22',
+                    backgroundColor: '#10B981',
                   }}
+                  className="anim-node-pulse"
                 />
-                {t.hero.monitorStatus}
+                LIVE SYNC
               </div>
             </div>
 
-            {/* Production Process Flow Nodes */}
-            <div style={{ marginBottom: '22px' }}>
-              <div
-                style={{
-                  fontSize: '0.78rem',
-                  color: '#64748B',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
-                  marginBottom: '10px',
-                }}
-              >
-                {t.hero.flowTitle}
-              </div>
-              <div
-                className="hero-process-steps"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(5, 1fr)',
-                  gap: '6px',
-                  textAlign: 'center',
-                }}
-              >
-                {t.hero.steps.map((item, idx) => {
-                  const isActive = idx === 1;
-                  return (
-                    <div
-                      key={idx}
-                      className="hero-process-item"
-                      style={{
-                        padding: '8px 4px',
-                        borderRadius: '8px',
-                        backgroundColor: isActive ? 'rgba(255, 107, 34, 0.12)' : '#F8FAFC',
-                        border: `1px solid ${isActive ? '#FF6B22' : '#E2E8F0'}`,
-                        transition: 'all 0.2s ease',
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontSize: '0.7rem',
-                          fontWeight: 800,
-                          color: isActive ? '#FF6B22' : '#94A3B8',
-                        }}
-                      >
-                        {item.step}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: '0.78rem',
-                          fontWeight: 700,
-                          color: isActive ? '#0F172A' : '#475569',
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                        }}
-                      >
-                        {item.name}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: '0.68rem',
-                          fontWeight: 600,
-                          color: isActive ? '#FF6B22' : '#94A3B8',
-                          marginTop: '2px',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        {item.status}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Quick KPI Strip - Grounded Architecture Facts */}
+            {/* 2. Central Hub Node: JES ERP Cloud Engine */}
             <div
-              className="hero-kpi-strip"
+              data-testid="node-hub"
+              className="ecosystem-hub-card"
               style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '12px',
-                marginBottom: '16px',
-              }}
-            >
-              <div
-                style={{
-                  padding: '12px 14px',
-                  backgroundColor: '#F8FAFC',
-                  borderRadius: '10px',
-                  border: '1px solid #E2E8F0',
-                }}
-              >
-                <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>
-                  {t.hero.kpi1Label}
-                </div>
-                <div style={{ fontSize: '0.96rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
-                  {t.hero.kpi1Val}{' '}
-                  <span style={{ fontSize: '0.72rem', color: '#FF6B22', fontWeight: 700, display: 'inline-block' }}>
-                    {t.hero.kpi1Sub}
-                  </span>
-                </div>
-              </div>
-              <div
-                style={{
-                  padding: '12px 14px',
-                  backgroundColor: '#F8FAFC',
-                  borderRadius: '10px',
-                  border: '1px solid #E2E8F0',
-                }}
-              >
-                <div style={{ fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>
-                  {t.hero.kpi2Label}
-                </div>
-                <div style={{ fontSize: '0.96rem', fontWeight: 900, color: '#0F172A', marginTop: '2px' }}>
-                  {t.hero.kpi2Val}{' '}
-                  <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 600, display: 'inline-block' }}>
-                    {t.hero.kpi2Sub}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Secondary Hardware Floating Card: TiaraNxt RFID Ecosystem */}
-            <div
-              className="hero-rfid-card"
-              style={{
-                backgroundColor: '#FFFFFF',
+                padding: '16px 18px',
                 borderRadius: '12px',
-                border: '1px solid rgba(255, 107, 34, 0.35)',
-                padding: '14px 16px',
-                boxShadow: '0 6px 16px -2px rgba(255, 107, 34, 0.12)',
+                backgroundColor: '#F8FAFC',
+                border: '1px solid #E2E8F0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                gap: '14px',
+                boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div
                   style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '8px',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
                     backgroundColor: '#FF6B22',
                     display: 'flex',
                     alignItems: 'center',
@@ -374,32 +254,211 @@ export default function LandingHero() {
                     color: '#FFFFFF',
                     flexShrink: 0,
                   }}
+                  className="anim-node-pulse"
                 >
-                  <Radio size={20} />
+                  <Cpu size={22} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F172A' }}>
-                    {t.hero.rfidTitle}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '0.98rem', fontWeight: 900, color: '#0F172A' }}>
+                      {t.hero.ecosystem.hubTitle}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: '0.68rem',
+                        fontWeight: 800,
+                        backgroundColor: 'rgba(255, 107, 34, 0.12)',
+                        color: '#FF6B22',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      CORE
+                    </span>
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748B', lineHeight: 1.4 }}>
-                    {t.hero.rfidDesc}
+                  <div style={{ fontSize: '0.76rem', color: '#64748B', marginTop: '2px' }}>
+                    {t.hero.ecosystem.hubDesc}
                   </div>
                 </div>
               </div>
+              <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                <span style={{ fontSize: '0.7rem', color: '#94A3B8', fontWeight: 600 }}>Engine</span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0F172A' }}>v8.4 SaaS</span>
+              </div>
+            </div>
+
+            {/* 3. RWLINK Middleware Bi-directional Data Stream Bridge */}
+            <div
+              className="ecosystem-bridge-strip anim-data-stream"
+              style={{
+                margin: '14px 0',
+                padding: '8px 12px',
+                borderRadius: '8px',
+                background: 'linear-gradient(90deg, #F1F5F9 0%, rgba(255,107,34,0.12) 50%, #F1F5F9 100%)',
+                border: '1px dashed rgba(255, 107, 34, 0.40)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+              }}
+            >
+              <Activity size={14} color="#FF6B22" />
+              <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#334155' }}>
+                {t.hero.ecosystem.rwlinkBridge}
+              </span>
+            </div>
+
+            {/* 4. Three Distributed Terminals Grid */}
+            <div
+              className="ecosystem-terminals-grid"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '10px',
+              }}
+            >
+              {/* Branch 1: Workshop Factory */}
               <div
-                className="hero-rfid-badge"
+                data-testid="node-workshop"
+                className="ecosystem-terminal-card"
                 style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 800,
-                  color: '#FF6B22',
-                  backgroundColor: 'rgba(255, 107, 34, 0.12)',
-                  padding: '4px 10px',
-                  borderRadius: '999px',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
+                  padding: '12px 10px',
+                  borderRadius: '10px',
+                  backgroundColor: '#F8FAFC',
+                  border: '1px solid #E2E8F0',
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  transition: 'all 0.2s ease',
                 }}
               >
-                {t.hero.rfidBadge}
+                <div
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(255, 107, 34, 0.10)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FF6B22',
+                    marginBottom: '8px',
+                  }}
+                >
+                  <Boxes size={18} />
+                </div>
+                <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0F172A', marginBottom: '3px' }}>
+                  {t.hero.ecosystem.workshopTitle}
+                </div>
+                <div style={{ fontSize: '0.68rem', color: '#64748B', lineHeight: 1.35 }}>
+                  {t.hero.ecosystem.workshopDesc}
+                </div>
+              </div>
+
+              {/* Branch 2: POS Boutiques */}
+              <div
+                data-testid="node-pos"
+                className="ecosystem-terminal-card"
+                style={{
+                  padding: '12px 10px',
+                  borderRadius: '10px',
+                  backgroundColor: '#F8FAFC',
+                  border: '1px solid #E2E8F0',
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <div
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(255, 107, 34, 0.10)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FF6B22',
+                    marginBottom: '8px',
+                  }}
+                >
+                  <Layers size={18} />
+                </div>
+                <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0F172A', marginBottom: '3px' }}>
+                  {t.hero.ecosystem.posTitle}
+                </div>
+                <div style={{ fontSize: '0.68rem', color: '#64748B', lineHeight: 1.35 }}>
+                  {t.hero.ecosystem.posDesc}
+                </div>
+              </div>
+
+              {/* Branch 3: TiaraNxt RFID */}
+              <div
+                data-testid="node-rfid"
+                className="ecosystem-terminal-card"
+                style={{
+                  padding: '12px 10px',
+                  borderRadius: '10px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid rgba(255, 107, 34, 0.40)',
+                  boxShadow: '0 4px 12px -2px rgba(255, 107, 34, 0.12)',
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <div
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '8px',
+                    backgroundColor: '#FF6B22',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FFFFFF',
+                    marginBottom: '8px',
+                  }}
+                >
+                  <Radio size={18} />
+                </div>
+                <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0F172A', marginBottom: '3px' }}>
+                  {t.hero.ecosystem.rfidTitle}
+                </div>
+                <div style={{ fontSize: '0.68rem', color: '#64748B', lineHeight: 1.35 }}>
+                  {t.hero.ecosystem.rfidDesc}
+                </div>
+              </div>
+            </div>
+
+            {/* 5. Dual Spec Highlights Bottom Bar */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '10px',
+                marginTop: '16px',
+                paddingTop: '14px',
+                borderTop: '1px solid #F1F5F9',
+              }}
+              className="ecosystem-bottom-bar"
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <CheckCircle2 size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
+                <span style={{ fontSize: '0.76rem', fontWeight: 700, color: '#334155' }}>
+                  {t.hero.kpi1Val} ({t.hero.kpi1Sub})
+                </span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end' }}>
+                <ShieldCheck size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
+                <span style={{ fontSize: '0.76rem', fontWeight: 700, color: '#334155' }}>
+                  {t.hero.kpi2Val} · {t.hero.rfidBadge}
+                </span>
               </div>
             </div>
           </div>
@@ -459,35 +518,17 @@ export default function LandingHero() {
             align-items: flex-start !important;
             gap: 8px !important;
           }
-          .hero-process-steps {
-            display: flex !important;
-            overflow-x: auto !important;
-            gap: 8px !important;
-            padding-bottom: 8px !important;
-            -webkit-overflow-scrolling: touch !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-          }
-          .hero-process-item {
-            flex: 0 0 84px !important;
-            min-width: 84px !important;
-          }
-          .hero-kpi-strip {
+          .ecosystem-terminals-grid {
             grid-template-columns: 1fr !important;
-            gap: 10px !important;
+            gap: 8px !important;
           }
-          .hero-rfid-card {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 12px !important;
-            padding: 14px 12px !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
+          .ecosystem-bottom-bar {
+            grid-template-columns: 1fr !important;
+            gap: 8px !important;
           }
-          .hero-rfid-badge {
-            align-self: flex-start !important;
+          .ecosystem-bottom-bar > div {
+            justify-content: flex-start !important;
+          }
           }
         }
       `}</style>

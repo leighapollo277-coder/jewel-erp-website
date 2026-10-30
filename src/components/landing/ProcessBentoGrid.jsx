@@ -2,16 +2,17 @@ import React from 'react';
 import { 
   GitBranch, 
   Database, 
-  FileSpreadsheet, 
-  Cpu, 
-  Wrench, 
-  CheckCircle2, 
-  Boxes, 
-  Truck, 
-  ArrowRight,
-  Sparkles
+  Sparkles, 
+  Radio, 
+  ShieldCheck, 
+  CheckCircle2,
+  Activity,
+  Layers,
+  ArrowRight
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import mfgImg from '../../assets/manufacturing.png';
+import retailImg from '../../assets/retail.png';
 
 export default function ProcessBentoGrid() {
   const { t } = useLanguage();
@@ -72,28 +73,30 @@ export default function ProcessBentoGrid() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '1.25fr 1fr',
+          gridTemplateColumns: '1.2fr 1fr',
           gap: '24px',
+          alignItems: 'start',
         }}
         className="bento-container"
       >
-        {/* Left Bento: Detailed Workshop Process Flow */}
+        {/* Left Bento: Detailed Workshop Process Flow with Authentic Casting Photo */}
         <div
           className="bento-card bento-detail-card"
           style={{
-            padding: '32px',
+            padding: '28px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
           }}
         >
           <div>
+            {/* Header */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                marginBottom: '20px',
+                marginBottom: '18px',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -129,7 +132,59 @@ export default function ProcessBentoGrid() {
               </span>
             </div>
 
-            <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '24px' }}>
+            {/* Authentic Workshop Casting Photography Asset */}
+            <div
+              style={{
+                position: 'relative',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                marginBottom: '20px',
+                border: '1px solid #E2E8F0',
+                backgroundColor: '#0F172A',
+                boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.08)',
+              }}
+            >
+              <img
+                src={mfgImg}
+                alt={t.process.manufacturingCaption}
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  height: '220px',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '12px',
+                  left: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '5px 12px',
+                  borderRadius: '6px',
+                  backgroundColor: 'rgba(15, 23, 42, 0.78)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#FFFFFF',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                }}
+              >
+                <span
+                  style={{
+                    width: '7px',
+                    height: '7px',
+                    borderRadius: '50%',
+                    backgroundColor: '#FF6B22',
+                  }}
+                />
+                {t.process.manufacturingTag} · {t.process.manufacturingCaption}
+              </div>
+            </div>
+
+            <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6, marginBottom: '22px' }}>
               {t.process.flowDesc}
             </p>
 
@@ -139,8 +194,8 @@ export default function ProcessBentoGrid() {
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-                gap: '12px',
-                marginBottom: '28px',
+                gap: '10px',
+                marginBottom: '24px',
               }}
             >
               {t.process.stages.map((node, i) => (
@@ -156,7 +211,7 @@ export default function ProcessBentoGrid() {
                 >
                   <div
                     style={{
-                      fontSize: '0.72rem',
+                      fontSize: '0.7rem',
                       fontWeight: 800,
                       color: '#FF6B22',
                       marginBottom: '4px',
@@ -166,7 +221,7 @@ export default function ProcessBentoGrid() {
                   </div>
                   <div
                     style={{
-                      fontSize: '0.9rem',
+                      fontSize: '0.88rem',
                       fontWeight: 800,
                       color: '#0F172A',
                       marginBottom: '2px',
@@ -174,7 +229,7 @@ export default function ProcessBentoGrid() {
                   >
                     {node.title}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748B' }}>
+                  <div style={{ fontSize: '0.73rem', color: '#64748B' }}>
                     {node.note}
                   </div>
                 </div>
@@ -186,7 +241,7 @@ export default function ProcessBentoGrid() {
           <div
             className="bento-highlight-bar"
             style={{
-              padding: '16px',
+              padding: '14px 16px',
               backgroundColor: '#F1F5F9',
               borderRadius: '10px',
               display: 'flex',
@@ -197,7 +252,7 @@ export default function ProcessBentoGrid() {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Sparkles size={16} color="#FF6B22" style={{ flexShrink: 0 }} />
-              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1E293B' }}>
+              <span style={{ fontSize: '0.83rem', fontWeight: 700, color: '#1E293B' }}>
                 {t.process.highlightText}
               </span>
             </div>
@@ -216,24 +271,22 @@ export default function ProcessBentoGrid() {
           </div>
         </div>
 
-        {/* Right Bento: 7 Core ERP Modules Matrix */}
-        <div
-          id="modules"
-          className="bento-card bento-detail-card"
-          style={{
-            padding: '32px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-          }}
-        >
-          <div>
+        {/* Right Bento Column: Stacked 7 Core Modules + TiaraNxt RFID Showcase */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* Card 1: 7 Core ERP Modules Matrix (Anchor: id="modules") */}
+          <div
+            id="modules"
+            className="bento-card bento-detail-card"
+            style={{
+              padding: '28px',
+            }}
+          >
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
-                marginBottom: '20px',
+                marginBottom: '18px',
               }}
             >
               <div
@@ -255,7 +308,7 @@ export default function ProcessBentoGrid() {
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A' }}>
                   {t.process.matrixTitle}
                 </h3>
-                <div style={{ fontSize: '0.75rem', color: '#64748B' }}>
+                <div style={{ fontSize: '0.74rem', color: '#64748B' }}>
                   {t.process.matrixSubtitle}
                 </div>
               </div>
@@ -265,8 +318,7 @@ export default function ProcessBentoGrid() {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '10px',
-                marginBottom: '24px',
+                gap: '8px',
               }}
             >
               {t.process.modules.map((mod, idx) => (
@@ -274,41 +326,42 @@ export default function ProcessBentoGrid() {
                   key={idx}
                   className="module-item"
                   style={{
-                    padding: '13px 16px',
+                    padding: '11px 14px',
                     backgroundColor: '#F8FAFC',
-                    borderRadius: '10px',
+                    borderRadius: '8px',
                     border: '1px solid #E2E8F0',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: '12px',
+                    gap: '10px',
                     transition: 'all 0.2s ease',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span
                       style={{
-                        width: '7px',
-                        height: '7px',
+                        width: '6px',
+                        height: '6px',
                         borderRadius: '50%',
                         backgroundColor: '#FF6B22',
                         flexShrink: 0,
                       }}
                     />
-                    <div style={{ fontSize: '0.94rem', fontWeight: 800, color: '#0F172A' }}>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F172A' }}>
                       {mod.title}
                     </div>
                   </div>
                   <span
                     className="module-code"
                     style={{
-                      fontSize: '0.75rem',
+                      fontSize: '0.72rem',
                       fontWeight: 600,
                       color: '#64748B',
                       backgroundColor: '#FFFFFF',
-                      padding: '3px 8px',
+                      padding: '2px 8px',
                       borderRadius: '6px',
                       border: '1px solid #E2E8F0',
+                      whiteSpace: 'nowrap',
                     }}
                   >
                     {mod.code}
@@ -318,35 +371,145 @@ export default function ProcessBentoGrid() {
             </div>
           </div>
 
+          {/* Card 2: TiaraNxt RFID & Retail Boutique Card (Anchor: id="rfid") */}
           <div
             id="rfid"
-            className="bento-rwlink-card"
+            className="bento-card bento-detail-card"
             style={{
-              padding: '16px',
-              borderRadius: '10px',
-              border: '1px solid #D8DCE6',
-              backgroundColor: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '12px',
+              padding: '24px',
             }}
           >
-            <div>
-              <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#0F172A' }}>
-                {t.process.rwlinkTitle}
+            {/* Header */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: '16px',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    backgroundColor: '#FF6B22',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FFFFFF',
+                    flexShrink: 0,
+                  }}
+                >
+                  <Radio size={20} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A' }}>
+                    {t.hero.rfidTitle}
+                  </h3>
+                  <div style={{ fontSize: '0.74rem', color: '#64748B' }}>
+                    {t.hero.rfidDesc}
+                  </div>
+                </div>
               </div>
-              <div style={{ fontSize: '0.74rem', color: '#64748B' }}>
-                {t.process.rwlinkDesc}
+              <span
+                style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 800,
+                  color: '#FF6B22',
+                  backgroundColor: 'rgba(255, 107, 34, 0.12)',
+                  padding: '4px 10px',
+                  borderRadius: '999px',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                }}
+              >
+                {t.process.rfidSpeedBadge}
+              </span>
+            </div>
+
+            {/* Authentic Boutique RFID Scanning Photography Asset */}
+            <div
+              style={{
+                position: 'relative',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                marginBottom: '16px',
+                border: '1px solid #E2E8F0',
+                backgroundColor: '#0F172A',
+                boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.08)',
+              }}
+            >
+              <img
+                src={retailImg}
+                alt={t.process.retailCaption}
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  height: '170px',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '10px',
+                  left: '10px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '5px 12px',
+                  borderRadius: '6px',
+                  backgroundColor: 'rgba(15, 23, 42, 0.78)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#FFFFFF',
+                  fontSize: '0.74rem',
+                  fontWeight: 700,
+                }}
+              >
+                <span
+                  style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    backgroundColor: '#FF6B22',
+                  }}
+                />
+                {t.process.retailTag} · {t.process.retailCaption}
               </div>
             </div>
-            <a
-              href="#contact"
-              className="btn-primary"
-              style={{ padding: '8px 14px', fontSize: '0.8rem', whiteSpace: 'nowrap' }}
+
+            {/* RWLINK Middleware Strip */}
+            <div
+              style={{
+                padding: '12px 14px',
+                borderRadius: '8px',
+                border: '1px solid #E2E8F0',
+                backgroundColor: '#F8FAFC',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '10px',
+              }}
             >
-              {t.process.rwlinkCta}
-            </a>
+              <div>
+                <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0F172A' }}>
+                  {t.process.rwlinkTitle}
+                </div>
+                <div style={{ fontSize: '0.72rem', color: '#64748B' }}>
+                  {t.process.rwlinkDesc}
+                </div>
+              </div>
+              <a
+                href="#contact"
+                className="btn-primary"
+                style={{ padding: '7px 12px', fontSize: '0.78rem', whiteSpace: 'nowrap' }}
+              >
+                {t.process.rwlinkCta}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -368,33 +531,6 @@ export default function ProcessBentoGrid() {
           .bento-highlight-bar {
             flex-direction: column !important;
             align-items: flex-start !important;
-            gap: 10px !important;
-          }
-          .bento-highlight-bar a {
-            align-self: flex-start !important;
-          }
-          .module-item {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 6px !important;
-            padding: 10px 12px !important;
-          }
-          .module-code {
-            align-self: flex-start !important;
-          }
-          .bento-rwlink-card {
-            flex-direction: column !important;
-            align-items: stretch !important;
-            gap: 12px !important;
-          }
-          .bento-rwlink-card a {
-            text-align: center !important;
-            justify-content: center !important;
-          }
-        }
-        @media (max-width: 380px) {
-          .bento-stage-grid {
-            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

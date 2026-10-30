@@ -372,3 +372,35 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold-dark);
 }
+
+/* EGM Ecosystem & Data Stream Animations */
+@keyframes node-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 34, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 107, 34, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 34, 0);
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.anim-node-pulse {
+  animation: node-pulse 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.anim-data-stream {
+  background-size: 200% 100%;
+  animation: data-stream 3s linear infinite;
+}
+
