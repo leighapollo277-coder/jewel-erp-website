@@ -116,6 +116,7 @@ export default function SolutionsNavbar() {
             alignItems: 'center',
             gap: '12px',
             textDecoration: 'none',
+            flexShrink: 0,
           }}
         >
           <div
@@ -143,6 +144,7 @@ export default function SolutionsNavbar() {
                   fontSize: '1.25rem',
                   letterSpacing: '-0.3px',
                   color: '#0F172A',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 {lang === 'en' ? (
@@ -160,6 +162,7 @@ export default function SolutionsNavbar() {
                 fontWeight: 600,
                 letterSpacing: '0.5px',
                 textTransform: 'uppercase',
+                whiteSpace: 'nowrap',
               }}
             >
               {lang === 'en' ? 'AlphaOne Technology Limited' : '思琳科技 AlphaOne Technology'}
@@ -172,7 +175,9 @@ export default function SolutionsNavbar() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '24px',
+            gap: 'clamp(10px, 1.4vw, 22px)',
+            flexShrink: 1,
+            margin: '0 8px',
           }}
           className="desktop-nav"
         >
@@ -181,10 +186,12 @@ export default function SolutionsNavbar() {
               key={link.label}
               href={link.href}
               style={{
-                fontSize: '0.92rem',
+                fontSize: '0.88rem',
                 fontWeight: 600,
                 color: '#334155',
                 textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
                 transition: 'color 0.2s ease',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#FF6B22')}
@@ -197,7 +204,7 @@ export default function SolutionsNavbar() {
 
         {/* Desktop CTA Action & Language Switcher */}
         <div
-          style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}
           className="desktop-nav"
         >
           {/* Language Switcher */}
@@ -206,37 +213,42 @@ export default function SolutionsNavbar() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              padding: '7px 12px',
+              gap: '5px',
+              padding: '6px 10px',
               borderRadius: '8px',
               border: '1px solid #D0D5DD',
               backgroundColor: '#FFFFFF',
               color: '#0F172A',
-              fontSize: '0.82rem',
+              fontSize: '0.8rem',
               fontWeight: 700,
               cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
               transition: 'all 0.2s ease',
             }}
             title={lang === 'zh' ? 'Switch to English' : '切換至繁體中文'}
           >
-            <Globe size={15} color="#FF6B22" />
+            <Globe size={14} color="#FF6B22" />
             <span>{lang === 'zh' ? 'EN' : '繁體'}</span>
           </button>
 
           <a
             href="tel:+85227224360"
+            className="nav-phone-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              fontSize: '0.86rem',
+              fontSize: '0.84rem',
               fontWeight: 600,
               color: '#0F172A',
               textDecoration: 'none',
-              padding: '8px 12px',
+              padding: '7px 11px',
               borderRadius: '8px',
               border: '1px solid #D0D5DD',
               backgroundColor: '#FFFFFF',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
             }}
           >
             <PhoneCall size={14} color="#FF6B22" />
@@ -247,10 +259,15 @@ export default function SolutionsNavbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
-            style={{ padding: '8px 16px', fontSize: '0.86rem' }}
+            style={{
+              padding: '7px 14px',
+              fontSize: '0.84rem',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
+            }}
           >
             {st.nav.ctaDiagnosis}
-            <ArrowUpRight size={15} />
+            <ArrowUpRight size={14} />
           </a>
         </div>
 
@@ -439,7 +456,12 @@ export default function SolutionsNavbar() {
         .mobile-toggle {
           display: none;
         }
-        @media (max-width: 860px) {
+        @media (max-width: 1160px) {
+          .nav-phone-btn {
+            display: none !important;
+          }
+        }
+        @media (max-width: 980px) {
           .desktop-nav {
             display: none !important;
           }

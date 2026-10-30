@@ -147,7 +147,7 @@ export default function SolutionsRoadmap() {
           </a>
         </div>
 
-        {/* Track B: Government TVP Subsidy */}
+        {/* Track B: Enterprise Custom Automation */}
         <div
           className="bento-card"
           style={{
@@ -195,19 +195,19 @@ export default function SolutionsRoadmap() {
               }}
             >
               <div style={{ fontWeight: 800, color: '#0F172A', fontSize: '0.92rem', marginBottom: '10px' }}>
-                {lang === 'en' ? 'Standard TVP Compliance Delivery' : '思琳科技 TVP 全程合規交付保障：'}
+                {lang === 'en' ? 'AlphaOne Enterprise Delivery Standards:' : '思琳科技 企業級交付與技術保障：'}
               </div>
               <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '0.84rem', color: '#475569', lineHeight: 1.7 }}>
-                <li>{lang === 'en' ? 'Audit-ready Technical Project Specification & Functional List' : '符合審批標準的技術項目規格書與功能清單'}</li>
-                <li>{lang === 'en' ? 'Standard 3-5 vendor open tender quotation formats' : '符合特區政府招標規範的正規報價單'}</li>
-                <li>{lang === 'en' ? 'Milestone acceptance test reports and source delivery' : '階梯式驗收測試報告與交付清單'}</li>
-                <li>{lang === 'en' ? 'Zero corruption, 100% compliant with HK ICAC anti-bribery terms' : '嚴格恪守廉政公署誠信防貪條款'}</li>
+                <li>{lang === 'en' ? 'Comprehensive architecture blueprint & data flow diagrams' : '完整系統架構藍圖與數據流拓撲設計'}</li>
+                <li>{lang === 'en' ? 'Bi-directional middleware syncing legacy DBs & modern APIs' : '雙向中間件打通舊版資料庫與現代雲端 API'}</li>
+                <li>{lang === 'en' ? 'Milestone acceptance test reports with verifiable audit trails' : '階梯式驗收測試報告與透明代碼交付'}</li>
+                <li>{lang === 'en' ? 'Enterprise SLA maintenance, ongoing monitoring & staff training' : '原廠企業級 SLA 維護支援與操作移交培訓'}</li>
               </ul>
             </div>
           </div>
 
           <a
-            href="https://wa.me/85290884833?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%A9%A2TVP%E7%A7%91%E6%8A%80%E5%88%B8%E8%B3%87%E5%8A%A9%E5%8D%87%E7%B4%9A%E6%96%B9%E6%A1%88"
+            href="https://wa.me/85290884833?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%A9%A2%E4%BC%81%E6%A5%AD%E5%85%A8%E6%B5%81%E7%A8%8B%E8%87%AA%E5%8B%95%E5%8C%96%E6%96%B9%E6%A1%88"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -225,7 +225,7 @@ export default function SolutionsRoadmap() {
               textDecoration: 'none',
             }}
           >
-            {lang === 'en' ? 'Inquire About TVP Project Scope' : '諮詢 TVP 科技券專案範疇'}
+            {lang === 'en' ? 'Inquire About Enterprise Solution' : '諮詢企業客製方案'}
             <ArrowRight size={16} />
           </a>
         </div>

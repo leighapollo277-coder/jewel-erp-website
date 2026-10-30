@@ -115,6 +115,7 @@ export default function LandingNavbar() {
             alignItems: 'center',
             gap: '12px',
             textDecoration: 'none',
+            flexShrink: 0,
           }}
         >
           <div
@@ -171,7 +172,9 @@ export default function LandingNavbar() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '24px',
+            gap: 'clamp(12px, 1.6vw, 24px)',
+            flexShrink: 1,
+            margin: '0 8px',
           }}
           className="desktop-nav"
         >
@@ -184,6 +187,8 @@ export default function LandingNavbar() {
                 fontWeight: 600,
                 color: '#334155',
                 textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
                 transition: 'color 0.2s ease',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#FF6B22')}
@@ -196,7 +201,7 @@ export default function LandingNavbar() {
 
         {/* Desktop CTA Action & Language Switcher */}
         <div
-          style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}
           className="desktop-nav"
         >
           {/* Language Switcher */}
@@ -214,6 +219,8 @@ export default function LandingNavbar() {
               fontSize: '0.82rem',
               fontWeight: 700,
               cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
               transition: 'all 0.2s ease',
             }}
             title={lang === 'zh' ? 'Switch to English' : '切換至繁體中文'}
@@ -224,6 +231,7 @@ export default function LandingNavbar() {
 
           <a
             href="tel:+85227224360"
+            className="nav-phone-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -236,6 +244,8 @@ export default function LandingNavbar() {
               borderRadius: '8px',
               border: '1px solid #D0D5DD',
               backgroundColor: '#FFFFFF',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
             }}
           >
             <PhoneCall size={14} color="#FF6B22" />
@@ -244,7 +254,7 @@ export default function LandingNavbar() {
           <a
             href="#contact"
             className="btn-primary"
-            style={{ padding: '8px 16px', fontSize: '0.86rem' }}
+            style={{ padding: '8px 16px', fontSize: '0.86rem', whiteSpace: 'nowrap', flexShrink: 0 }}
           >
             {t.nav.demo}
             <ArrowUpRight size={15} />
@@ -434,7 +444,12 @@ export default function LandingNavbar() {
         .mobile-toggle {
           display: none;
         }
-        @media (max-width: 860px) {
+        @media (max-width: 1160px) {
+          .nav-phone-btn {
+            display: none !important;
+          }
+        }
+        @media (max-width: 980px) {
           .desktop-nav {
             display: none !important;
           }
