@@ -549,17 +549,22 @@ export default function SingleScreenProfile() {
           fontSize: '0.82rem'
         }}
       >
-        {/* Dual City Headquarters */}
+        {/* Three Official Locations */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-heading)' }}>
             <MapPin size={15} color="var(--gold-primary)" style={{ flexShrink: 0 }} />
             <strong>香港總部：</strong>
-            <span style={{ color: 'var(--text-body)' }}>香港九龍紅磡民樂街21號富高工業中心B座9樓19B室</span>
+            <span style={{ color: 'var(--text-body)' }}>香港九龍旺角亞皆老街8號朗豪坊辦公大樓48樓</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-heading)' }}>
+            <MapPin size={15} color="var(--gold-primary)" style={{ flexShrink: 0 }} />
+            <strong>倉儲中心：</strong>
+            <span style={{ color: 'var(--text-body)' }}>香港新界葵涌健康街18號恆亞中心5樓17室</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-heading)' }}>
             <MapPin size={15} color="var(--gold-primary)" style={{ flexShrink: 0 }} />
             <strong>深圳中心：</strong>
-            <span style={{ color: 'var(--text-body)' }}>深圳市羅湖區文錦路文錦廣場文錦中心702</span>
+            <span style={{ color: 'var(--text-body)' }}>深圳市羅湖區文錦廣場文錦中心1013</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: '2px' }}>
             <Clock size={13} />

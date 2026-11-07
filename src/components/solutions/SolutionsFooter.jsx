@@ -187,7 +187,7 @@ export default function SolutionsFooter() {
           </div>
         </div>
 
-        {/* Column 2: Hong Kong Headquarters */}
+        {/* Column 2: Hong Kong Headquarters / Commercial Center */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', color: '#0F172A', fontWeight: 800 }}>
             <MapPin size={18} color="#FF6B22" />
@@ -208,7 +208,24 @@ export default function SolutionsFooter() {
           </div>
         </div>
 
-        {/* Column 3: Shenzhen R&D Office */}
+        {/* Column 3: Hong Kong Logistics & Warehouse Center */}
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', color: '#0F172A', fontWeight: 800 }}>
+            <MapPin size={18} color="#FF6B22" />
+            <span>{st.footer.hkWarehouseTitle}</span>
+          </div>
+          <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.6, marginBottom: '12px' }}>
+            {st.footer.hkWarehouseAddress}
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.86rem', color: '#334155' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Phone size={14} color="#64748B" />
+              <span>(852) 9088 4833</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 4: Shenzhen R&D Office */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', color: '#0F172A', fontWeight: 800 }}>
             <MapPin size={18} color="#FF6B22" />

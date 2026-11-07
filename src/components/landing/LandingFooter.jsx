@@ -125,8 +125,8 @@ export default function LandingFooter() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.2fr 1fr 1fr',
-            gap: '40px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '24px',
             marginBottom: '40px',
           }}
           className="footer-info-grid"
@@ -160,7 +160,7 @@ export default function LandingFooter() {
             </p>
           </div>
 
-          {/* Col 2: Hong Kong Headquarters */}
+          {/* Col 2: Hong Kong Headquarters / Commercial Center */}
           <div
             style={{
               padding: '20px',
@@ -211,7 +211,50 @@ export default function LandingFooter() {
             </div>
           </div>
 
-          {/* Col 3: Shenzhen Technology Center */}
+          {/* Col 3: Hong Kong Logistics & Warehouse Center */}
+          <div
+            style={{
+              padding: '20px',
+              backgroundColor: '#F8FAFC',
+              borderRadius: '12px',
+              border: '1px solid #E2E8F0',
+            }}
+          >
+            <div
+              style={{
+                fontSize: '0.78rem',
+                fontWeight: 800,
+                color: '#FF6B22',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                marginBottom: '8px',
+              }}
+            >
+              {t.footer.hkWarehouseTitle}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '10px' }}>
+              <MapPin size={16} color="#64748B" style={{ flexShrink: 0, marginTop: '3px' }} />
+              <span style={{ fontSize: '0.84rem', color: '#1E293B', lineHeight: 1.5 }}>
+                {t.footer.hkWarehouseAddress}
+              </span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem', color: '#475569' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Phone size={14} color="#64748B" />
+                <a href="tel:+85290884833" style={{ color: '#0F172A', fontWeight: 600, textDecoration: 'none' }}>
+                  (852) 9088 4833
+                </a>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Mail size={14} color="#64748B" />
+                <a href="mailto:info@alphaone.technology" style={{ color: '#FF6B22', fontWeight: 600, textDecoration: 'none' }}>
+                  info@alphaone.technology
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Col 4: Shenzhen Technology Center */}
           <div
             style={{
               padding: '20px',
