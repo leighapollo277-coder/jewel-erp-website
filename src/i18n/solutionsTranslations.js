@@ -100,12 +100,12 @@ export const solutionsTranslations = {
     },
     roadmap: {
       badge: '落地模式與定價參考',
-      title: '透明雙軌交付模式，杜絕預算超支與專案延宕',
-      subtitle: '徹底解決政府資助審批週期長與急需解決營運痛點的衝突。',
+      title: '透明交付模式，杜絕預算超支與專案延宕',
+      subtitle: '以敏捷原型與透明里程碑，杜絕預算失控與交付延宕。',
       trackA: {
-        badge: '軌道 A：自費敏捷快艇 · 2 週見效',
+        badge: '敏捷快艇 · 2 週見效',
         title: '2-Week Quick-Win POC（概念驗證）',
-        desc: '專為急需解決單一關鍵痛點設計。費用在中小企老闆直接批核權限內，無須經歷漫長政府審批，2 週內交付可運行原型，首月親眼驗證工時節省效益。',
+        desc: '專為急需解決單一關鍵痛點設計。老闆可直接批核決策，2 週內交付可運行原型，首月親眼驗證工時節省效益。',
         tiers: [
           {
             name: 'Starter POC (單據 AI 自動解析)',
@@ -299,12 +299,12 @@ export const solutionsTranslations = {
     },
     roadmap: {
       badge: 'Delivery & Pricing Framework',
-      title: 'Transparent Dual-Track Commercial Model',
-      subtitle: 'Eliminating the friction between urgent operational needs and long-cycle government subsidy approvals.',
+      title: 'Transparent Commercial & Delivery Framework',
+      subtitle: 'Eliminating budget overruns and timeline delays with agile prototypes and verifiable milestones.',
       trackA: {
-        badge: 'Track A: Self-Funded Agile Speedboat · 2-Week Launch',
+        badge: 'Agile Speedboat · 2-Week Launch',
         title: '2-Week Quick-Win POC (Proof of Concept)',
-        desc: 'Designed to solve an acute operational bottleneck immediately. Sized within an SME Managing Director’s direct approval limit—launch a live working prototype in 2 weeks and prove labor savings in month one without bureaucratic red tape.',
+        desc: 'Designed to solve an acute operational bottleneck immediately. Sized for direct management sign-off—launch a live working prototype in 2 weeks and prove labor savings in month one.',
         tiers: [
           {
             name: 'Starter POC (AI Document Parsing)',
