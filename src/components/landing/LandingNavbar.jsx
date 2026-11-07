@@ -86,7 +86,7 @@ export default function LandingNavbar() {
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
               >
-                ⚡ {lang === 'en' ? 'SME Automation (AlphaFlow)' : '中小企智能自動化 (AlphaFlow)'}
+                ⚡ {lang === 'en' ? 'SME Automation (AlphaOneFlow)' : '中小企智能自動化 (AlphaOneFlow)'}
               </button>
             </div>
           </div>

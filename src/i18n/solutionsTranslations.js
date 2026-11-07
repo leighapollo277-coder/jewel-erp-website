@@ -7,7 +7,7 @@ export const solutionsTranslations = {
   zh: {
     nav: {
       switcherJes: '珠寶源® JES (珠寶系統)',
-      switcherSolutions: '中小企智能自動化 (AlphaFlow)',
+      switcherSolutions: '中小企智能自動化 (AlphaOneFlow)',
       painPoints: '營運痛點',
       modules: '核心方案',
       pricing: '方案定價',
@@ -178,7 +178,7 @@ export const solutionsTranslations = {
         },
         {
           q: '如何確保自動化方案與現有系統（如舊版 ERP、會計或 POS）無縫對接？',
-          a: '我們自研的 AlphaFlow 引擎具備強大雙向相容性，支援 RESTful API、Webhook、資料庫直連（SQL Server / MySQL / Oracle）乃至 Excel / CSV 檔案監聽。無需更換既有舊系統，即可在其上層建立智慧自動化數據管線。',
+          a: '我們自研的 AlphaOneFlow 引擎具備強大雙向相容性，支援 RESTful API、Webhook、資料庫直連（SQL Server / MySQL / Oracle）乃至 Excel / CSV 檔案監聽。無需更換既有舊系統，即可在其上層建立智慧自動化數據管線。',
         },
       ],
     },
@@ -206,7 +206,7 @@ export const solutionsTranslations = {
   en: {
     nav: {
       switcherJes: 'Jewel Source® JES (Jewelry ERP)',
-      switcherSolutions: 'SME Automation (AlphaFlow)',
+      switcherSolutions: 'SME Automation (AlphaOneFlow)',
       painPoints: 'Pain Points',
       modules: 'Solutions',
       pricing: 'Pricing',
@@ -377,7 +377,7 @@ export const solutionsTranslations = {
         },
         {
           q: 'How do you ensure automation solutions seamlessly integrate with legacy ERP, accounting, or POS systems?',
-          a: 'Our proprietary AlphaFlow engine features extensive bi-directional compatibility, supporting RESTful APIs, Webhooks, direct database connections (SQL Server, MySQL, Oracle), and filesystem monitoring for Excel/CSV. You keep your existing software while deploying an intelligent automation pipeline on top.',
+          a: 'Our proprietary AlphaOneFlow engine features extensive bi-directional compatibility, supporting RESTful APIs, Webhooks, direct database connections (SQL Server, MySQL, Oracle), and filesystem monitoring for Excel/CSV. You keep your existing software while deploying an intelligent automation pipeline on top.',
         },
       ],
     },

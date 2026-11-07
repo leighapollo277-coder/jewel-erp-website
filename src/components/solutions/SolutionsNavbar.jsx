@@ -87,7 +87,7 @@ export default function SolutionsNavbar() {
                   cursor: 'pointer',
                 }}
               >
-                ⚡ {lang === 'en' ? 'SME Automation (AlphaFlow)' : '中小企智能自動化 (AlphaFlow)'}
+                ⚡ {lang === 'en' ? 'SME Automation (AlphaOneFlow)' : '中小企智能自動化 (AlphaOneFlow)'}
               </button>
             </div>
           </div>
